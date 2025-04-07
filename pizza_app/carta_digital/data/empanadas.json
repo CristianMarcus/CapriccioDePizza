@@ -1,0 +1,544 @@
+{
+  "empanadas": [
+    {
+      "id": "emp1",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp2",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp3",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp4",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp5",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp6",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp7",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp8",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp9",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp10",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp11",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp12",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp13",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp14",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp15",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp16",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp17",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp18",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp19",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp20",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp21",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp22",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp23",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp24",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp25",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    },
+    {
+      "id": "emp26",
+      "nombre": "Jamón y Queso",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Clásico relleno de jamón cocido y queso mozzarella.",
+      "imagen": "url_imagen_jyq"
+    },
+    {
+      "id": "emp27",
+      "nombre": "Pollo",
+      "precios": [
+        {
+          "cantidad": 1,
+          "precio": 150
+        },
+        {
+          "cantidad": 6,
+          "precio": 840
+        },
+        {
+          "cantidad": 12,
+          "precio": 1560
+        }
+      ],
+      "descripcion": "Relleno jugoso de carne vacuna.",
+      "imagen": "url_imagen_carne"
+    }
+  ]
+}
