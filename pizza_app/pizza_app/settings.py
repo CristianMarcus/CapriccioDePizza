@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'carta_digital',
+    'pizza_app.carta_digital',  # Include the carta_digital app
 ]
 
 MIDDLEWARE = [

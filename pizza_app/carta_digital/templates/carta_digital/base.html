@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Capriccio de Pizza{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'carta_digital/css/style.css' %}">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">Capriccio de Pizza</a>
+                <ul class="navbar-menu">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#platos-especiales">Platos Especiales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hamburguesas">Hamburguesas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#empanadas">Empanadas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#churrasquitos">Churrasquitos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#promos">Promos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#combos">Combos</a></li>
+                    <li class="nav-item cart-icon">
+                        <a href="#" id="cart-toggle">
+                            <img src="{% static 'carta_digital/img/cart-icon.png' %}" alt="Carrito" width="30">
+                            <span id="cart-count" class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="mt-5 py-3 bg-light text-center">
+        <p>&copy; 2025 Capriccio de Pizza. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="floating-cart" class="floating-cart">
+        <h2>Carrito de Compras</h2>
+        <ul id="cart-items">
+        </ul>
+        <div class="cart-total">
+            <strong>Total: $<span id="cart-total-price">0</span></strong>
+        </div>
+        <button id="checkout-btn" class="btn btn-primary btn-block">Finalizar Pedido</button>
+        <button id="clear-cart-btn" class="btn btn-secondary btn-block">Vaciar Carrito</button>
+    </div>
+
+    <script src="{% static 'carta_digital/js/script.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
