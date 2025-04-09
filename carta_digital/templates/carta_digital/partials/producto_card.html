@@ -1,19 +1,22 @@
+{% load static %}
 
 <div class="col-md-4 mb-4 producto-item">
     <div class="card h-100">
-        <img src="{{ producto.imagen|default:'img/default-product.png' }}" alt="{{ producto.nombre }}" class="card-img-top">
+        <img src="{% static producto.imagen|default:'img/default-product.png' %}" alt="{{ producto.nombre }}" class="card-img-top">
         <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ producto.nombre }}</h5>
+
             {% if producto.descripcion %}
                 <p class="card-text">{{ producto.descripcion }}</p>
             {% endif %}
+
             {% if producto.precios and producto.precios|length > 0 %}
                 <p class="card-text">Precio: <strong>${{ producto.precios.0.precio }}</strong></p>
                 <button class="btn btn-sm btn-outline-success mt-auto agregar-carrito"
                         data-id="{{ producto.id }}"
                         data-nombre="{{ producto.nombre }}"
                         data-precio="{{ producto.precios.0.precio }}"
-                        data-imagen="{{ producto.imagen|default:'img/default-product.png' }}">
+                        data-imagen="{% static producto.imagen|default:'img/default-product.png' %}">
                     Agregar al carrito
                 </button>
             {% elif producto.precio %}
@@ -22,7 +25,7 @@
                         data-id="{{ producto.id }}"
                         data-nombre="{{ producto.nombre }}"
                         data-precio="{{ producto.precio }}"
-                        data-imagen="{{ producto.imagen|default:'img/default-product.png' }}">
+                        data-imagen="{% static producto.imagen|default:'img/default-product.png' %}">
                     Agregar al carrito
                 </button>
             {% endif %}

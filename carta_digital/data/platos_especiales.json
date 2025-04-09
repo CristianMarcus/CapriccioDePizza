@@ -4,35 +4,35 @@
       "id": "can1",
       "nombre": "Canelones de verdura con salsa",
       "precio": 10200,
-      "imagen": "default-product.png"
+      "imagen": "img/canelon-verdura-salsa.jfif"
     },
     {
       "id": "can2",
       "nombre": "Canelones de carne con salsa",
       "precio": 11000,
-      "imagen": "default-product.png"
+      "imagen": "img/canelon-carne-salsa.jfif"
     },
     {
       "id": "sorren1",
       "nombre": "Sorrentinos con salsa",
       "precio": 11000,
-      "imagen": "default-product.png"
+      "imagen": "img/sorrentinos-salsa.jfif"
     },
     {
       "id": "Pastelpapas",
       "nombre": "Pastel de papas",
       "precio": 9500,
-      "imagen": "default-product.png"
+      "imagen": "img/pastel-papa-carne.jfif"
     },
     {
       "id": "polenta",
       "nombre": "polenta con bolognesa",
       "precio": 5700,
-      "imagen": "default-product.png"
+      "imagen": "img/polenta-bolognesa.jfif"
     },
     {
       "id": "polloverdeo",
-      "nombre": "pollo al verdeo o champignon con papas españolas",
+      "nombre": "pollo al verdeo o al champignon con papas españolas",
       "precio": 9700,
       "imagen": "default-product.png"
     },
