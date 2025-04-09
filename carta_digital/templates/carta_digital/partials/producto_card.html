@@ -1,6 +1,7 @@
+{% load static %}
 <div class="col-md-4 mb-4 producto-item">
     <div class="card h-100">
-        <img src="{{ producto.imagen|default:'{% static "carta_digital/img/default-product.png" %}' }}" alt="{{ producto.nombre }}" class="card-img-top">
+        <img src="{{ producto.imagen|default:'/static/img/default-product.png' }}" alt="{{ producto.nombre }}" class="card-img-top">
         <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ producto.nombre }}</h5>
             {% if producto.descripcion %}
@@ -12,7 +13,7 @@
                         data-id="{{ producto.id }}"
                         data-nombre="{{ producto.nombre }}"
                         data-precio="{{ producto.precios.0.precio }}"
-                        data-imagen="{{ producto.imagen|default:'{% static "carta_digital/img/default-product.png" %}' }}">
+                        data-imagen="{{ producto.imagen|default:'/static/img/default-product.png' }}">
                     Agregar al carrito
                 </button>
             {% elif producto.precio %}
@@ -21,7 +22,7 @@
                         data-id="{{ producto.id }}"
                         data-nombre="{{ producto.nombre }}"
                         data-precio="{{ producto.precio }}"
-                        data-imagen="{{ producto.imagen|default:'{% static "carta_digital/img/default-product.png" %}' }}">
+                        data-imagen="{{ producto.imagen|default:'/static/img/default-product.png' }}">
                     Agregar al carrito
                 </button>
             {% endif %}
