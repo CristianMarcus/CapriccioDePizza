@@ -34,60 +34,60 @@
       "id": "polloverdeo",
       "nombre": "pollo al verdeo o al champignon con papas españolas",
       "precio": 9700,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "bandejasuper",
       "nombre": "Bandeja super capriccio",
       "precio": 9700,
       "descripcion": "panceta, cheddar y verdeo",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "bandejapapas",
       "nombre": "bandeja de papas fritas",
       "precio": 8500,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "tortilla",
       "nombre": "Tortilla de papas",
       "precio": 9500,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "papascapriccio",
       "nombre": "Papas Capriccio",
       "descripcion": "Panceta y cheddar",
       "precio": 9300,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "milacapriccio",
       "nombre": "milanesa capriccio",
       "descripcion": "panceta y cheddar con papas fritas",
       "precio": 11900,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "milanapo",
       "nombre": "Milanesa napolita con papas fritas o al horno",
       "precio": 11000,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "sandwich",
       "nombre": "sandwich de milanesa",
       "descripcion": "pollo o carne con lechuga y tomate",
       "precio": 7300,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "sandwichespecial",
       "nombre": "sandwich especial",
       "descripcion": "jamon, queso, lechuga y tomate(pollo o carne)",
       "precio": 9200,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     }
   ],
   "churrasquitos": [
@@ -96,26 +96,26 @@
       "nombre": "sandwich simple",
       "descripcion": "",
       "precio": 6500,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "churra2",
       "nombre": "lechuga y tomate",
       "descripcion": "pollo o carne con lechuga y tomate",
       "precio": 7700,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "churra3",
       "nombre": "completo",
       "precio": 8800,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "churra4",
       "nombre": "doble completo",
       "precio": 9200,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     }
   ],
   "hamburguesas": [
@@ -123,33 +123,33 @@
       "id": "hamb1",
       "nombre": "Hamburguesa simple",
       "precio": 3900,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "hamb2",
       "nombre": "Hamburguesa jamon y queso",
       "precio": 5900,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "hamb3",
       "nombre": "Hamburguesa jamon, queso, huevo y tomate",
       "precio": 8000,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "hamb4",
       "nombre": "Hamburguesa doble",
       "precio": 8400,
       "descripcion": "jamon, queso, huevo, tomate",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "hamb5",
       "nombre": "capriccio",
       "precio": 9200,
       "descripcion": "doble carne, panceta, cheddar, cebolla caramelizada y barbacoa",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     }
   ],
   "promos": [
@@ -158,21 +158,21 @@
       "nombre": "Promo 1",
       "descripcion": "1 muzzarella + fugazza con queso + jamon y morrones.",
       "precio": 36000,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "promo2",
       "nombre": "Promo 2",
       "descripcion": "3 Pizza de muzzarella.",
       "precio": 28000,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "promo3",
       "nombre": "Promo 3",
       "descripcion": "1 muzzarella + jamon + 6 empanadas.",
       "precio": 33000,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     }
   ],
   "combos": [
@@ -181,28 +181,28 @@
       "nombre": "Combo 1",
       "descripcion": "hamburguesa doble completa con fritas.",
       "precio": 10700,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "combo2",
       "nombre": "Combo 2",
       "descripcion": "hamburguesa doble capriccio con fritas.",
       "precio": 12000,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "combo3",
       "nombre": "Combo 3",
       "descripcion": "hamburguesa doble, jamon y queso con fritas.",
       "precio": 11000,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "combo4",
       "nombre": "Combo 4",
       "descripcion": "hamburguesa doble cheddar con fritas.",
       "precio": 11500,
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     }
   ]
 }

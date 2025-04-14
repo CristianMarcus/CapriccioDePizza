@@ -21,13 +21,20 @@ def home(request):
     empanadas_data = load_json_data('empanadas.json').get('empanadas', [])
     pizzas_data = load_json_data('pizzas.json').get('pizzas', [])
     platos_especiales_raw = load_json_data('platos_especiales.json')
-    tartas_data = load_json_data('tartas.json').get('tartas', []) # Si tienes un archivo de tartas
+    tartas_data = load_json_data('tartas.json').get('tartas', [])
 
     hamburguesas_data = platos_especiales_raw.get('hamburguesas', [])
     churrasquitos_data = platos_especiales_raw.get('churrasquitos', [])
     promos_data = platos_especiales_raw.get('promos', [])
     combos_data = platos_especiales_raw.get('combos', [])
     platos_especiales_data = platos_especiales_raw.get('platosEspeciales', [])
+
+    # Combinar todos los productos en una lista
+    todos_los_productos = (
+        empanadas_data + pizzas_data + platos_especiales_data +
+        hamburguesas_data + churrasquitos_data +
+        promos_data + combos_data + tartas_data
+    )
 
     context = {
         'empanadas': empanadas_data,
@@ -37,6 +44,8 @@ def home(request):
         'churrasquitos': churrasquitos_data,
         'promos': promos_data,
         'combos': combos_data,
-        'tartas': tartas_data, # Si tienes tartas
+        'tartas': tartas_data,
+        'todos_los_productos': todos_los_productos,  # NUEVA clave
     }
+
     return render(request, 'carta_digital/home.html', context)

@@ -1,151 +1,188 @@
 {% extends 'carta_digital/base.html' %}
 {% load static %}
 {% block title %}Inicio - Capriccio de Pizza{% endblock %}
-<head>
-<link rel="stylesheet" href="{% static '/css/home.css' %}">
-</head>    
 
 
 {% block content %}
-    {% if error %}
-        <div class="alert alert-danger">{{ error }}</div>
-    {% else %}
-        <div class="accordion" id="accordionCarta">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingPlatosEspeciales">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePlatosEspeciales" aria-expanded="true" aria-controls="collapsePlatosEspeciales">
-                        Platos Especiales
-                    </button>
-                </h2>
-                <div id="collapsePlatosEspeciales" class="accordion-collapse collapse show" aria-labelledby="headingPlatosEspeciales" data-bs-parent="#accordionCarta">
-                    <div class="accordion-body">
-                        <div id="platos-especiales-container" class="row">
-                            {% for plato in platos_especiales %}
-                                {% include 'carta_digital/partials/producto_card.html' with producto=plato %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingHamburguesas">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHamburguesas" aria-expanded="false" aria-controls="collapseHamburguesas">
-                        Hamburguesas
-                    </button>
-                </h2>
-                <div id="collapseHamburguesas" class="accordion-collapse collapse" aria-labelledby="headingHamburguesas" data-bs-parent="#accordionCarta">
-                    <div class="accordion-body">
-                        <div id="hamburguesas-container" class="row">
-                            {% for hamburguesa in hamburguesas %}
-                                {% include 'carta_digital/partials/producto_card.html' with producto=hamburguesa %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingPizzas">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePizzas" aria-expanded="false" aria-controls="collapsePizzas">
-                        Pizzas
-                    </button>
-                </h2>
-                <div id="collapsePizzas" class="accordion-collapse collapse" aria-labelledby="headingPizzas" data-bs-parent="#accordionCarta">
-                    <div class="accordion-body">
-                        <div id="pizzas-container" class="row">
-                            {% for pizza in pizzas %}
-                                {% include 'carta_digital/partials/producto_card.html' with producto=pizza %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingEmpanadas">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmpanadas" aria-expanded="false" aria-controls="collapseEmpanadas">
-                        Empanadas
-                    </button>
-                </h2>
-                <div id="collapseEmpanadas" class="accordion-collapse collapse" aria-labelledby="headingEmpanadas" data-bs-parent="#accordionCarta">
-                    <div class="accordion-body">
-                        <div id="empanadas-container" class="row">
-                            {% for empanada in empanadas %}
-                                {% include 'carta_digital/partials/producto_card.html' with producto=empanada %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTartas">  {# Sección de Tartas #}
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTartas" aria-expanded="false" aria-controls="collapseTartas">
-                        Tartas
-                    </button>
-                </h2>
-                <div id="collapseTartas" class="accordion-collapse collapse" aria-labelledby="headingTartas" data-bs-parent="#accordionCarta">
-                    <div class="accordion-body">
-                        <div id="tartas-container" class="row">
-                            {% for tarta in tartas %}
-                                {% include 'carta_digital/partials/producto_card.html' with producto=tarta %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingChurrasquitos">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChurrasquitos" aria-expanded="false" aria-controls="collapseChurrasquitos">
-                        Churrasquitos
-                    </button>
-                </h2>
-                <div id="collapseChurrasquitos" class="accordion-collapse collapse" aria-labelledby="headingChurrasquitos" data-bs-parent="#accordionCarta">
-                    <div class="accordion-body">
-                        <div id="churrasquitos-container" class="row">
-                            {% for churrasquito in churrasquitos %}
-                                {% include 'carta_digital/partials/producto_card.html' with producto=churrasquito %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingPromos">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePromos" aria-expanded="false" aria-controls="collapsePromos">
-                        Promos
-                    </button>
-                </h2>
-                <div id="collapsePromos" class="accordion-collapse collapse" aria-labelledby="headingPromos" data-bs-parent="#accordionCarta">
-                    <div class="accordion-body">
-                        <div id="promos-container" class="row">
-                            {% for promo in promos %}
-                                {% include 'carta_digital/partials/producto_card.html' with producto=promo %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingCombos">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCombos" aria-expanded="false" aria-controls="collapseCombos">
-                        Combos
-                    </button>
-                </h2>
-                <div id="collapseCombos" class="accordion-collapse collapse" aria-labelledby="headingCombos" data-bs-parent="#accordionCarta">
-                    <div class="accordion-body">
-                        <div id="combos-container" class="row">
-                            {% for combo in combos %}
-                                {% include 'carta_digital/partials/producto_card.html' with producto=combo %}
-                            {% endfor %}
-                        </div>
-                    </div>
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% else %}
+<div class="accordion" id="accordionCarta">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPlatosEspeciales">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsePlatosEspeciales" aria-expanded="true"
+                aria-controls="collapsePlatosEspeciales">
+                Platos Especiales
+            </button>
+        </h2>
+        <div id="collapsePlatosEspeciales" class="accordion-collapse collapse show"
+            aria-labelledby="headingPlatosEspeciales" data-bs-parent="#accordionCarta">
+            <div class="accordion-body">
+                <div id="platos-especiales-container" class="row">
+                    {% for plato in platos_especiales %}
+                    {% include 'carta_digital/partials/producto_card.html' with producto=plato %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
-    {% endif %}
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingHamburguesas">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseHamburguesas" aria-expanded="false" aria-controls="collapseHamburguesas">
+                Hamburguesas
+            </button>
+        </h2>
+        <div id="collapseHamburguesas" class="accordion-collapse collapse" aria-labelledby="headingHamburguesas"
+            data-bs-parent="#accordionCarta">
+            <div class="accordion-body">
+                <div id="hamburguesas-container" class="row">
+                    {% for hamburguesa in hamburguesas %}
+                    {% include 'carta_digital/partials/producto_card.html' with producto=hamburguesa %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPizzas">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsePizzas" aria-expanded="false" aria-controls="collapsePizzas">
+                Pizzas
+            </button>
+        </h2>
+        <div id="collapsePizzas" class="accordion-collapse collapse" aria-labelledby="headingPizzas"
+            data-bs-parent="#accordionCarta">
+            <div class="accordion-body">
+                <div id="pizzas-container" class="row">
+                    {% for pizza in pizzas %}
+                    {% include 'carta_digital/partials/producto_card.html' with producto=pizza %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingEmpanadas">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseEmpanadas" aria-expanded="false" aria-controls="collapseEmpanadas">
+                Empanadas
+            </button>
+        </h2>
+        <div id="collapseEmpanadas" class="accordion-collapse collapse" aria-labelledby="headingEmpanadas"
+            data-bs-parent="#accordionCarta">
+            <div class="accordion-body">
+                <div id="empanadas-container" class="row">
+                    {% for empanada in empanadas %}
+                    {% include 'carta_digital/partials/producto_card.html' with producto=empanada %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTartas"> {# Sección de Tartas #}
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTartas" aria-expanded="false" aria-controls="collapseTartas">
+                Tartas
+            </button>
+        </h2>
+        <div id="collapseTartas" class="accordion-collapse collapse" aria-labelledby="headingTartas"
+            data-bs-parent="#accordionCarta">
+            <div class="accordion-body">
+                <div id="tartas-container" class="row">
+                    {% for tarta in tartas %}
+                    {% include 'carta_digital/partials/producto_card.html' with producto=tarta %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingChurrasquitos">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseChurrasquitos" aria-expanded="false" aria-controls="collapseChurrasquitos">
+                Churrasquitos
+            </button>
+        </h2>
+        <div id="collapseChurrasquitos" class="accordion-collapse collapse" aria-labelledby="headingChurrasquitos"
+            data-bs-parent="#accordionCarta">
+            <div class="accordion-body">
+                <div id="churrasquitos-container" class="row">
+                    {% for churrasquito in churrasquitos %}
+                    {% include 'carta_digital/partials/producto_card.html' with producto=churrasquito %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingPromos">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsePromos" aria-expanded="false" aria-controls="collapsePromos">
+                Promos
+            </button>
+        </h2>
+        <div id="collapsePromos" class="accordion-collapse collapse" aria-labelledby="headingPromos"
+            data-bs-parent="#accordionCarta">
+            <div class="accordion-body">
+                <div id="promos-container" class="row">
+                    {% for promo in promos %}
+                    {% include 'carta_digital/partials/producto_card.html' with producto=promo %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCombos">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseCombos" aria-expanded="false" aria-controls="collapseCombos">
+                Combos
+            </button>
+        </h2>
+        <div id="collapseCombos" class="accordion-collapse collapse" aria-labelledby="headingCombos"
+            data-bs-parent="#accordionCarta">
+            <div class="accordion-body">
+                <div id="combos-container" class="row">
+                    {% for combo in combos %}
+                    {% include 'carta_digital/partials/producto_card.html' with producto=combo %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Buscador y Filtro -->
+<div class="container my-5">
+    <h2 class="my-4 text-center">Todos los Productos</h2>
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-6">
+            <input type="text" id="buscador-productos" class="form-control" placeholder="Buscar productos...">
+            <div id="resultados-busqueda" class="mb-4"></div>
+        </div>
+    </div>
+
+    <!-- Lista de todos los productos -->
+    <!-- Sección: Todos los Productos -->
+    
+    <div class="row justify-content-center" id="todos-los-productos">
+        {% for producto in todos_los_productos %}
+        {% include 'carta_digital/partials/producto_card.html' with producto=producto %}
+        {% endfor %}
+    </div>
+
+    <hr class="my-5">
+
+</div>
 {% endblock %}
