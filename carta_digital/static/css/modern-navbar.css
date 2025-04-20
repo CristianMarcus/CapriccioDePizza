@@ -1,0 +1,175 @@
+/* modern-navbar.css - Estilos para la Navbar Moderna en 3D */
+
+.navbar-modern {
+    background: linear-gradient(135deg, #e6e668, #ac710d); /* Marfil claro a beige suave */
+    color: #c72929;
+    padding: 1.5rem 2rem;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    overflow: hidden; /* Para contener efectos de pseudo-elementos */
+}
+
+.navbar-modern::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.2) 50%, transparent 55%);
+    transform: translate3d(0, 0, 0) rotate(-45deg);
+    z-index: -1;
+    pointer-events: none;
+    animation: shine 5s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(-45deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) rotate(-45deg) translate(50%, 50%);
+    }
+}
+
+.container-modern {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand-modern {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #555;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.navbar-toggler-modern {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: none; /* Oculto por defecto en pantallas grandes */
+}
+
+.hamburger {
+    width: 30px;
+    height: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background-color: #555;
+    border-radius: 3px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.navbar-toggler-modern.active .hamburger span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.navbar-toggler-modern.active .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler-modern.active .hamburger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.collapse-modern {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav-modern {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-item-modern {
+    margin-left: 2rem;
+}
+
+.nav-link-modern {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 0.5rem 0;
+}
+
+.nav-link-inner {
+    display: block;
+    padding: 0.5rem 0;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-link-modern::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #007bff; /* Color al hacer hover */
+    font-weight: 600;
+    transition: transform 0.3s ease-out;
+    transform: translateY(0%);
+}
+
+.nav-link-modern:hover .nav-link-inner {
+    /* transform: translateY(-100%); */ /* Comentar o eliminar */
+    text-decoration: underline;
+}
+
+.nav-link-modern:hover::before {
+    /* transform: translateY(-100%); */ /* Comentar o eliminar */
+    color: #007bff; /* Cambiar solo el color */
+}
+
+/* Media query para hacerlo responsivo */
+@media (max-width: 991.98px) {
+    .collapse-modern {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #f8d397, #e6b35c);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 10px 10px;
+        padding: 1rem;
+        display: none; /* Oculto en móviles por defecto */
+    }
+
+    .collapse-modern.show {
+        display: block;
+    }
+
+    .navbar-nav-modern {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-item-modern {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    .navbar-toggler-modern {
+        display: block; /* Visible en móviles */
+    }
+}

@@ -34,6 +34,7 @@ body {
     /* Bordes redondeados para un aspecto moderno */
     overflow: hidden;
     /* Asegura que los bordes redondeados se apliquen al contenido interno */
+    background: linear-gradient(135deg, #e6e668, #ac710d);
 }
 
 /* Estilo para cada elemento individual del acordeón */
@@ -48,11 +49,12 @@ body {
     /* Sombra suave para dar profundidad */
     overflow: hidden;
     /* Asegura que el contenido interno respete los bordes redondeados */
+    background: linear-gradient(135deg, #e6e668, #ac710d);
 }
 
 /* Estilo del botón que actúa como encabezado del acordeón */
 .accordion-button {
-    background: #f9f9f9;
+    background: linear-gradient(135deg, #e6e668, #ac710d);
     /* Fondo claro para el encabezado */
     font-weight: 600;
     /* Texto del encabezado en negrita */
@@ -78,6 +80,7 @@ body {
     background-color: #eee;
     /* Ligeramente más oscuro al pasar el ratón */
     color: #222;
+    background: linear-gradient(135deg, #e6e668, #ac710d);
 }
 
 /* Estilo específico cuando el acordeón está abierto (no colapsado) */
@@ -87,6 +90,7 @@ body {
     color: #222;
     box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.05);
     /* Sombra interna sutil al estar abierto */
+    background: linear-gradient(135deg, #e6e668, #ac710d);
 }
 
 /* Eliminar el focus visual predeterminado al enfocar el botón */
@@ -117,6 +121,7 @@ body {
     margin-top: 15px;
     /* Espacio superior para separar del inicio del body */
 }
+
 
 /* Animación para deslizar hacia abajo el contenido */
 @keyframes slideDown {

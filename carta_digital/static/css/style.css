@@ -8,7 +8,7 @@
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: wheat; /* Fondo gris claro moderno */
+    background-color: rgb(153, 52, 5); /* Fondo gris claro moderno */
     color: #333; /* Texto principal oscuro */
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
@@ -20,7 +20,7 @@
     max-width: 1200px;
     margin: 30px auto; /* Reduce el margen superior e inferior */
     padding: 30px; /* Reduce el padding general */
-    background-color: rgb(248, 216, 157);
+    background-color: rgba(113, 138, 2, 0.911);
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -38,12 +38,10 @@ i.bi.bi-cart-fill::before {
    ========================================================================== */
 
 header {
-    background-color: wheat; /* Azul oscuro elegante */
+    background-color: rgb(77, 25, 5); /* Azul oscuro elegante */
     color: white;
     padding: 2rem 0;
     text-align: center;
-    margin-bottom: 40px;
-    border-radius: 12px 12px 0 0;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -55,41 +53,7 @@ header h1 {
     letter-spacing: -0.02em;
 }
 
-/* ==========================================================================
-   Navigation Bar
-   ========================================================================== */
 
-.navbar {
-    background-color: wheat !important;
-    color: white;
-    margin-bottom: 40px;
-    border-radius: 8px;
-    padding: 15px 25px;
-    box-shadow: 0 1px 3px rgba(17, 17, 17, 0.541);
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar-brand {
-    font-weight: 700;
-    font-size: 1.8rem;
-    color: black;
-    letter-spacing: -0.01em;
-    transition: color 0.3s ease;
-}
-
-.navbar-menu .nav-item {
-    margin-left: 25px;
-}
-
-.navbar-menu .nav-link {
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.navbar-menu .nav-link:hover {
-    color: #007bff;
-}
 
 /* ==========================================================================
    Cart Icon and Count
@@ -143,8 +107,8 @@ header h1 {
 }
 
 .accordion-header button.accordion-button {
-    background-color: #f9fafa;
-    color: #333;
+    background: linear-gradient(135deg, #535304, #503403);
+    color: #d3650b;
     padding: 1.3rem 1.7rem;
     font-weight: 600;
     font-size: 1.15rem;
@@ -168,7 +132,7 @@ header h1 {
 
 .accordion-body {
     padding: 1.5rem 1.7rem;
-    background-color: white;
+    background: linear-gradient(150deg, #e6e668, #ac710d);
     border-top: 1px solid #e1e7ed;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
