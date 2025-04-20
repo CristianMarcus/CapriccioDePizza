@@ -34,33 +34,33 @@
       "id": "polloverdeo",
       "nombre": "pollo al verdeo o al champignon con papas españolas",
       "precio": 9700,
-      "imagen": "img/default-product.png"
+      "imagen": "img/pollo-al-verdeo-papas-españolas.jfif"
     },
     {
       "id": "bandejasuper",
       "nombre": "Bandeja super capriccio",
       "precio": 9700,
       "descripcion": "panceta, cheddar y verdeo",
-      "imagen": "img/default-product.png"
+      "imagen": "img/bandeja-papas-capriccio.jfif"
     },
     {
       "id": "bandejapapas",
       "nombre": "bandeja de papas fritas",
       "precio": 8500,
-      "imagen": "img/default-product.png"
+      "imagen": "img/bandeja-papas.jfif"
     },
     {
       "id": "tortilla",
       "nombre": "Tortilla de papas",
       "precio": 9500,
-      "imagen": "img/default-product.png"
+      "imagen": "img/tortilla-papas.jfif"
     },
     {
       "id": "papascapriccio",
       "nombre": "Papas Capriccio",
       "descripcion": "Panceta y cheddar",
       "precio": 9300,
-      "imagen": "img/default-product.png"
+      "imagen": "img/papas-panceta-cheddar.jfif"
     },
     {
       "id": "milacapriccio",
@@ -73,7 +73,7 @@
       "id": "milanapo",
       "nombre": "Milanesa napolita con papas fritas o al horno",
       "precio": 11000,
-      "imagen": "img/default-product.png"
+      "imagen": "img/milanesa-napolitana-fritas.jfif"
     },
     {
       "id": "sandwich",
@@ -123,13 +123,13 @@
       "id": "hamb1",
       "nombre": "Hamburguesa simple",
       "precio": 3900,
-      "imagen": "img/default-product.png"
+      "imagen": "img/hamburguesa-simple.jfif"
     },
     {
       "id": "hamb2",
       "nombre": "Hamburguesa jamon y queso",
       "precio": 5900,
-      "imagen": "img/default-product.png"
+      "imagen": "img/hamburguesa-jyq.jfif"
     },
     {
       "id": "hamb3",

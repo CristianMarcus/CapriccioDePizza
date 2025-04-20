@@ -1,14 +1,13 @@
 {% load static %}
 
-<div class="col-md-4 mb-4 producto-item">
+<div class="mb-4 producto-item"> 
     {% with producto.imagen|default:'img/default-product.png' as imagen_url %}
-    <div class="card h-100 shadow-sm rounded-4 overflow-hidden producto-card">
-        <div class="overflow-hidden" style="max-height: 220px;">
+    <div>
+        <div class="overflow-hidden" >
             <img src="{% static imagen_url %}" alt="{{ producto.nombre }}" class="card-img-top producto-img">
         </div>
         <div class="card-body d-flex flex-column">
             <h5 class="card-title fw-bold text-primary-emphasis producto-nombre">{{ producto.nombre }}</h5>
-
 
             {% if producto.descripcion %}
                 <p class="card-text text-muted small">{{ producto.descripcion }}</p>
@@ -39,4 +38,3 @@
     </div>
     {% endwith %}
 </div>
-
