@@ -5,12 +5,15 @@
 
 {% block content %}
 <div class="container my-5 text-center">
-    <h1 class="mb-4">Bienvenido a Capriccio de Pizza</h1>
-    <p class="lead">Disfruta de nuestras deliciosas pizzas y mucho más.</p>
-    <img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid mb-4" style="max-width: 300px;">
-    <p class="lead">¡Explora nuestro menú y haz tu pedido ahora!</p>
+    <h1 class="mb-4">Bienvenidos</h1>
+    <img src="{% static 'img/banner-central.jpeg' %}" alt="banner" class="img-fluid mb-4" style="max-width: 250px;">
+    <p class="lead">Lo inimaginable en gustos y sabores.</p>
+    <p class="lead">¡Mira nuestro menú y hace tu pedido!.</p>
+    <div id="mensaje-agradecimiento" class="alert alert-success mt-3 text-center" style="display: none;">
+        ¡Pedido enviado con éxito! Te contactaremos pronto.
+    </div>
 {% if error %}
-<div class="alert alert-danger">{{ error }}</div>
+<div class="alert alert-danger">{{ error }}</div> 
 {% else %}
 <div class="accordion" id="accordionCarta">
     <div class="accordion-item">

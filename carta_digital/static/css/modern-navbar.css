@@ -1,15 +1,26 @@
 /* modern-navbar.css - Estilos para la Navbar Moderna en 3D */
 
 .navbar-modern {
-    background: linear-gradient(135deg, #e6e668, #ac710d); /* Marfil claro a beige suave */
+    background: linear-gradient(135deg, #222222, #5a6064);
     color: #c72929;
     padding: 1.5rem 2rem;
     margin-bottom: 30px;
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 8 8px 20px rgba(0, 0, 0, 0.15);
     position: relative;
-    z-index: 100; /* Asegura que esté por encima de otros elementos */
-    overflow: hidden; /* Para contener efectos de pseudo-elementos */
+    z-index: 100;
+    overflow: hidden;
+    /* Reemplaza 'nav' con el selector de tu barra de navegación */
+    /* ... otros estilos de tu barra de navegación ... */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Fondo blanco ligeramente transparente */
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil de elevación */
+    /* O una opción con un poco más de desenfoque: */
+    /* box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.08); */
+    backdrop-filter: blur(10px);
+    /* Opcional: para un efecto de vidrio detrás si es transparente */
+
 }
 
 .navbar-modern::before {
@@ -41,15 +52,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.navbar-brand-modern {
-    font-weight: 700;
-    font-size: 2rem;
-    color: #555;
-    text-decoration: none;
-    letter-spacing: -0.01em;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
+.navbar-logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 100px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-right: 1rem;
+    cursor: pointer;
+    
+    z-index: -3;
+    
+    
+    
 }
 
 .navbar-toggler-modern {
@@ -57,7 +81,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    display: none; /* Oculto por defecto en pantallas grandes */
+    display: none;
 }
 
 .hamburger {
@@ -71,7 +95,7 @@
 .hamburger span {
     display: block;
     height: 3px;
-    background-color: #555;
+    background-color: #8a8888;
     border-radius: 3px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
@@ -91,6 +115,8 @@
 .collapse-modern {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
 }
 
 .navbar-nav-modern {
@@ -98,21 +124,37 @@
     padding: 0;
     margin: 0;
     display: flex;
+    gap: 2rem;
 }
 
 .nav-item-modern {
-    margin-left: 2rem;
+    margin: 0;
+    color: black;
+}
+.nav-item-modern a {
+    text-decoration: none;
+    color: #8d8b10;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
 }
 
 .nav-link-modern {
     text-decoration: none;
-    color: #555;
-    font-weight: 500;
+    color: black;
+    font-weight: bold;
     position: relative;
     overflow: hidden;
     display: inline-block;
     padding: 0.5rem 0;
 }
+
+.nav-link-modern:hover {
+    text-decoration: none;
+    color: #cad624; /* Cambiá este color por el que quieras al hacer hover */
+}
+
+
 
 .nav-link-inner {
     display: block;
@@ -120,56 +162,43 @@
     transition: transform 0.3s ease-out;
 }
 
-.nav-link-modern::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    color: #007bff; /* Color al hacer hover */
-    font-weight: 600;
-    transition: transform 0.3s ease-out;
-    transform: translateY(0%);
-}
 
 .nav-link-modern:hover .nav-link-inner {
-    /* transform: translateY(-100%); */ /* Comentar o eliminar */
-    text-decoration: underline;
+    text-decoration: none;
 }
 
-.nav-link-modern:hover::before {
-    /* transform: translateY(-100%); */ /* Comentar o eliminar */
-    color: #007bff; /* Cambiar solo el color */
-}
 
-/* Media query para hacerlo responsivo */
+/* Responsive mobile */
 @media (max-width: 991.98px) {
-    .collapse-modern {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #f8d397, #e6b35c);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 0 0 10px 10px;
-        padding: 1rem;
-        display: none; /* Oculto en móviles por defecto */
-    }
-
-    .collapse-modern.show {
-        display: block;
-    }
-
-    .navbar-nav-modern {
+    .container-modern {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .nav-item-modern {
-        margin-left: 0;
-        margin-bottom: 1rem;
+    .collapse-modern {
+        width: 100%;
+        margin-top: 1rem;
+        justify-content: flex-start;
+        background: linear-gradient(135deg, #6b6767, #383735);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 1rem;
+        display: none;
+    }
+
+    .collapse-modern.show {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-nav-modern {
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .navbar-toggler-modern {
-        display: block; /* Visible en móviles */
+        display: block;
+        margin-left: auto;
     }
 }

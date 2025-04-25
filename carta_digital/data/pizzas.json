@@ -6,273 +6,273 @@
       "nombre": "Americana",
       "precio": 17100,
       "descripcion": "Salsa de tomate, jamon, huevo frito, muzzarella, morron, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz2",
       "nombre": "Muzzarella",
       "precio": 9700,
       "descripcion": "Salsa de tomate, muzzarella, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-muzzarella.jfif"
     },
     {
       "id": "piz3",
       "nombre": "Anchoas",
       "precio": 10800,
       "descripcion": "Salsa de tomate, filet de anchoa, morron, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-anchoas.jfif"
     },
     {
       "id": "piz4",
       "nombre": "Roma",
       "precio": 14500,
       "descripcion": "Salsa de tomate, filet de anchoa, muzzarella, morron, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz5",
       "nombre": "Ajo al Oleo",
       "precio": 8500,
       "descripcion": "Salsa de tomate, ajo, aji molido y oregano.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-ajo-oleo.webp"
     },
     {
       "id": "piz6",
       "nombre": "Cancha",
       "precio": 8800,
       "descripcion": "Salsa de tomate, cebolla de verdeo, morrones, ajo, aji molido y oregano.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz7",
       "nombre": "fugazza",
       "precio": 9900,
       "descripcion": "cebolla, oliva y oregano.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz8",
       "nombre": "Fugazza con queso",
       "precio": 13500,
       "descripcion": "Cebolla, aceite de oliva y oregano.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz9",
       "nombre": "Jamon",
       "precio": 13600,
       "descripcion": "Salsa de tomate,jamon, muzzarella y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-jamon.webp"
     },
     {
       "id": "piz10",
       "nombre": "Jamon y morrones",
       "precio": 14800,
       "descripcion": "Salsa de tomate, jamon, morrones, muzzarella, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-especial.webp"
     },
     {
       "id": "piz11",
       "nombre": "Napolitana",
       "precio": 15500,
       "descripcion": "salsa de tomates, muzzarella, rodajas de tomates, albahaca, ajo y oregano.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-napolitana.webp"
     },
     {
       "id": "piz12",
       "nombre": "Napolitana Especial",
       "precio": 16900,
       "descripcion": "Salsa de tomate, muzzarella, rodajas de tomates, albahaca, ajo, oregano y jamon.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz13",
       "nombre": "Calabresa",
       "precio": 13600,
       "descripcion": "Salsa de tomate, muzzarella, longaniza, morrones, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-calabresa.webp"
     },
     {
       "id": "piz14",
       "nombre": "Roquefort",
       "precio": 13500,
       "descripcion": "Salsa de tomate, muzzarella, roquefort, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-roquefort.webp"
     },
     {
       "id": "piz15",
       "nombre": "Provolone",
       "precio": 14700,
       "descripcion": "Salsa de tomate, muzzarella, jamon, provolone, pimienta, orégano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-provolone.webp"
     },
     {
       "id": "piz16",
       "nombre": "Palmitos",
       "precio": 18000,
       "descripcion": "Salsa de tomate, muzzarella, jamon, palmitos, morron, huevo duro, salsa golf, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-palmitos.webp"
     },
     {
       "id": "piz17",
       "nombre": "Rucula y Jamón Crudo",
       "precio": 17600,
       "descripcion": "Jamon crudo, muzzarella, rucula, parmesano y tomates cherry.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz18",
       "nombre": "Verduras",
       "precio": 11500,
       "descripcion": "Salsa de tomate, salsa blanca, acelga, provolone rayado, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-verdura.webp" 
     },
     {
       "id": "piz19",
       "nombre": "Mila pizza",
       "precio": 22800,
       "descripcion": "Jamon, muzzarella, tomate, huevo duro y milanesa.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz20",
       "nombre": "Estilo americano",
       "precio": 15000,
       "descripcion": "Barbacoa, panceta, pimientos rojos, muzzarella.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz21",
       "nombre": "Hawaiana",
       "precio": 17500,
       "descripcion": "Salsa de tomate, jamon, muzzarella, anana, cerezas, azucar negra, aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz22",
       "nombre": "Fugazzeta rellena",
       "precio": 19500,
       "descripcion": "Muzzarella y jamon.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz23",
       "nombre": "Fugazzeta completa",
       "precio": 21800,
       "descripcion": "Muzzarella, jamon, tomate y huevo.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz24",
       "nombre": "Champignon",
       "precio": 11600,
       "descripcion": "Salsa de tomate, muzzarella, champignones, queso rallado, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-champignons.webp"
     },
     {
       "id": "piz25",
       "nombre": "Calzone napoles",
       "precio": 12200,
       "descripcion": "Muzzarella, rodajas de tomate, jamon, albahaca y ajo.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz26",
       "nombre": "Calzone calabres",
       "precio": 13500,
       "descripcion": "Muzzarella, longaniza, rodajas de tomate y jamon",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz27",
       "nombre": "Calzone al roquefort",
       "precio": 14600,
       "descripcion": "Muzzarella, roquefort, morron y jamon.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz28",
       "nombre": "Calzone primavera",
       "precio": 14500,
       "descripcion": "Muzzarella, rodajas de tomate, jamon, huevo duro y oregano.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz29",
       "nombre": "Capriccio",
       "precio": 15600,
       "descripcion": "Salsa de tomates, muzarella, rodajas de tomate, jamon, morron, huevo duro, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz30",
       "nombre": "Muzzarella al huevo",
       "precio": 12800,
       "descripcion": "Salsa de tomate, huevo duro, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz31",
       "nombre": "Jamon al huevo",
       "precio": 14500,
       "descripcion": "Salsa de tomate, muzzarella, jamon, huevo duro, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-jamon-huevo.webp"
     },
     {
       "id": "piz32",
       "nombre": "Vienesa",
       "precio": 15100,
       "descripcion": "Salsa de tomate, muzzarella, salchicha, mostaza, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz33",
       "nombre": "Primavera",
       "precio": 14000,
       "descripcion": "Salsa de tomate, muzzarella, jamon, rodajas de tomate y huevo duro.",
-      "imagen": "default-product.png"
+      "imagen": "img/primavera.webp"
     },
     {
       "id": "piz34",
       "nombre": "Cuatro Quesos",
       "precio": 14600,
       "descripcion": "Salsa de tomate, muzzarella, provolone, gruyere, roquefort, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/pizza-4quesos.webp"
     },
     {
       "id": "piz35",
       "nombre": "Choclo",
       "precio": 12000,
       "descripcion": "Salsa de tomate, muzzarella, choclo, salsa blanca y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz36",
       "nombre": "Criolla",
       "precio": 750,
       "descripcion": "Cebolla, tomate, morron, muzzarella, queso rayado y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz37",
       "nombre": "Cheddar",
       "precio": 16500,
       "descripcion": "Muzzarella, panceta, cheddar, morron, oregano y aceitunas verdes.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz38",
       "nombre": "Pollo a la barbacoa",
       "precio": 18600,
       "descripcion": "pollo, barbacoa, tomate, morron, muzzarella y queso rayado,.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     },
     {
       "id": "piz39",
       "nombre": "Hambur Pizza",
       "precio": 23000,
       "descripcion": "Hamburguesa, panceta, cheddar y muzzarella.",
-      "imagen": "default-product.png"
+      "imagen": "img/default-product.png"
     }
   ]
 }

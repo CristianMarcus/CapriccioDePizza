@@ -67,7 +67,7 @@
       "nombre": "milanesa capriccio",
       "descripcion": "panceta y cheddar con papas fritas",
       "precio": 11900,
-      "imagen": "img/default-product.png"
+      "imagen": "img/milanesa-panceta-cheddar-papas.jfif"
     },
     {
       "id": "milanapo",
@@ -80,14 +80,14 @@
       "nombre": "sandwich de milanesa",
       "descripcion": "pollo o carne con lechuga y tomate",
       "precio": 7300,
-      "imagen": "img/default-product.png"
+      "imagen": "img/sandwich-milanesa-lechuga-tomate.jfif"
     },
     {
       "id": "sandwichespecial",
       "nombre": "sandwich especial",
       "descripcion": "jamon, queso, lechuga y tomate(pollo o carne)",
       "precio": 9200,
-      "imagen": "img/default-product.png"
+      "imagen": "img/sandwich-milanesa-jamon-huevo-lechuga-tomate.jfif"
     }
   ],
   "churrasquitos": [
@@ -96,26 +96,28 @@
       "nombre": "sandwich simple",
       "descripcion": "",
       "precio": 6500,
-      "imagen": "img/default-product.png"
+      "imagen": "img/sandwich-churrasquito-jamon-queso.jfif"
     },
     {
       "id": "churra2",
       "nombre": "lechuga y tomate",
       "descripcion": "pollo o carne con lechuga y tomate",
       "precio": 7700,
-      "imagen": "img/default-product.png"
+      "imagen": "img/sandwich-churrasquito-jamon-queso.jfif"
     },
     {
       "id": "churra3",
       "nombre": "completo",
+      "descripcion": "jamon, queso,huevo, lechuga y tomate",
       "precio": 8800,
-      "imagen": "img/default-product.png"
+      "imagen": "img/sandwich-churrasquito-jamon-queso.jfif"
     },
     {
       "id": "churra4",
       "nombre": "doble completo",
+      "descripcion": "doble carne,jamon, queso, huevo, lechuga y tomate",
       "precio": 9200,
-      "imagen": "img/default-product.png"
+      "imagen": "img/sandwich-churrasquito-jamon-queso.jfif"
     }
   ],
   "hamburguesas": [
@@ -133,23 +135,23 @@
     },
     {
       "id": "hamb3",
-      "nombre": "Hamburguesa jamon, queso, huevo y tomate",
+      "nombre": "Hamburguesa jamon, queso, huevo,lechuga y tomate",
       "precio": 8000,
-      "imagen": "img/default-product.png"
+      "imagen": "img/hamburguesa-jyq-lechuga-tomate-huevo.jfif"
     },
     {
       "id": "hamb4",
       "nombre": "Hamburguesa doble",
       "precio": 8400,
       "descripcion": "jamon, queso, huevo, tomate",
-      "imagen": "img/default-product.png"
+      "imagen": "img/hamburguesa-jyq-lechuga-tomate-huevo.jfif"
     },
     {
       "id": "hamb5",
       "nombre": "capriccio",
       "precio": 9200,
       "descripcion": "doble carne, panceta, cheddar, cebolla caramelizada y barbacoa",
-      "imagen": "img/default-product.png"
+      "imagen": "img/hamburguesa-jyq-lechuga-tomate-huevo.jfif"
     }
   ],
   "promos": [

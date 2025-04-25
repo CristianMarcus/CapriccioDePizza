@@ -4,17 +4,7 @@
    Estilos Generales (pueden ser compartidos con otros archivos)
    ========================================================================== */
 
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    /* Un fondo claro y neutro */
-    color: #333;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+
 
 .container {
     max-width: 1200px;
@@ -34,12 +24,13 @@ body {
     /* Bordes redondeados para un aspecto moderno */
     overflow: hidden;
     /* Asegura que los bordes redondeados se apliquen al contenido interno */
-    background: linear-gradient(135deg, #e6e668, #ac710d);
+    
 }
 
 /* Estilo para cada elemento individual del acordeón */
 .accordion-item {
-    border: 1px solid #e0e0e0;
+    color: #c9c626;
+    
     /* Borde sutil para separar visualmente los items */
     margin-bottom: 15px;
     /* Espacio entre los items del acordeón */
@@ -49,21 +40,23 @@ body {
     /* Sombra suave para dar profundidad */
     overflow: hidden;
     /* Asegura que el contenido interno respete los bordes redondeados */
-    background: linear-gradient(135deg, #e6e668, #ac710d);
+    
 }
 
 /* Estilo del botón que actúa como encabezado del acordeón */
 .accordion-button {
-    background: linear-gradient(135deg, #e6e668, #ac710d);
+    
     /* Fondo claro para el encabezado */
-    font-weight: 600;
+    font-weight: bold;
     /* Texto del encabezado en negrita */
     font-size: 1.1rem;
     /* Tamaño de fuente legible */
     padding: 18px 22px;
     /* Espacio interno para el botón */
-    color: #444;
+    color: black;
     /* Color del texto del encabezado */
+    background: linear-gradient(to right, green, white, red);
+ 
     border: none;
     /* Eliminar bordes por defecto del botón */
     width: 100%;
@@ -74,40 +67,29 @@ body {
     /* Indicar que es interactivo */
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     /* Transición suave para el hover */
+    border: 4px solid red; /* Un color amarillo brillante, puedes ajustarlo */
+    box-shadow: 0 0 10px 5px red; /* Sombra que simula la luz */
+
 }
 
-.accordion-button:hover {
-    background-color: #eee;
-    /* Ligeramente más oscuro al pasar el ratón */
-    color: #222;
-    background: linear-gradient(135deg, #e6e668, #ac710d);
-}
 
 /* Estilo específico cuando el acordeón está abierto (no colapsado) */
 .accordion-button:not(.collapsed) {
-    background-color: #ddd;
+    
     /* Fondo ligeramente más oscuro cuando está abierto */
-    color: #222;
+    
     box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.05);
     /* Sombra interna sutil al estar abierto */
-    background: linear-gradient(135deg, #e6e668, #ac710d);
+    background-color: rgb(241, 101, 91);
 }
 
-/* Eliminar el focus visual predeterminado al enfocar el botón */
-.accordion-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    /* Un focus visual personalizado si se desea */
-}
 
 /* Estilo del contenedor del contenido que se revela al abrir el acordeón */
 .accordion-body {
     padding: 20px;
     /* Espacio interno para el contenido */
-    background-color: #fff;
+    background: linear-gradient(to right, green, white, red);
     /* Fondo blanco para el contenido */
-    border-top: 1px solid #f0f0f0;
-    /* Separador visual entre el encabezado y el contenido */
     animation: slideDown 0.3s ease-out;
     /* Animación al mostrar el contenido */
 }
@@ -120,6 +102,26 @@ body {
     /* Espacio entre los productos */
     margin-top: 15px;
     /* Espacio superior para separar del inicio del body */
+}
+
+/* Cambiar el color de la flecha */
+.accordion-button:hover {
+    color: #bdc3f1; /* Aquí pones el color que desees para la flecha */
+    transition: color 0.3s ease;
+  }
+  
+  /* Cambiar el color de la flecha cuando el acordeón está expandido */
+  .accordion-button:not(.collapsed)::after {
+    color: #dc3545; /* Cambiar a otro color cuando el acordeón está expandido */
+  }
+  
+
+  #accordionCarta {
+    width: 68%;
+    
+    border-radius: 10px; /* Opcional: para bordes redondeados */
+   
+    background-color: transparent;
 }
 
 
@@ -145,6 +147,177 @@ body {
     border: 1px solid #fcc4c4;
     border-radius: 6px;
     font-weight: 500;
+}
+
+/* ==========================================================================
+   Product Card - Rellenar Espacio Restante con Card Body
+   ========================================================================== */
+
+   .producto-item {
+    
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.producto-item .card-img-top { /* ✅ Estilos para la imagen usando la clase de Bootstrap */
+    width: 100%;
+    height: auto; /* Bootstrap generalmente maneja la altura automáticamente */
+    max-height: 200px; /* Mantén tu altura máxima si la necesitas */
+    object-fit: cover;
+    border-radius: 12px 12px 0 0; /* Mantén el borde superior redondeado */
+    
+}
+
+.producto-item .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #f8f8e5, #62b3f5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    flex-grow: 1;
+}
+
+/* ... el resto de tu CSS ... */
+
+.producto-item .card-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    color: #b6b1b1;
+    letter-spacing: -0.01em;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.producto-item .card-text {
+    font-size: 0.95rem;
+    color: rgb(75, 134, 40);
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.producto-item .precio-container {
+    margin-top: auto;
+    margin-bottom: 0.2rem;
+}
+
+.producto-item .precio-container .card-text {
+    margin-bottom: 0;
+}
+
+.agregar-carrito {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.agregar-carrito:hover {
+    background-color: #1e7e34;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.agregar-carrito:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
+
+/* ==========================================================================
+   Ajuste para el contenedor del grid (mantener la altura uniforme de las tarjetas)
+   ========================================================================== */
+
+#platos-especiales-container,
+#hamburguesas-container,
+#pizzas-container,
+#empanadas-container,
+#tartas-container,
+#churrasquitos-container,
+#promos-container,
+#combos-container,
+#todos-los-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ✅ Usamos 1fr para que las tarjetas tengan la misma altura */
+    gap: 25px;
+}
+
+/* Ajustes para pantallas medianas y grandes (laptops, desktops) */
+@media (min-width: 992px) {
+    #platos-especiales-container,
+    #hamburguesas-container,
+    #pizzas-container,
+    #empanadas-container,
+    #tartas-container,
+    #churrasquitos-container,
+    #promos-container,
+    #combos-container,
+    #todos-los-productos {
+        grid-template-columns: repeat(3, 1fr); /* ✅ Usamos 1fr para que las tarjetas tengan la misma altura */
+        gap: 30px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (max-width: 991px) and (min-width: 768px) {
+    #platos-especiales-container,
+    #hamburguesas-container,
+    #pizzas-container,
+    #empanadas-container,
+    #tartas-container,
+    #churrasquitos-container,
+    #promos-container,
+    #combos-container,
+    #todos-los-productos {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* ✅ Usamos 1fr para que las tarjetas tengan la misma altura */
+        gap: 20px;
+    }
+}
+
+/* Ajustes para pantallas medianas y grandes (laptops, desktops) */
+@media (min-width: 992px) {
+    #platos-especiales-container,
+    #hamburguesas-container,
+    #pizzas-container,
+    #empanadas-container,
+    #tartas-container,
+    #churrasquitos-container,
+    #promos-container,
+    #combos-container,
+    #todos-los-productos {
+        grid-template-columns: repeat(3, auto); /* 👈 Cambiamos el segundo valor a 'auto' */
+        gap: 30px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (max-width: 991px) and (min-width: 768px) {
+    #platos-especiales-container,
+    #hamburguesas-container,
+    #pizzas-container,
+    #empanadas-container,
+    #tartas-container,
+    #churrasquitos-container,
+    #promos-container,
+    #combos-container,
+    #todos-los-productos {
+        grid-template-columns: repeat(auto-fit, minmax(350px, auto)); /* 👈 Cambiamos el segundo valor a 'auto' */
+        gap: 20px;
+    }
 }
 
 /* ==========================================================================

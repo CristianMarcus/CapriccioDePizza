@@ -9,58 +9,107 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+    <!-- Logo y títulos con Italianno, textos normales con Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/floating-cart.css' %}">
     <link rel="stylesheet" href="{% static 'css/modern-navbar.css' %}">
+    <script src="{% static 'js/modern-navbar.js' %}"></script>
 </head>
 
 <body>
-    <header>
+    <!-- Preloader con botón -->
+    <div class="preloader" id="preloader">
+        <div class="loader-container">
+            <button id="enterButton" class="btn btn-primary" style="display: none;">Ver Carta</button>
+        </div>
+    </div>
+
+    <!-- <header>
         <nav class="navbar-modern">
             <div class="container-modern">
-                <a class="navbar-brand-modern" href="/">Capriccio de Pizza</a>
-                <button class="navbar-toggler-modern" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavModern"
-                    aria-controls="navbarNavModern" aria-expanded="false" aria-label="Toggle navigation">
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </button>
-        
-                <div class="collapse-modern" id="navbarNavModern">
-                    <ul class="navbar-nav-modern ms-auto align-items-center">
-                        <li class="nav-item-modern">
-                            <a class="nav-link-modern" href="/">
-                                <span class="nav-link-inner" data-text="Home">Home</span>
-                            </a>
-                        </li>
-                        </ul>
-                </div>
-            </div>
-        </nav>
-        
-    </header>
+                
+    <a href="/" class="navbar-logo-link">
+        <img src="{% static 'img/banner-central.jpeg' %}" alt="Logo" class="navbar-logo">
+    </a>
+
+     BOTÓN HAMBURGUESA 
+    <button class="navbar-toggler-modern" type="button" id="navbarToggle">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
+
+     LINKS 
+    <div class="collapse-modern" id="navbarNavModern">
+        <ul class="navbar-nav-modern">
+            <li class="nav-item-modern">
+                <a class="nav-link-modern" href="/">
+                    <span class="nav-link-inner" data-text="Inicio">Inicio</span>
+                </a>
+            </li>
+            <li class="nav-item-modern">
+                <a class="nav-link-modern" href="#servicios">
+                    <span class="nav-link-inner" data-text="Servicios">Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item-modern">
+                <a class="nav-link-modern" href="#contacto">
+                    <span class="nav-link-inner" data-text="Contacto">Contacto</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    </nav>
+    </header> -->
 
     <main class="container.mt-4">
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer>
-        <p>&copy; 2025 Capriccio de Pizza. Todos los derechos reservados.</p>
-    </footer>
+    <div class="footer-content">
+        <p class="footer-text">&copy; 2025 Capriccio de Pizza. Todos los derechos reservados.</p>
+
+        <div class="footer-icons mb-2">
+            <a href="https://wa.me/1149149520" target="_blank"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://www.instagram.com/capricciodepizza" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/capricciodepizza" target="_blank"><i class="bi bi-facebook"></i></a>
+        </div>
+
+        <!-- Ícono de desarrollador -->
+        <div class="footer-dev mt-3">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#contactoModal" class="footer-dev-link"
+                data-bs-toggle="tooltip" title="Contacto">
+                <i class="bi bi-terminal-fill me-2"></i> Desarrollo - Agencia Digital | <strong>POWA</strong>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
     <div class="floating-cart-icon" id="floating-cart">
         <div class="cart-icon-wrapper">
-            <i class="bi bi-cart-fill"></i>
+            <i class="bi bi-cart-fill" id="carrito-icono"></i>
             <span class="cart-count" id="floating-cart-count">0</span>
         </div>
         <div class="cart-dropdown">
-            <h6 class="cart-title mb-2 text-center">🛒 Tu pedido</h6>
+            <h3 class="titulo-carrito">Carrito de compras</h3>
+            <h6 class="cart-title mb-2 text-center" id="titulo-tupedido">🛒 Tu pedido</h6>
             <ul class="list-unstyled mb-2" id="cart-items"></ul>
-            <p class="fw-bold mb-2">Total: $<span id="total-price">0.00</span></p>
+            <p class="fw-bold mb-2 total">Total: $<span id="total-price">0.00</span></p>
             <button class="btn btn-sm btn-outline-danger w-100" id="clear-cart-button">Vaciar carrito</button>
             <button id="btnFinalizarPedido" class="btn btn-sm btn-primary w-100 mt-2" data-bs-toggle="modal"
                 data-bs-target="#pedidoModal">
@@ -82,7 +131,7 @@
                     <form id="pedidoForm" class="p-4 bg-light rounded shadow-sm">
 
                         <div class="mb-3">
-                            <label for="nombreCliente" class="form-label">Nombre y apellido *</label>
+                            <label for="nombreCliente" class="form-label">Nombre *</label>
                             <input type="text" class="form-control" id="nombreCliente" placeholder="Tu nombre completo"
                                 required>
                         </div>
@@ -128,7 +177,11 @@
                             <label for="dineroAbona" class="form-label">¿Con cuánto abona? *</label>
                             <input type="number" class="form-control" id="dineroAbona" placeholder="Ingrese el monto"
                                 min="0">
+                            <div id="errorDineroAbona" class="invalid-feedback" style="display: none;">
+                                El monto ingresado debe ser mayor o igual al total del pedido.
+                            </div>
                         </div>
+
 
                         <div class="mb-3">
                             <label for="totalPedidoModal" class="form-label fw-bold">Total del pedido:</label>
@@ -139,9 +192,9 @@
                         <div id="aliasMercadoPago" class="alert alert-info mt-3" style="display: none;">
                             <p>
                                 Transferir a alias:
-                                <strong>Solicitar una vez realizado el pedido</strong>
+                                <strong>Solicitar una vez Finalizado el pedido</strong>
                                 <br>
-                                <strong>¡No olvides enviar el comprobante!</strong>
+                                <strong>¡No olvides enviar el comprobante, gracias!</strong>
                             </p>
                         </div>
 
@@ -161,13 +214,121 @@
         </div>
     </div>
 
+    <!-- MODAL DE CONTACTO CON FORMULARIO DE SERVICIOS FREELANCE -->
+    <div class="modal fade" id="contactoModal" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactoModalLabel">Formulario de Desarrollo Web</h5>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario Profesional de Proyecto -->
+                    <form id="formProyecto" action="https://api.whatsapp.com/send" method="GET" target="_blank">
+                        <h2 class="text-center mb-4" id="FormDesarrollo">Formulario de Solicitud de Proyecto</h2>
+                        <p class="text-center mb-4" id="pFormDesarrollo">Por favor, completa el siguiente formulario
+                            para que podamos
+                            entender mejor tus necesidades y ofrecerte una propuesta adecuada.</p>
+                        <!-- Nombre Completo -->
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required
+                                placeholder="Tu nombre completo">
+                        </div>
+
+                        <!-- Correo Electrónico -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required
+                                placeholder="Tu correo electrónico">
+                        </div>
+
+                        <!-- Teléfono -->
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" required
+                                placeholder="Tu número de teléfono">
+                        </div>
+
+                        <!-- Tipo de Proyecto -->
+                        <div class="mb-3">
+                            <label for="tipoProyecto" class="form-label">Tipo de Proyecto</label>
+                            <select class="form-select" id="tipoProyecto" name="tipo_proyecto" required>
+                                <option value="" disabled selected>Selecciona el tipo de proyecto</option>
+                                <option value="Desarrollo Web">Desarrollo Web</option>
+                                <option value="Aplicación Móvil">Aplicación Móvil</option>
+                                <option value="E-commerce">E-commerce (Tienda Online)</option>
+                                <option value="Tienda Digital">Tienda Digital (Plataformas de venta digital)</option>
+                                <option value="Software Personalizado">Software Personalizado</option>
+                                <option value="Consultoría">Consultoría y Soporte Técnico</option>
+                                <option value="Mantenimiento y Actualizaciones">Mantenimiento y Actualizaciones</option>
+                                <option value="Automatización de Procesos">Automatización de Procesos y Flujos de
+                                    Trabajo</option>
+                                <option value="Otro">Otro (por favor detállalo a continuación)</option>
+                            </select>
+                            <small class="form-text text-muted">
+                                Elige el tipo de proyecto que necesitas. Si no encuadra en las opciones anteriores,
+                                selecciona "Otro" y descríbelo.
+                            </small>
+                        </div>
+
+                        <!-- Detalles del Tipo de Proyecto (si es Otro) -->
+                        <div class="mb-3" id="detallesTipoProyecto" style="display: none;">
+                            <label for="detallesTipoProyectoTexto" class="form-label">Detalles del Proyecto</label>
+                            <textarea class="form-control" id="detallesTipoProyectoTexto" name="detalles_tipo_proyecto"
+                                rows="4"
+                                placeholder="Por favor, describe el tipo de proyecto que necesitas si no se ajusta a las opciones anteriores."></textarea>
+                        </div>
+
+                        <!-- Descripción del Proyecto -->
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción del Proyecto</label>
+                            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required
+                                placeholder="Describe tu proyecto en detalle, incluyendo tus objetivos y expectativas."></textarea>
+                        </div>
+
+                        <!-- Tiempo Estimado de Entrega -->
+                        <div class="mb-3">
+                            <label for="tiempoEntrega" class="form-label">Tiempo Estimado de Entrega</label>
+                            <input type="text" class="form-control" id="tiempoEntrega" name="tiempo_entrega" required
+                                placeholder="Indica el tiempo estimado para la entrega del proyecto (ej. 2 meses, 3 semanas)">
+                        </div>
+
+                        <!-- Presupuesto Estimado -->
+                        <div class="mb-3">
+                            <label for="presupuesto" class="form-label">Presupuesto Estimado</label>
+                            <input type="number" class="form-control" id="presupuesto" name="presupuesto" required
+                                placeholder="Indica el presupuesto estimado para el proyecto">
+                        </div>
+
+                        <!-- Información Adicional -->
+                        <div class="mb-3">
+                            <label for="informacionAdicional" class="form-label">Información Adicional</label>
+                            <textarea class="form-control" id="informacionAdicional" name="informacion_adicional"
+                                rows="4"
+                                placeholder="Añade cualquier información adicional que creas relevante."></textarea>
+                        </div>
+
+
+
+                        <!-- Botón de Envío -->
+                        <button type="submit" class="btn btn-primary w-100">Enviar Solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     {% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/carrito.js' %}"></script>
-    <script src="modern-navbar.js"></script>
+
+
 </body>
 
 </html>
