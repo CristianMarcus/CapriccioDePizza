@@ -7,7 +7,7 @@
     bottom: 30px; /* Un poco más abajo */
     right: 30px; /* Un poco más a la derecha */
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.85); /* Gris oscuro semi-transparente */
+    background: #ffc107; /* Gris oscuro semi-transparente */
     backdrop-filter: blur(15px); /* Desenfoque un poco más intenso */
     color: rgb(250, 249, 249);
     border-radius: 30px; /* Bordes más suaves desde el inicio */

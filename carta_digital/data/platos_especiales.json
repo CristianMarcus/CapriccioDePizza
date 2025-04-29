@@ -144,14 +144,14 @@
       "nombre": "Hamburguesa doble",
       "precio": 8400,
       "descripcion": "jamon, queso, huevo, tomate",
-      "imagen": "img/hamburguesa-jyq-lechuga-tomate-huevo.jfif"
+      "imagen": "img/hamburguesa-doble.jpeg"
     },
     {
       "id": "hamb5",
       "nombre": "capriccio",
       "precio": 9200,
       "descripcion": "doble carne, panceta, cheddar, cebolla caramelizada y barbacoa",
-      "imagen": "img/hamburguesa-jyq-lechuga-tomate-huevo.jfif"
+      "imagen": "img/hamburguesa-doble-panceta-cebolla.jfif"
     }
   ],
   "promos": [

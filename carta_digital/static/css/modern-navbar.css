@@ -1,4 +1,4 @@
-/* modern-navbar.css - Estilos para la Navbar Moderna en 3D */
+/* modern-navbar.css - Estilos para la Navbar Moderna en 3D 
 
 .navbar-modern {
     background: linear-gradient(135deg, #222222, #5a6064);
@@ -10,16 +10,15 @@
     position: relative;
     z-index: 100;
     overflow: hidden;
-    /* Reemplaza 'nav' con el selector de tu barra de navegación */
-    /* ... otros estilos de tu barra de navegación ... */
+    
     background-color: rgba(255, 255, 255, 0.9);
-    /* Fondo blanco ligeramente transparente */
+    
     box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil de elevación */
-    /* O una opción con un poco más de desenfoque: */
-    /* box-shadow: 4px 4px 25px rgba(0, 0, 0, 0.08); */
+
+    
+    
     backdrop-filter: blur(10px);
-    /* Opcional: para un efecto de vidrio detrás si es transparente */
+    
 
 }
 
@@ -151,7 +150,7 @@
 
 .nav-link-modern:hover {
     text-decoration: none;
-    color: #cad624; /* Cambiá este color por el que quieras al hacer hover */
+    color: #cad624; 
 }
 
 
@@ -168,7 +167,7 @@
 }
 
 
-/* Responsive mobile */
+
 @media (max-width: 991.98px) {
     .container-modern {
         flex-direction: column;
@@ -202,3 +201,4 @@
         margin-left: auto;
     }
 }
+*/

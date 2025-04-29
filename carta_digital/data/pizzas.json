@@ -6,7 +6,7 @@
       "nombre": "Americana",
       "precio": 17100,
       "descripcion": "Salsa de tomate, jamon, huevo frito, muzzarella, morron, oregano y aceitunas verdes.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-americana.jpeg"
     },
     {
       "id": "piz2",
@@ -27,7 +27,7 @@
       "nombre": "Roma",
       "precio": 14500,
       "descripcion": "Salsa de tomate, filet de anchoa, muzzarella, morron, oregano y aceitunas verdes.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-roma.jfif"
     },
     {
       "id": "piz5",
@@ -41,21 +41,21 @@
       "nombre": "Cancha",
       "precio": 8800,
       "descripcion": "Salsa de tomate, cebolla de verdeo, morrones, ajo, aji molido y oregano.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-cancha.jpeg"
     },
     {
       "id": "piz7",
       "nombre": "fugazza",
       "precio": 9900,
       "descripcion": "cebolla, oliva y oregano.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-fugazza.jfif"
     },
     {
       "id": "piz8",
       "nombre": "Fugazza con queso",
       "precio": 13500,
       "descripcion": "Cebolla, aceite de oliva y oregano.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-fugazza-queso.jpeg"
     },
     {
       "id": "piz9",
@@ -83,7 +83,7 @@
       "nombre": "Napolitana Especial",
       "precio": 16900,
       "descripcion": "Salsa de tomate, muzzarella, rodajas de tomates, albahaca, ajo, oregano y jamon.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-napolitana-especial.jpeg"
     },
     {
       "id": "piz13",
@@ -118,7 +118,7 @@
       "nombre": "Rucula y Jamón Crudo",
       "precio": 17600,
       "descripcion": "Jamon crudo, muzzarella, rucula, parmesano y tomates cherry.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-rucula.jfif"
     },
     {
       "id": "piz18",
@@ -139,7 +139,7 @@
       "nombre": "Estilo americano",
       "precio": 15000,
       "descripcion": "Barbacoa, panceta, pimientos rojos, muzzarella.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-estilo-americano.jpeg"
     },
     {
       "id": "piz21",
@@ -153,7 +153,7 @@
       "nombre": "Fugazzeta rellena",
       "precio": 19500,
       "descripcion": "Muzzarella y jamon.",
-      "imagen": "img/default-product.png"
+      "imagen": "img/pizza-fugazzeta-rellena.jfif"
     },
     {
       "id": "piz23",

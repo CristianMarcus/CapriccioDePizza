@@ -12,22 +12,28 @@
     <!-- Logo y títulos con Italianno, textos normales con Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
     <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/floating-cart.css' %}">
-    <link rel="stylesheet" href="{% static 'css/modern-navbar.css' %}">
-    <script src="{% static 'js/modern-navbar.js' %}"></script>
+    <!--<link rel="stylesheet" href="{% static 'css/modern-navbar.css' %}">
+    <script src="{% static 'js/modern-navbar.js' %}"></script>-->
 </head>
 
 <body>
-    <!-- Preloader con botón -->
+    <!-- Preloader con botón 
     <div class="preloader" id="preloader">
         <div class="loader-container">
             <button id="enterButton" class="btn btn-primary" style="display: none;">Ver Carta</button>
         </div>
-    </div>
+    </div>-->
 
     <!-- <header>
         <nav class="navbar-modern">
@@ -70,7 +76,7 @@
     </nav>
     </header> -->
 
-    <main class="container.mt-4">
+    <main class="main-content">
         {% block content %}
         {% endblock %}
     </main>
