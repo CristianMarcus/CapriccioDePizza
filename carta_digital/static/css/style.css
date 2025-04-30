@@ -13,7 +13,7 @@
     /* Se adapta sin recortarse */
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #2b2d2e;
+    background-color: rgb(22, 22, 22);
     /* Fondo de respaldo */
     z-index: 9999;
     display: flex;
@@ -119,7 +119,8 @@ body {
     font-style: italic; /* Estilo cursiva */
     margin: 0; /* Sin margen */
     padding: 0; /* Sin relleno */
-    background-color: white; /* Fondo oscuro */
+    background: linear-gradient(to right, green, white, red);
+
     color: rgb(12, 12, 12); /* Texto claro */
     -webkit-font-smoothing: antialiased; /* Suavizado de fuentes en Webkit */
     -moz-osx-font-smoothing: grayscale; /* Suavizado de fuentes en macOS */
