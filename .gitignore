@@ -1,9 +1,37 @@
+# Ignorar el entorno virtual
+env/
 venv/
-*.pyc
-__pycache__/
-local_settings.py
+
+# Ignorar archivos de bases de datos locales
 *.sqlite3
+
+# Ignorar archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar archivos de configuración del entorno
+*.env
+.env
+
+# Ignorar archivos de logs y migraciones innecesarias
 *.log
+*.bak
 *.swp
 *.swo
-.DS_Store
+
+# Ignorar archivos de medios subidos por usuarios
+
+
+# Ignorar archivos estáticos generados automáticamente
+
+
+# Ignorar configuraciones de IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignorar dependencias instaladas en el entorno virtual
+pip-log.txt
+pip-delete-this-directory.txt
