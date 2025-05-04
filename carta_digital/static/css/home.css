@@ -10,11 +10,11 @@
    Estilos para el Cartel Principal (Título Animado)
    ========================================================================== */
     #bienvenida{
-        background-color: transparent ;
+        background: linear-gradient(to right, green, white, red); /* Mantenemos tu degradado */
     }
 
     #nueva-tienda-digital{
-        background-color: transparent ;
+        background: linear-gradient(to right, green, white, red); /* Mantenemos tu degradado */
     }
 
    .cartel-container {
