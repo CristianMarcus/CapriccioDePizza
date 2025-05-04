@@ -10,7 +10,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback_secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['tu-dominio.render.com', 'www.tu-dominio.com']  # Agrega los dominios permitidos
+ALLOWED_HOSTS = ['capricciodepizza.onrender.com', 'www.capricciodepizza.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
