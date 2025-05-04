@@ -1,27 +1,70 @@
-/* style.css (Tema Claro) - Diseño Moderno y Profesional para Pizzería */
+/* style.css - Tema Elegante Italiano para Pizzería (Basado en tu código) */
 
 /* ==========================================================================
-   General Styles
+   Variables de Color y Tipografía (Para consistencia y fácil modificación)
+   ========================================================================== */
+   :root {
+    --color-primario: #b8860b; /* Dorado envejecido (Goldenrod) - Elegancia clásica */
+    --color-secundario: #d3ad69; /* Beige arena - Calidez y sutileza */
+    --color-acento: #a52a2a; /* Marrón rojizo (Brown) - Toque terroso y apetitoso */
+    --color-texto-principal: #333; /* Gris oscuro - Legibilidad y seriedad */
+    --color-texto-secundario: #777; /* Gris claro - Suavidad */
+    --color-fondo-claro: #f8f8f2; /* Blanco hueso - Inmaculado y limpio */
+    --color-fondo-oscuro: #2b2d2e; /* Gris carbón - Moderno y sofisticado */
+    --fuente-principal: 'Poppins', sans-serif; /* Moderna y legible */
+    --fuente-titulos: 'Italianno', cursive; /* Elegante y distintiva */
+    --fuente-acento: 'Pacifico', cursive; /* Lúdica y atractiva para elementos destacados */
+    --color-notificacion: #e74c3c; /* Rojo llamativo para notificaciones */
+    --color-boton-principal: #28a745; /* Verde primario para botones importantes */
+    --color-boton-principal-hover: #1e7e34; /* Verde más oscuro al pasar el mouse */
+    --color-enlace: #007bff; /* Azul para enlaces */
+    --color-enlace-hover: #0056b3; /* Azul más oscuro al pasar el mouse */
+    --color-alerta-exito-bg: #d4edda;
+    --color-alerta-exito-border: #c3e6cb;
+    --color-alerta-exito-texto: #155724;
+    --color-alerta-info-bg: #d1ecf1;
+    --color-alerta-info-border: #bee5eb;
+    --color-alerta-info-texto: #0c5460;
+}
+
+/* ==========================================================================
+   Estilos Generales del Body
+   ========================================================================== */
+body {
+    font-family: var(--fuente-principal);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-style: italic; /* Mantenemos la cursiva como en tu diseño */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, green, white, red); /* Mantenemos tu degradado */
+    color: rgb(12, 12, 12); /* Texto claro */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+/* ==========================================================================
+   Preloader - Refinado y con imagen de fondo
    ========================================================================== */
 .preloader {
     position: fixed;
     inset: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("../img/banner-inicio.png");
+    background-image: url("../img/banner-inicio.png"); /* Mantenemos tu imagen */
     background-size: contain;
-    /* Se adapta sin recortarse */
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgb(22, 22, 22);
-    /* Fondo de respaldo */
+    background-color: #252525; /* Gris oscuro; /* Fondo de respaldo oscuro */
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
 
 .loader-container {
     text-align: center;
@@ -37,137 +80,85 @@
 .loader-text {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    color: #a53c0b;
-
+    color: var(--color-acento); /* Usamos el marrón rojizo para un toque italiano */
 }
 
 #enterButton {
     position: fixed;
     bottom: 10rem;
     right: 20px;
-    background-color: #319413;
+    background-color: var(--color-boton-principal); /* Verde principal */
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
-    display: none;  /* Inicialmente oculto */
+    display: none; /* Inicialmente oculto */
     transition: background-color 0.3s ease, transform 0.3s ease;
     z-index: 10000;
     animation: latido-realista 1.8s infinite ease-in-out,
-        pulso 1.8s infinite ease-in-out;
+               pulso 1.8s infinite ease-in-out;
 }
 
-/* Efecto de pulso cuando el mouse pasa por encima */
 #enterButton:hover {
-    background-color: #065503;
+    background-color: var(--color-boton-principal-hover); /* Verde más oscuro */
 }
 
 @keyframes latido-realista {
-    0% {
-        transform: scale(1);
-    }
-    15% {
-        transform: scale(1.15);
-    }
-    30% {
-        transform: scale(1);
-    }
-    45% {
-        transform: scale(1.1);
-    }
-    60% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+    60% { transform: scale(1); }
+    100% { transform: scale(1); }
 }
 
 @keyframes pulso {
-    0% {
-        box-shadow: 0 0 0 0 rgba(13, 211, 7, 0.7);
-    }
-    40% {
-        box-shadow: 0 0 0 15px rgba(13, 211, 7, 0);
-    }
-    80% {
-        box-shadow: 0 0 0 20px rgba(13, 211, 7, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(13, 211, 7, 0);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(13, 211, 7, 0.7); }
+    40% { box-shadow: 0 0 0 15px rgba(13, 211, 7, 0); }
+    80% { box-shadow: 0 0 0 20px rgba(13, 211, 7, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(13, 211, 7, 0); }
 }
 
-/* Animaciones */
 @keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-/* Estilo general para el cuerpo de la página */
-body {
-    font-family: poppins, sans-serif; /* Fuente principal */
-    font-size: 16px; /* Tamaño de fuente base */
-    font-weight: 400; /* Peso normal */
-    line-height: 1.5; /* Altura de línea */
-    font-style: italic; /* Estilo cursiva */
-    margin: 0; /* Sin margen */
-    padding: 0; /* Sin relleno */
-    background: linear-gradient(to right, green, white, red);
-
-    color: rgb(12, 12, 12); /* Texto claro */
-    -webkit-font-smoothing: antialiased; /* Suavizado de fuentes en Webkit */
-    -moz-osx-font-smoothing: grayscale; /* Suavizado de fuentes en macOS */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ==========================================================================
+   Contenedor Principal - Elegante y Centrado
+   ========================================================================== */
 .container {
     max-width: 1200px;
     margin: 30px auto;
-    /* Reduce el margen superior e inferior */
     padding: 30px;
-    /* Reduce el padding general */
-    background-color: #2b2d2e;
+    background-color: var(--color-fondo-oscuro); /* Fondo oscuro y moderno */
     border-radius: 12px;
-    margin: 10px;
-    
+    margin: 10px auto; /* Centrado horizontal */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ==========================================================================
+   Ícono del Carrito
+   ========================================================================== */
 i.bi.bi-cart-fill::before {
     font-size: 1.5rem;
-    /* Tamaño del icono */
-    color: #28a745;
-    /* Verde primario */
+    color: var(--color-boton-principal); /* Verde primario */
     transition: color 0.3s ease;
-
 }
 
-
-
-
+/* ==========================================================================
+   Encabezado - Moderno y con estilo italiano
+   ========================================================================== */
 header {
-    background-color: #2c3e50;
-    /* Azul oscuro moderno */
+    background-color: #2c3e50; /* Azul oscuro moderno */
     color: white;
     padding: 2rem 0;
     text-align: center;
@@ -178,16 +169,13 @@ header h1 {
     margin: 0;
     font-size: 2.5rem;
     font-weight: 700;
-    font-family: 'Italianno', cursive;
+    font-family: var(--fuente-titulos); /* Fuente italiana elegante */
     letter-spacing: -0.02em;
 }
 
-
-
 /* ==========================================================================
-   Cart Icon and Count
+   Ícono y Contador del Carrito en la Navegación
    ========================================================================== */
-
 .cart-icon {
     position: relative;
     cursor: pointer;
@@ -199,8 +187,7 @@ header h1 {
     position: absolute;
     top: -12px;
     right: -12px;
-    background-color: #e74c3c;
-    /* Rojo llamativo para la notificación */
+    background-color: var(--color-notificacion); /* Rojo llamativo */
     color: white;
     border-radius: 50%;
     padding: 0.45rem 0.7rem;
@@ -219,12 +206,15 @@ header h1 {
     animation: pop 0.2s ease;
 }
 
-
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
 
 /* ==========================================================================
-   Product Grid Layout
+   Grid de Productos - Adaptable y Espaciado
    ========================================================================== */
-
 #platos-especiales-container,
 #hamburguesas-container,
 #pizzas-container,
@@ -237,14 +227,11 @@ header h1 {
     margin-top: 25px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    /* Ajuste del minmax para mejor distribución */
     gap: 25px;
-    /* Espacio entre las tarjetas de producto */
 }
 
-/* Ajustes para pantallas medianas y grandes (laptops, desktops) */
+/* Ajustes para pantallas medianas y grandes */
 @media (min-width: 992px) {
-
     #platos-especiales-container,
     #hamburguesas-container,
     #pizzas-container,
@@ -255,15 +242,12 @@ header h1 {
     #combos-container,
     #todos-los-productos {
         grid-template-columns: repeat(3, 1fr);
-        /* Fuerza 3 columnas de igual ancho */
         gap: 30px;
-        /* Aumenta un poco el espacio para 3 columnas */
     }
 }
 
 /* Ajustes para tablets */
 @media (max-width: 991px) and (min-width: 768px) {
-
     #platos-especiales-container,
     #hamburguesas-container,
     #pizzas-container,
@@ -274,14 +258,12 @@ header h1 {
     #combos-container,
     #todos-los-productos {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        /* Dos columnas en tablets */
         gap: 20px;
     }
 }
 
 /* Ajustes para móviles */
 @media (max-width: 767px) {
-
     #platos-especiales-container,
     #hamburguesas-container,
     #pizzas-container,
@@ -292,34 +274,54 @@ header h1 {
     #combos-container,
     #todos-los-productos {
         grid-template-columns: 1fr;
-        /* Una sola columna en móviles */
         gap: 15px;
     }
 }
 
+/* ==========================================================================
+   Título del Modal - Destacado
+   ========================================================================== */
 .modal-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 600;
-    color: #10cf49;
+    color: rgb(2, 49, 102); /* Verde llamativo */
     margin-bottom: 10px;
-    /* Menos margen inferior */
-}
-.form-group {
-    color: #4e4d4d;
+    text-align: center;
+    
+    font-family: var(--fuente-principal);
+    font-style: normal; /* Cambiamos a normal para el título */
+    text-transform: uppercase; /* Mayúsculas para un toque elegante */
+    letter-spacing: 0.05em; /* Espaciado entre letras */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil para destacar */
+    animation: fadeIn 0.5s ease-in-out; /* Animación de entrada suave */
+
 }
 
 
 
 /* ==========================================================================
-   Footer
+   Estilos de Formulario - Legibles
    ========================================================================== */
+.form-group {
+    color: var(--color-texto-principal);
+}
 
+.form-label {
+    color: var(--color-texto-principal);
+    transition: color 0.3s ease;
+}
 
+.form-check-label {
+    color: var(--color-texto-secundario);
+    transition: color 0.3s ease;
+}
 
+/* ==========================================================================
+   Footer - Moderno y con superposición oscura
+   ========================================================================== */
 footer {
     position: relative;
-    background-color: #2c3e50;
-    /* Azul oscuro moderno */
+    background-color: #2c3e50; /* Azul oscuro moderno */
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -333,20 +335,20 @@ footer {
 .footer-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    /* Oscurece para contraste */
+    background: rgba(0, 0, 0, 0.6); /* Oscurece para contraste */
     z-index: 1;
 }
 
 .footer-content {
     position: relative;
-    padding: 5px;
+    padding: 20px; /* Aumentamos el padding para más espacio */
     z-index: 2;
     text-align: center;
     color: white;
     margin-top: 20px;
     animation: fadeInUp 1s ease-in-out;
-    background-color: #1d1e1f;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente para mejor legibilidad */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en la parte superior */
 }
 
 .footer-text {
@@ -357,14 +359,13 @@ footer {
 
 .footer-icons a {
     color: white;
-    margin: 0 10px;
+    margin: 0 15px;
     font-size: 1.5rem;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .footer-icons a:hover {
-    color: #ffc107;
-    /* Amarillo suave */
+    color: #ffc107; /* Amarillo suave */
     transform: scale(1.2);
 }
 
@@ -386,22 +387,32 @@ footer {
     transform: scale(1.05);
 }
 
-/* --- MODAL PERSONALIZADO PARA SERVICIOS FREELANCE --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Modal de Contacto - Estilizado y con scroll
+   ========================================================================== */
 #contactoModal .modal-content {
-    background: #fdfdfd;
+    background-color: #646262;
     border-radius: 16px;
     border: 1px solid #dcdcdc;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     padding: 1rem;
     animation: fadeInModal 0.4s ease-in-out;
+    overflow-y: auto; /* Permite el scroll si es necesario */
+    height: 100vh; /* Altura máxima del modal */
+    
 }
 
 #contactoModal .modal-header {
-    background-color: #0d6efd;
+    background-color: var(--color-enlace); /* Azul para el encabezado */
     color: white;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    border-radius: 16px;
     padding: 1rem 1.5rem;
+    text-align: center;
     border-bottom: none;
 }
 
@@ -411,21 +422,21 @@ footer {
 }
 
 #contactoModal .btn-close {
-    filter: invert(1);
+    filter: invert(1); /* Icono de cierre blanco */
 }
 
 #contactoModal .modal-body {
     padding: 1.5rem;
-    background-color: #ffffff;
-    max-height: 70vh; /* Altura máxima: 70% de la altura de la ventana */
-    overflow-y: auto;  /* Permite el scroll vertical */
-    padding-right: 15px; /* Espacio para evitar que el contenido quede detrás del scrollbar */
-    scroll-behavior: smooth; /* Scroll suave */
+    background-color: #646262;
+    max-height: 60vh; /* Altura máxima con scroll */
+    overflow-y: auto;
+    padding-right: 15px;
+    scroll-behavior: smooth;
 }
 
 #contactoModal label {
     font-weight: 500;
-    color: #333;
+    color: var(--color-texto-principal);
 }
 
 #contactoModal input[type="text"],
@@ -437,13 +448,14 @@ footer {
     border: 1px solid #ccc;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s;
     font-size: 0.95rem;
+    padding: 0.7rem; /* Añadimos algo de padding */
 }
 
 #contactoModal input:focus,
 #contactoModal textarea:focus,
 #contactoModal select:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+    border-color: var(--color-enlace);
+    box-shadow: 0 0 0 0.15rem rgba(var(--color-enlace-rgb), 0.25);
     outline: none;
 }
 
@@ -453,202 +465,190 @@ footer {
 
 #contactoModal .form-text {
     font-size: 0.85rem;
-    color: #6c757d;
+    color: var(--color-texto-secundario);
 }
 
 #contactoModal button[type="submit"] {
-    background-color: #0d6efd;
+    background-color: var(--color-enlace);
     border: none;
     border-radius: 10px;
-    padding: 0.75rem;
+    padding: 0.75rem 1.5rem; /* Ajustamos el padding del botón */
     font-weight: 600;
     font-size: 1rem;
     transition: background-color 0.3s ease-in-out;
 }
 
 #contactoModal button[type="submit"]:hover {
-    background-color: #0b5ed7;
+    background-color: var(--color-enlace-hover);
 }
+
+/* Estilos para mover el modal de finalizar pedido más arriba */
+.modal#pedidoModal .modal-dialog {
+    
+    margin-top: 50px; /* Ajusta este valor para controlar la distancia desde la parte superior */
+    border-radius: 16px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Para pantallas más pequeñas, puedes ajustar el margen si es necesario */
+@media (max-width: 768px) {
+    .modal#pedidoModal .modal-dialog {
+        margin-top: 30px; /* Un poco menos margen en móviles */
+    }
+}
+#pedidoModal {
+    height: 100vh; 
+
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInModal 0.4s ease-in-out;
+    overflow-y: auto; /* Permite el scroll si es necesario */
+    padding: 1rem; /* Añadimos algo de padding */
+}
+
 
 #FormDesarrollo {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    color: #dc3545;
-
+    color: var(--color-acento);
+    text-align: center; /* Centramos el texto */
 }
 
-#pFormDesarrollo{
+#pFormDesarrollo {
     color: rgb(248, 162, 162);
+    text-align: center; /* Centramos el texto */
 }
 
-/* Animación de entrada */
 @keyframes fadeInModal {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-
-
-/* Animación */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-
-
-
+/* ==========================================================================
+   Animación de Salida (Si es necesario)
+   ========================================================================== */
 @keyframes slideOutLeft {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
+    0% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(-100%); }
 }
 
 .slide-out {
     animation: slideOutLeft 0.3s forwards;
-    /* Más rápido */
 }
 
 /* ==========================================================================
-   Form Elements
+   Elementos de Formulario (General)
    ========================================================================== */
-
 .form-label {
-    color: #333;
+    color: var(--color-texto-principal);
     transition: color 0.3s ease;
 }
 
 .form-check-label {
-    color: #555;
+    color: var(--color-texto-secundario);
     transition: color 0.3s ease;
 }
 
 /* ==========================================================================
-   Alerts
+   Alertas (Éxito e Información)
    ========================================================================== */
-
 .alert-success {
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-    color: #155724;
+    background-color: var(--color-alerta-exito-bg);
+    border-color: var(--color-alerta-exito-border);
+    color: var(--color-alerta-exito-texto);
+    border-radius: 8px; /* Añadimos un poco de redondeo */
+    padding: 1rem; /* Aumentamos el padding */
+    margin-bottom: 1rem; /* Añadimos margen inferior */
 }
 
 .alert-info {
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
-    color: #0c5460;
+    background-color: var(--color-alerta-info-bg);
+    border-color: var(--color-alerta-info-border);
+    color: var(--color-alerta-info-texto);
+    border-radius: 8px; /* Añadimos un poco de redondeo */
+    padding: 1rem; /* Aumentamos el padding */
+    margin-bottom: 1rem; /* Añadimos margen inferior */
 }
 
 /* ==========================================================================
-   Buttons
+   Botones (Éxito y Cierre)
    ========================================================================== */
-
 .btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: var(--color-boton-principal);
+    border-color: var(--color-boton-principal);
     color: #fff;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    border-radius: 8px; /* Añadimos un poco de redondeo */
+    padding: 0.75rem 1.5rem; /* Ajustamos el padding */
+    font-weight: 500; /* Un peso de fuente ligeramente más ligero */
 }
 
 .btn-success:hover {
-    background-color: #1e7e34;
-    border-color: #1c7430;
+    background-color: var(--color-boton-principal-hover);
+    border-color: var(--color-boton-principal-hover);
 }
 
 .btn-close {
     background-color: transparent;
     border: 0;
-    opacity: .5;
+    opacity: .7; /* Ligeramente más opaco por defecto */
     transition: opacity .15s ease-in-out;
 }
 
 .btn-close:hover {
-    opacity: .75;
+    opacity: .9; /* Más opaco al pasar el mouse */
 }
 
 /* ==========================================================================
-   Search Bar
+   Barra de Búsqueda - Moderna y sutil
    ========================================================================== */
-
 #buscador-productos {
-    padding: 0.6rem 1rem;
-    /* Reduce padding */
+    padding: 0.7rem 1.2rem; /* Ajustamos el padding */
     border: 1px solid #ced4da;
     border-radius: 8px;
-    /* Más redondeado */
     margin-bottom: 15px;
-    /* Menos margen inferior */
     width: 100%;
     box-sizing: border-box;
-    font-size: 0.9rem;
-    /* Más pequeño */
+    font-size: 1rem; /* Tamaño de fuente estándar */
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    color: #333;
+    color: var(--color-texto-principal);
     background-color: #fff;
 }
 
 #buscador-productos:focus {
-    border-color: #007bff;
+    border-color: var(--color-enlace);
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-enlace-rgb), 0.25);
 }
 
-
-
 /* ==========================================================================
-   Dynamic Search Results
+   Resultados de Búsqueda Dinámicos - Limpios
    ========================================================================== */
-
 #resultados-busqueda {
     margin-top: 5px;
-    padding: 8px;
-    /* Reduce padding */
+    padding: 10px; /* Aumentamos el padding */
     background-color: #f8f9fa;
     border: 1px solid #e1e7ed;
     border-radius: 8px;
     display: none;
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    color: #333;
-    font-size: 0.9rem;
-    /* Más pequeño */
+    color: var(--color-texto-principal);
+    font-size: 0.95rem; /* Tamaño de fuente ligeramente menor */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil */
 }
 
 #resultados-busqueda p {
-    margin-bottom: 3px;
-    /* Menos margen inferior */
+    margin-bottom: 5px;
 }
 
 /* ==========================================================================
-   Product Scroll (If Applicable)
+   Scroll de Productos (Si Aplica) - Sutil
    ========================================================================== */
-
 .producto-scroll {
     border: 1px solid #e1e7ed;
     border-radius: 6px;
     margin-bottom: 8px;
-    /* Menos margen inferior */
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     background-color: #fff;
@@ -656,26 +656,20 @@ footer {
 }
 
 .producto-scroll .card-body {
-    padding: 0.4rem;
-    /* Reduce padding */
+    padding: 0.6rem; /* Aumentamos ligeramente el padding */
 }
 
 .producto-scroll .card-title {
-    font-size: 0.9rem;
-    /* Más pequeño */
+    font-size: 1rem; /* Tamaño de fuente estándar */
     font-weight: 600;
-    color: #333;
-    margin-bottom: 0.2rem;
-    /* Menos margen inferior */
-    transition: color 0.3s ease;
+    color: var(--color-texto-principal);
+    margin-bottom: 0.3rem;
 }
 
 .producto-scroll img {
-    max-width: 60px;
-    /* Más pequeño */
+    max-width: 70px; /* Aumentamos ligeramente el tamaño */
     height: auto;
-    margin-right: 8px;
-    /* Menos margen derecho */
+    margin-right: 10px; /* Aumentamos ligeramente el margen */
     vertical-align: middle;
     border-radius: 4px;
     border: 1px solid #e1e7ed;
@@ -685,22 +679,21 @@ footer {
 .producto-scroll>div {
     display: flex;
     align-items: center;
-    padding: 0.4rem;
-    /* Reduce padding */
+    padding: 0.6rem; /* Aumentamos ligeramente el padding */
 }
 
-/* Cambiar el color de la flecha */
+/* ==========================================================================
+   Estilo de la Flecha del Acordeón
+   ========================================================================== */
 .accordion-button::after {
-    color: #28a745;
-    /* Aquí pones el color que desees para la flecha */
+    color: var(--color-boton-principal); /* Verde primario */
     transition: color 0.3s ease;
 }
 
-/* Cambiar el color de la flecha cuando el acordeón está expandido */
 .accordion-button:not(.collapsed)::after {
-    color: #dc3545;
-    /* Cambiar a otro color cuando el acordeón está expandido */
+    color: var(--color-notificacion); /* Rojo para indicar abierto */
 }
 
-
-
+#totalPedidoModal{
+    color: var(--color-primario);
+}

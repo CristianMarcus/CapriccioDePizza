@@ -36,12 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-
-    // Elementos para cambio de tema
-    // const themeToggleCheckbox = document.getElementById('theme-toggle');
-    // const themeToggleIcon = document.getElementById('theme-toggle-icon');
-    // const lightStyle = document.getElementById('light-style');
-    // const darkStyle = document.getElementById('dark-style');
+    
 
     // ============================
     // FUNCIONES DE UI Y CARRITO
@@ -122,39 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ===============================
-    // MANEJO DEL TEMA CLARO/OSCURO
-    // ===============================
-
-    // Aplica el tema guardado en localStorage
-    // if (localStorage.getItem('darkMode') === 'true') {
-    //   darkStyle.disabled = false;
-    // themeToggleCheckbox.checked = true;
-    //   document.body.classList.add('dark-mode');
-    //   themeToggleIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
-    // }
-
-    // Actualiza el icono del botón de tema
-    // function updateThemeIcon() {
-    //     if (themeToggleCheckbox.checked) {
-    //         themeToggleIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
-    //     } else {
-    //        themeToggleIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
-    //     }
-    // }
-
-    // Cambia el tema al hacer clic en el toggle
-    // if (themeToggleCheckbox) {
-    //    themeToggleCheckbox.addEventListener('change', () => {
-    //        const dark = themeToggleCheckbox.checked;
-    //        darkStyle.disabled = !dark;
-    //        lightStyle.disabled = dark;
-    //       document.body.classList.toggle('dark-mode', dark);
-    //       localStorage.setItem('darkMode', dark);
-    //      updateThemeIcon();
-    //   });
-    // }
-
+   
     // ===============================
     // INICIALIZA CARRITO EN PANTALLA
     // ===============================
@@ -434,7 +397,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
+    
 
 
 
