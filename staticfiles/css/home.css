@@ -1,0 +1,537 @@
+/* home.css - Estilos Específicos para la Página de Inicio - Tema Elegante Italiano */
+
+/* ==========================================================================
+   Importación de Fuentes (Si no se incluyeron en el style.css)
+   ========================================================================== */
+/* @import url('https://fonts.googleapis.com/css2?family=Italianno&family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap'); */
+/* Si ya importaste las fuentes en style.css, puedes comentar esta línea */
+
+/* ==========================================================================
+   Estilos para el Cartel Principal (Título Animado)
+   ========================================================================== */
+    #bienvenida{
+        background: linear-gradient(to right, green, white, red); /* Mantenemos tu degradado */
+    }
+
+    #nueva-tienda-digital{
+        background: linear-gradient(to right, green, white, red); /* Mantenemos tu degradado */
+    }
+
+   .cartel-container {
+    position: relative;
+    margin-bottom: 2rem; /* Mayor espacio inferior para respiración */
+    margin-top: 1rem;
+    text-align: center; /* Centrar el texto del cartel */
+    
+}
+
+.cartel-svg {
+    width: 100%;
+    height: auto; /* Ajustar altura automáticamente */
+    max-height: 180px; /* Altura máxima para controlar el tamaño */
+    display: block; /* Evitar espacio extra debajo del SVG */
+    margin: 0 auto; /* Centrar el SVG */
+    
+}
+
+.cartel-text {
+    font-size: 4rem; /* Tamaño de fuente más impactante */
+    fill: var(--color-primario); /* Dorado elegante (definido en style.css) */
+    font-family: var(--fuente-acento); /* Fuente cursiva atractiva (definida en style.css) */
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.3), /* Sombra sutil para destacar */
+        4px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra adicional para profundidad */
+    animation: parpadeo 3s infinite ease-in-out; /* Parpadeo más suave */
+    
+}
+
+/* Animación de parpadeo irregular */
+@keyframes parpadeo {
+    0% { opacity: 1; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 8px rgba(0, 0, 0, 0.2); }
+    10% { opacity: 0.8; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1); }
+    15% { opacity: 0.5; text-shadow: none; }
+    20% { opacity: 1; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 8px rgba(0, 0, 0, 0.2); }
+    25% { opacity: 0.7; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1); }
+    30% { opacity: 1; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 8px rgba(0, 0, 0, 0.2); }
+    70% { opacity: 0.9; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1); }
+    80% { opacity: 0.3; text-shadow: none; }
+    85% { opacity: 0.6; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 2px 2px 4px rgba(0, 0, 0, 0.1); }
+    90% { opacity: 1; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 8px rgba(0, 0, 0, 0.2); }
+    100% { opacity: 1; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 8px rgba(0, 0, 0, 0.2); }
+}
+
+/* ==========================================================================
+   Estilos para la Alerta Principal
+   ========================================================================== */
+.alert-primary {
+    background: linear-gradient(135deg, #fff8f0, #fce3d8); /* Un tono cálido y suave */
+    border: none;
+    border-radius: 8px; /* Bordes más suaves */
+    padding: 1rem 1.5rem; /* Mayor espacio interno */
+    margin-bottom: 2rem; /* Más espacio debajo de la alerta */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    animation: fadeIn 1.2s ease-in-out; /* Animación de entrada suave */
+    color: var(--color-texto-principal); /* Texto principal oscuro */
+    font-weight: 500; /* Ligeramente más grueso */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Estilos para el Título Principal de la Home
+   ========================================================================== */
+.capricciotitulo {
+    font-size: 5rem; /* Tamaño más grande y elegante */
+    color: var(--color-acento); /* Marrón rojizo intenso (definido en style.css) */
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: var(--fuente-titulos); /* Fuente italiana elegante (definida en style.css) */
+    letter-spacing: 0.08em; /* Mayor espaciado para sofisticación */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#nuestraCarta {
+    font-size: 2.5rem; /* Tamaño más grande y elegante */
+    color: var(--color-texto-principal); /* Gris oscuro (definido en style.css) */
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: var(--fuente-titulos); /* Fuente italiana elegante (definida en style.css) */
+    letter-spacing: 0.05em; /* Espaciado ligero para claridad */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* ==========================================================================
+   Estilos para el Subtítulo Principal (Lead Text)
+   ========================================================================== */
+.lead {
+    text-align: center;
+    color: var(--color-texto-secundario); /* Gris claro (definido en style.css) */
+    font-size: 1.15rem; /* Ligeramente más grande */
+    margin-bottom: 35px; /* Mayor espacio inferior */
+    line-height: 1.7; /* Mejor espaciado entre líneas */
+    font-weight: 400; /* Peso normal */
+}
+
+/* ==========================================================================
+   Estilos Específicos del Acordeón en la Home
+   ========================================================================== */
+#accordionCarta {
+    width: 75%; /* Ancho centrado y elegante */
+    margin: 0 auto 3rem auto; /* Centrar y añadir margen inferior */
+    border-radius: 12px; /* Bordes más redondeados */
+    background-color: transparent;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+.accordion-item {
+    color: var(--color-texto-principal); /* Gris oscuro (definido en style.css) */
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borde muy sutil */
+    border-radius: 10px; /* Bordes más redondeados */
+    overflow: hidden;
+    background-color: var(--color-fondo-claro); /* Blanco hueso (definido en style.css) */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Sombra suave para cada item */
+}
+
+.accordion-header {
+    margin-bottom: 0;
+}
+
+.accordion-button {
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-principal);
+    font-weight: 600;
+    font-size: 1.05rem; /* Ligeramente más grande */
+    padding: 1.2rem 1.8rem; /* Mayor espacio interno */
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    border-radius: 10px; /* Bordes redondeados para los botones */
+}
+
+.accordion-button:hover {
+    background-color: lighten(var(--color-primario), 45%); /* Tono dorado más claro al pasar el mouse */
+    color: var(--color-primario);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-primario-rgb), 0.25); /* Resaltado dorado al enfocar */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--color-primario);
+    color: white;
+    box-shadow: inset 0 -1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button::after {
+    filter: grayscale(100%) brightness(40%); /* Oscurecer el icono para mejor contraste */
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(200%) saturate(100%); /* Aclarar el icono cuando está abierto */
+}
+
+.accordion-body {
+    padding: 1.5rem; /* Mayor espacio interno */
+    background-color: var(--color-fondo-claro);
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* Separador sutil */
+}
+
+.accordion-body .row {
+    display: grid; /* Usar grid para mejor control del diseño */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño adaptable */
+    gap: 20px; /* Espacio entre las tarjetas de producto */
+    margin-top: 1rem;
+}
+
+/* ==========================================================================
+   Estilos para el Input de Búsqueda
+   ========================================================================== */
+/* Aumenta espacio inferior en la fila que contiene el buscador */
+.row.justify-content-center.mb-4 {
+    margin-bottom: 3rem !important; /* Ligero aumento para mejor respiro visual */
+}
+
+/* Contenedor del input de búsqueda */
+.input-group {
+    border-radius: 12px; /* Bordes aún más suaves para aspecto moderno */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra más suave y visible */
+    border: 1px solid #dee2e6; /* Color de borde más sutil y moderno */
+    background-color: #fff; /* Fondo claro asegurado */
+    transition: box-shadow 0.3s ease; /* Suaviza cambios al enfocar */
+}
+
+/* Ícono o texto dentro del input (lado izquierdo) */
+.input-group-text {
+    background-color: var(--color-fondo-claro, #f8f9fa); /* Fallback por si la variable no existe */
+    border: none;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    color: var(--color-texto-secundario, #6c757d); /* Gris Bootstrap si la variable falla */
+    font-size: 1rem;
+}
+
+/* Estilo del input de búsqueda */
+.input-group .form-control {
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1.05rem;
+    color: var(--color-texto-principal, #212529);
+    background-color: transparent;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Al enfocar el input */
+.input-group .form-control:focus {
+    border-color: transparent;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-primario-rgb, 13,110,253), 0.25);
+    background-color: transparent;
+}
+
+/* Opcional: cambio de sombra del grupo cuando el input está enfocado */
+.input-group:focus-within {
+    box-shadow: 0 4px 16px rgba(var(--color-primario-rgb, 13,110,253), 0.25);
+}
+
+
+/* ==========================================================================
+   Estilos para los Resultados de Búsqueda
+   ========================================================================== */
+#resultados-busqueda {
+    margin-top: 10px;
+    padding: 1rem; /* Mayor espacio interno */
+    background-color: var(--color-fondo-claro);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 10px; /* Bordes más redondeados */
+    display: none;
+    color: var(--color-texto-secundario);
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+#resultados-busqueda p {
+    margin-bottom: 0.7rem;
+}
+
+#resultados-busqueda p:last-child {
+    margin-bottom: 0;
+}
+
+#resultados-busqueda strong {
+    color: var(--color-texto-principal);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Media Queries para el Acordeón (Responsive)
+   ========================================================================== */
+@media (max-width: 768px) {
+    #accordionCarta {
+        width: 95%; /* Ancho más amplio en pantallas pequeñas */
+    }
+
+    .accordion-button {
+        font-size: 0.95rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .accordion-body {
+        padding: 1rem;
+    }
+
+    .accordion-body .row {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* ==========================================================================
+   Estilos para el Contenedor del Grid de Productos
+   ========================================================================== */
+#platos-especiales-container,
+#hamburguesas-container,
+#pizzas-container,
+#empanadas-container,
+#tartas-container,
+#churrasquitos-container,
+#promos-container,
+#combos-container,
+#todos-los-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Ajustes para pantallas medianas y grandes (laptops, desktops) */
+@media (min-width: 992px) {
+    #platos-especiales-container,
+    #hamburguesas-container,
+    #pizzas-container,
+    #empanadas-container,
+    #tartas-container,
+    #churrasquitos-container,
+    #promos-container,
+    #combos-container,
+    #todos-los-productos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (max-width: 991px) and (min-width: 768px) {
+    #platos-especiales-container,
+    #hamburguesas-container,
+    #pizzas-container,
+    #empanadas-container,
+    #tartas-container,
+    #churrasquitos-container,
+    #promos-container,
+    #combos-container,
+    #todos-los-productos {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* ==========================================================================
+   Estilos para la Tarjeta de Producto (producto_card.html - Asumiendo estructura)
+   ========================================================================== */
+.producto-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+}
+
+.producto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.producto-item .card-img-top {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.producto-item .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    flex-grow: 1;
+}
+
+.producto-item .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    letter-spacing: -0.01em;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.producto-item .card-text {
+    font-size: 0.95rem;
+    color: var(--color-texto-secundario);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.producto-item .precio-container {
+    margin-top: auto;
+    margin-bottom: 0.5rem;
+}
+
+.producto-item .precio-container .card-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-acento);
+    margin-bottom: 0;
+}
+
+.agregar-carrito {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    margin-top: 1.2rem;
+}
+
+.agregar-carrito:hover {
+    filter: brightness(90%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.agregar-carrito:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-primario-rgb), 0.5);
+}
+
+
+/* ==========================================================================
+   MEDIA QUERIES - ADAPTACIÓN RESPONSIVA
+   ========================================================================== */
+
+/* Pantallas pequeñas: celulares (hasta 576px) */
+@media (max-width: 576px) {
+    .cartel-text {
+      font-size: 2.5rem;
+    }
+  
+    .cartel-svg {
+      max-height: 100px;
+    }
+  
+    .capricciotitulo {
+      font-size: 2.8rem;
+      padding: 0 1rem;
+    }
+  
+    #nuestraCarta {
+      font-size: 1.6rem;
+      padding: 0 1rem;
+    }
+  
+    .lead {
+      font-size: 1rem;
+      padding: 0 1rem;
+      margin-bottom: 20px;
+    }
+  
+    #accordionCarta {
+      width: 100%;
+      padding: 0 0.5rem;
+    }
+  
+    .accordion-button {
+      font-size: 1rem;
+      padding: 1rem 1.2rem;
+    }
+  
+    .accordion-body {
+      padding: 1rem;
+    }
+  
+    .accordion-body .row {
+      grid-template-columns: 1fr; /* Mostrar una sola columna */
+    }
+  }
+  
+  /* Pantallas medianas: tablets (576px a 768px) */
+  @media (min-width: 577px) and (max-width: 768px) {
+    .cartel-text {
+      font-size: 3.2rem;
+    }
+  
+    .capricciotitulo {
+      font-size: 3.5rem;
+    }
+  
+    #nuestraCarta {
+      font-size: 2rem;
+    }
+  
+    .lead {
+      font-size: 1.1rem;
+    }
+  
+    #accordionCarta {
+      width: 90%;
+    }
+  
+    .accordion-body .row {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+  }
+  
+  /* Pantallas medianas a grandes: laptops (769px a 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .cartel-text {
+      font-size: 3.8rem;
+    }
+  
+    .capricciotitulo {
+      font-size: 4.5rem;
+    }
+  
+    #nuestraCarta {
+      font-size: 2.3rem;
+    }
+  
+    #accordionCarta {
+      width: 85%;
+    }
+  
+    .accordion-body .row {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+  }
+  
