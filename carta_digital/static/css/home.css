@@ -17,6 +17,11 @@
         background: linear-gradient(to right, green, white, red); /* Mantenemos tu degradado */
     }
 
+    #bienvenida, #nueva-tienda-digital {
+        box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+
    .cartel-container {
     position: relative;
     margin-bottom: 2rem; /* Mayor espacio inferior para respiración */
@@ -41,7 +46,7 @@
     text-shadow:
         2px 2px 4px rgba(0, 0, 0, 0.3), /* Sombra sutil para destacar */
         4px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra adicional para profundidad */
-    animation: parpadeo 3s infinite ease-in-out; /* Parpadeo más suave */
+        animation: parpadeo 2s infinite ease-in-out;
     
 }
 
@@ -69,7 +74,7 @@
     border-radius: 8px; /* Bordes más suaves */
     padding: 1rem 1.5rem; /* Mayor espacio interno */
     margin-bottom: 2rem; /* Más espacio debajo de la alerta */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    box-shadow: 0 2px 8px rgba(255, 100, 50, 0.05);
     animation: fadeIn 1.2s ease-in-out; /* Animación de entrada suave */
     color: var(--color-texto-principal); /* Texto principal oscuro */
     font-weight: 500; /* Ligeramente más grueso */
@@ -84,7 +89,8 @@
    Estilos para el Título Principal de la Home
    ========================================================================== */
 .capricciotitulo {
-    font-size: 5rem; /* Tamaño más grande y elegante */
+    font-size: clamp(2.5rem, 5vw, 5rem); /* Tamaño adaptable y elegante */
+    font-weight: 700; /* Negrita para destacar */
     color: var(--color-acento); /* Marrón rojizo intenso (definido en style.css) */
     text-align: center;
     margin-bottom: 25px;
@@ -155,7 +161,7 @@
 }
 
 .accordion-button:hover {
-    background-color: lighten(var(--color-primario), 45%); /* Tono dorado más claro al pasar el mouse */
+    background-color: var(--color-primario-claro);
     color: var(--color-primario);
 }
 
@@ -184,9 +190,9 @@
 }
 
 .accordion-body .row {
-    display: grid; /* Usar grid para mejor control del diseño */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Diseño adaptable */
-    gap: 20px; /* Espacio entre las tarjetas de producto */
+    display: flex; /* Usar grid para mejor control del diseño */
+    flex-wrap: wrap;
+    gap: 1rem; /* Espacio entre las tarjetas de producto */
     margin-top: 1rem;
 }
 
@@ -351,7 +357,7 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -443,7 +449,7 @@
 /* Pantallas pequeñas: celulares (hasta 576px) */
 @media (max-width: 576px) {
     .cartel-text {
-      font-size: 2.5rem;
+      font-size: 4rem;
     }
   
     .cartel-svg {
@@ -451,12 +457,12 @@
     }
   
     .capricciotitulo {
-      font-size: 2.8rem;
+      font-size: 3rem;
       padding: 0 1rem;
     }
   
     #nuestraCarta {
-      font-size: 1.6rem;
+      font-size: 2rem;
       padding: 0 1rem;
     }
   
@@ -488,7 +494,7 @@
   /* Pantallas medianas: tablets (576px a 768px) */
   @media (min-width: 577px) and (max-width: 768px) {
     .cartel-text {
-      font-size: 3.2rem;
+      font-size: 4rem;
     }
   
     .capricciotitulo {

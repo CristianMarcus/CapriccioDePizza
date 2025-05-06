@@ -123,6 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // ===============================
     renderizarCarrito();
 
+
+
     // ===============================
     // AGREGAR PRODUCTO AL CARRITO
     // ===============================
@@ -349,6 +351,54 @@ document.addEventListener("DOMContentLoaded", function () {
         const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         tooltipTriggerList.map(t => new bootstrap.Tooltip(t));
     });
+
+   // ===============================
+    // MOSTRAR/OCULTAR CARRITO EN MÓVILES (REVISADO)
+    // ===============================
+
+    const carritoIcono = document.querySelector('.floating-cart-icon');
+    const carritoDropdown = document.querySelector('.cart-dropdown');
+    const esMovil = window.matchMedia('(max-width: 991.98px)');
+    let carritoVisible = false;
+
+    function mostrarCarrito() {
+        if (carritoDropdown) {
+            carritoDropdown.classList.add('mostrar');
+            carritoVisible = true;
+        }
+    }
+
+    function ocultarCarrito() {
+        if (carritoDropdown) {
+            carritoDropdown.classList.remove('mostrar');
+            carritoVisible = false;
+        }
+    }
+
+    if (carritoIcono && carritoDropdown) {
+        carritoIcono.addEventListener('click', function (event) {
+            if (esMovil.matches) {
+                event.preventDefault(); // Prevenir el comportamiento predeterminado del clic en móviles
+                if (carritoVisible) {
+                    ocultarCarrito();
+                } else {
+                    mostrarCarrito();
+                }
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            if (esMovil.matches && carritoVisible && !carritoDropdown.contains(event.target) && event.target !== carritoIcono) {
+                ocultarCarrito();
+            }
+        });
+
+        carritoDropdown.addEventListener('click', function (event) {
+            if (esMovil.matches) {
+                event.stopPropagation(); // Detener la propagación dentro del dropdown en móviles
+            }
+        });
+    }
 
 
     // Script para mostrar/ocultar el campo de detalles si selecciona "Otro"

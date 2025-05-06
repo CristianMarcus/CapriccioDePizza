@@ -8,9 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['capricciodepizza.onrender.com', 'www.capricciodepizza.onrender.com']
+
+
+ALLOWED_HOSTS = ['capricciodepizza.onrender.com', 'www.capricciodepizza.onrender.com', '127.0.0.1', ]
 
 # Application definition
 INSTALLED_APPS = [
@@ -94,6 +96,10 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
+
+
+    
 # Security settings
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True

@@ -140,6 +140,10 @@
     background: transparent;
 }
 
+
+
+
+
 /* Ítems del carrito - ¡Claridad! */
 .cart-item-details {
     display: flex;
@@ -403,3 +407,96 @@
     }
   }
   
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #555;
+  }
+  
+  .cart-item .item-cantidad {
+    background-color: #212121;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    min-width: 30px;
+    text-align: center;
+  }
+
+  .cantidad-btn {
+    position: relative;
+    display: inline;
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+    padding: 4px 8px;
+    margin: 0 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.cart-item-qty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #f2f7f1; /* Color del texto */
+}
+
+/* style.css */
+.quantity-controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-left: 2px;
+}
+
+.btn.btn-sm.btn-outline-secondary.disminuir-cantidad {
+  /* Aquí puedes añadir o modificar propiedades CSS */
+  color: #f8f2f2; /* Cambia el color del texto a rojo */
+  border-color: #ff0000; /* Cambia el color del borde a rojo */
+  background-color: #dd3333; /* Cambia el color de fondo a gris claro */
+  font-size: 0.8rem; /* Ajusta el tamaño de la fuente */
+  padding: 0.2rem 0.5rem; /* Ajusta el espaciado interno */
+  /* ... otras propiedades que desees modificar ... */
+  
+}
+
+.btn.btn-sm.btn-outline-secondary.disminuir-cantidad:hover {
+  /* Estilos para cuando el cursor está sobre el botón */
+  color: #ffffff; /* Cambia el color del texto al pasar el mouse */
+  border-color: #ff0000; /* Mantiene el color del borde */
+  background-color: #ff0000; /* Cambia el fondo al pasar el mouse */
+  cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+ 
+}
+
+.btn.btn-sm.btn-outline-secondary.aumentar-cantidad {
+    color: #f8fdf8; /* Cambia el color del texto a verde */
+    border-color: #00ff00; /* Cambia el color del borde a verde */
+    background-color: #2ccf03; /* Cambia el color de fondo a gris claro */
+    font-size: 0.8rem; /* Ajusta el tamaño de la fuente */
+    padding: 0.2rem 0.5rem; /* Ajusta el espaciado interno */
+    
+}
+
+.btn.btn-sm.btn-outline-secondary.aumentar-cantidad:hover {
+    color: #ffffff; /* Cambia el color del texto al pasar el mouse */
+    border-color: #00ff00; /* Mantiene el color del borde */
+    background-color: #068f06; /* Cambia el fondo al pasar el mouse */
+    cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    
+}
+
+.cantidad-btn:hover {
+    background-color: #e0a800;
+    transform: scale(1.1);
+}
