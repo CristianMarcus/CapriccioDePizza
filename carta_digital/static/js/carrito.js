@@ -41,24 +41,26 @@ document.addEventListener("DOMContentLoaded", function () {
     // ============================
     // FUNCIONES DE UI Y CARRITO
     // ============================
-    document.addEventListener("DOMContentLoaded", function () {
+    
         const carritoIcono = document.getElementById("carrito-icono");
         const carritoDropdown = document.querySelector(".cart-dropdown");
         let carritoAbierto = false;
+    
+        function esPantallaPequena() {
+            return window.matchMedia("(max-width: 768px)").matches;
+        }
     
         function alternarCarrito() {
             carritoAbierto = !carritoAbierto;
             carritoDropdown.classList.toggle("show", carritoAbierto);
         }
     
-        // Manejo de clic en el ícono del carrito
         carritoIcono.addEventListener("click", function (event) {
             event.preventDefault();
             event.stopPropagation();
             alternarCarrito();
         });
     
-        // Asegurar que el carrito no se cierre inmediatamente en móviles
         carritoIcono.addEventListener("touchend", function (event) {
             event.preventDefault();
             event.stopPropagation();
@@ -67,30 +69,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     
-        // Cierra el carrito si se toca fuera de él
         document.addEventListener("click", function (event) {
             if (carritoAbierto && !carritoDropdown.contains(event.target) && event.target !== carritoIcono) {
                 carritoAbierto = false;
                 carritoDropdown.classList.remove("show");
             }
         });
-    });
-    function esPantallaPequena() {
-        return window.matchMedia("(max-width: 768px)").matches;
-    }
     
-    document.getElementById("carrito-icono").addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
     
-        const carritoDropdown = document.querySelector(".cart-dropdown");
-    
-        if (esPantallaPequena()) {
-            carritoDropdown.classList.toggle("show");
-        } else {
-            carritoDropdown.classList.add("show");
-        }
-    });
         
     
     
@@ -511,53 +497,6 @@ document.addEventListener("DOMContentLoaded", function () {
         tooltipTriggerList.map(t => new bootstrap.Tooltip(t));
     });
 
-   // ===============================
-    // MOSTRAR/OCULTAR CARRITO EN MÓVILES (REVISADO)
-    // ===============================
-
-    const carritoIcono = document.querySelector('.floating-cart-icon');
-    const carritoDropdown = document.querySelector('.cart-dropdown');
-    const esMovil = window.matchMedia('(max-width: 991.98px)');
-    let carritoVisible = false;
-
-    function mostrarCarrito() {
-        if (carritoDropdown) {
-            carritoDropdown.classList.add('mostrar');
-            carritoVisible = true;
-        }
-    }
-
-    function ocultarCarrito() {
-        if (carritoDropdown) {
-            carritoDropdown.classList.remove('mostrar');
-            carritoVisible = false;
-        }
-    }
-
-    if (carritoIcono && carritoDropdown) {
-        carritoIcono.addEventListener('click', function (event) {
-            if (esMovil.matches) {
-                event.preventDefault(); // Prevenir el comportamiento predeterminado del clic en móviles
-                if (carritoVisible) {
-                    ocultarCarrito();
-                } else {
-                    mostrarCarrito();
-                }
-            }
-        });
-
-        document.addEventListener('click', function (event) {
-            if (esMovil.matches && carritoVisible && !carritoDropdown.contains(event.target) && event.target !== carritoIcono) {
-                ocultarCarrito();
-            }
-        });
-
-        carritoDropdown.addEventListener('click', function (event) {
-            if (esMovil.matches) {
-                event.stopPropagation(); // Detener la propagación dentro del dropdown en móviles
-            }
-        });
-    }
 
 
     // Script para mostrar/ocultar el campo de detalles si selecciona "Otro"

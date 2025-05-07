@@ -104,6 +104,10 @@
 /* Dropdown del carrito - ¡Elegante! */
 .cart-dropdown {
     display: none;
+    position: absolute;
+    bottom: 80px; /* Un poco más arriba */
+    right: 0;
+    left: 0;
     width: 100%;
     margin-top: 10px;
     background: rgba(30, 30, 30, 0.9); /* Gris oscuro semi-transparente */
@@ -129,6 +133,10 @@
 /* Scrollbar personalizado - ¡Discreto! */
 .cart-dropdown::-webkit-scrollbar {
     width: 8px;
+}
+
+.cart-dropdown.show{
+    display: block;
 }
 
 .cart-dropdown::-webkit-scrollbar-thumb {

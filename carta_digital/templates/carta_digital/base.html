@@ -122,12 +122,12 @@
 
 
     {% block extra_modals %}
-    <div class="modal fade" id="pedidoModal" tabindex="-1" aria-labelledby="pedidoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="pedidoModal" tabindex="-1" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="pedidoModalLabel">Finalizar pedido</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <form id="pedidoForm" class="p-4 bg-light rounded shadow-sm">
@@ -175,6 +175,13 @@
                             Recordá tener el dinero justo para agilizar la entrega.
                         </div>
 
+                        
+                        <div class="mb-3">
+                            <label for="totalPedidoModal" class="form-label fw-bold">Total del pedido:</label>
+                            <input type="text" class="form-control-plaintext fw-bold" id="totalPedidoModal"
+                                value="$0.00" readonly>
+                        </div>
+
                         <div id="dineroAbonaDiv" class="mb-3" style="display: none;">
                             <label for="dineroAbona" class="form-label">¿Con cuánto abona? *</label>
                             <input type="number" class="form-control" id="dineroAbona" placeholder="Ingrese el monto"
@@ -183,14 +190,7 @@
                                 El monto ingresado debe ser mayor o igual al total del pedido.
                             </div>
                         </div>
-
-
-                        <div class="mb-3">
-                            <label for="totalPedidoModal" class="form-label fw-bold">Total del pedido:</label>
-                            <input type="text" class="form-control-plaintext fw-bold" id="totalPedidoModal"
-                                value="$0.00" readonly>
-                        </div>
-
+                        
                         <div id="aliasMercadoPago" class="alert alert-info mt-3" style="display: none;">
                             <p>
                                 Transferir a alias:
@@ -202,7 +202,7 @@
 
                         <div class="mb-3">
                             <label for="comentarios" class="form-label">Comentarios</label>
-                            <textarea class="form-control" id="comentarios" rows="3"
+                            <textarea class="form-control" id="comentarios" rows="4"
                                 placeholder="¿Algo que deberíamos saber?"></textarea>
                         </div>
 
@@ -217,13 +217,13 @@
     </div>
 
     <!-- MODAL DE CONTACTO CON FORMULARIO DE SERVICIOS FREELANCE -->
-    <div class="modal fade" id="contactoModal" tabindex="-1" aria-labelledby="contactoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="contactoModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="contactoModalLabel">Formulario de Desarrollo Web</h5>
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
                 </div>
                 <div class="modal-body">
                     <!-- Formulario Profesional de Proyecto -->
@@ -291,7 +291,7 @@
                         <div class="mb-3">
                             <label for="tiempoEntrega" class="form-label">Tiempo Estimado de Entrega</label>
                             <input type="text" class="form-control" id="tiempoEntrega" name="tiempo_entrega" required
-                                placeholder="Indica el tiempo estimado para la entrega del proyecto (ej. 2 meses, 3 semanas)">
+                                placeholder="Indica el tiempo estimado -(ej. 2 meses, 3 semanas)">
                         </div>
 
                         <!-- Presupuesto Estimado -->
