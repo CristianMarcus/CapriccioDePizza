@@ -4,7 +4,7 @@
 
    .floating-cart-icon {
     position: fixed;
-    bottom: 30px; /* Un poco más abajo */
+    bottom: 150px; /* Un poco más abajo */
     right: 30px; /* Un poco más a la derecha */
     z-index: 1000;
     background: #ffc107; /* Gris oscuro semi-transparente */
@@ -284,6 +284,133 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 913.411px) {
+    .floating-cart-icon {
+        width: 50px;
+        height: 50px;
+        bottom: 50px;
+        right: 10px;
+        border-radius: 25px;
+        padding: 6px;
+    }
+
+    .floating-cart-icon:hover {
+        width: 100vw; /* Ancho completo */
+        max-height: 90vh;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: auto;
+        margin: 0 auto;
+        border-radius: 0;
+        padding: 15px;
+    }
+
+    .cart-dropdown {
+        max-height: 300px;
+        padding: 10px;
+    }
+
+    .titulo-carrito,
+    #titulo-tupedido {
+        font-size: 1.1rem;
+    }
+
+    .cart-item-name,
+    .cart-item-price {
+        font-size: 0.85rem;
+    }
+
+    #clear-cart-button,
+    #btnFinalizarPedido {
+        width: 50%; /* Botones más pequeños */
+        margin: 10px auto;
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+
+    .cart-count {
+        font-size: 0.45rem;
+        padding: 4px 8px;
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+
+    .cart-item .item-cantidad {
+        background-color: #212121;
+        color: #fff;
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        min-width: 30px;
+        text-align: center;
+    }
+
+    .cantidad-btn {
+        position: relative;
+        display: inline;
+        background-color: #ffc107;
+        color: #000;
+        border: none;
+        padding: 4px 8px;
+        margin: 0 3px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .cart-item-qty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #f2f7f1; /* Color del texto */
+    }
+
+    .quantity-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        margin-left: 2px;
+    }
+
+    .btn.btn-sm.btn-outline-secondary.disminuir-cantidad {
+        color: #f8f2f2; /* Cambia el color del texto a rojo */
+        border-color: #ff0000; /* Cambia el color del borde a rojo */
+        background-color: #dd3333; /* Cambia el color de fondo a gris claro */
+        font-size: 0.8rem; /* Ajusta el tamaño de la fuente */
+        padding: 0.2rem 0.5rem; /* Ajusta el espaciado interno */
+    }
+
+    .btn.btn-sm.btn-outline-secondary.disminuir-cantidad:hover {
+        color: #ffffff; /* Cambia el color del texto al pasar el mouse */
+        border-color: #ff0000; /* Mantiene el color del borde */
+        background-color: #ff0000; /* Cambia el fondo al pasar el mouse */
+        cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    }
+
+    .btn.btn-sm.btn-outline-secondary.aumentar-cantidad {
+        color: #f8fdf8; /* Cambia el color del texto a verde */
+        border-color: #00ff00; /* Cambia el color del borde a verde */
+        background-color: #2ccf03; /* Cambia el color de fondo a gris claro */
+        font-size: 0.8rem; /* Ajusta el tamaño de la fuente */
+        padding: 0.2rem 0.5rem; /* Ajusta el espaciado interno */
+    }
+
+    .btn.btn-sm.btn-outline-secondary.aumentar-cantidad:hover {
+        color: #ffffff; /* Cambia el color del texto al pasar el mouse */
+        border-color: #00ff00; /* Mantiene el color del borde */
+        background-color: #068f06; /* Cambia el fondo al pasar el mouse */
+        cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    }
+
+}
+
 
 /* Pantallas menores a 1200px (laptops pequeñas) */
 @media (max-width: 1199.98px) {
@@ -331,7 +458,7 @@
     .floating-cart-icon {
       width: 55px;
       height: 55px;
-      bottom: 15px;
+      bottom: 30px;
       right: 15px;
     }
   
@@ -368,7 +495,7 @@
     .floating-cart-icon {
       width: 50px;
       height: 50px;
-      bottom: 10px;
+      bottom: 30px;
       right: 10px;
       border-radius: 25px;
       padding: 6px;
@@ -403,6 +530,8 @@
   
     #clear-cart-button,
     #btnFinalizarPedido {
+      width: 50%; /* Botones más pequeños */
+      margin: 10px auto;
       font-size: 0.85rem;
       padding: 8px 10px;
     }

@@ -46,30 +46,38 @@ document.addEventListener("DOMContentLoaded", function () {
     const carritoDropdown = document.querySelector(".cart-dropdown");
     let carritoAbierto = false;
 
+    function esPantallaPequena() {
+        return window.matchMedia("(max-width: 413px)").matches;
+    }
+
     function alternarCarrito() {
         carritoAbierto = !carritoAbierto;
         carritoDropdown.classList.toggle("show", carritoAbierto);
     }
 
-    // Solo un handler para click
     carritoIcono.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
         alternarCarrito();
     });
 
-    // Cerrar carrito si se hace clic fuera
+    // Elimina o comenta este listener de touchend
+    /*
+    carritoIcono.addEventListener("touchend", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!carritoAbierto) {
+            alternarCarrito();
+        }
+    });
+    */
+
     document.addEventListener("click", function (event) {
-        if (
-            carritoAbierto &&
-            !carritoDropdown.contains(event.target) &&
-            event.target !== carritoIcono
-        ) {
+        if (carritoAbierto && !carritoDropdown.contains(event.target) && event.target !== carritoIcono) {
             carritoAbierto = false;
             carritoDropdown.classList.remove("show");
         }
     });
-
     
     
         
