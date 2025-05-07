@@ -441,6 +441,225 @@
     box-shadow: 0 0 0 0.2rem rgba(var(--color-primario-rgb), 0.5);
 }
 
+/* Estilos específicos para el Modal de Contacto con ID #contactoModal */
+#contactoModal .modal-dialog {
+    max-width: 600px;
+}
+
+#contactoModal .modal-content {
+    background: #1e272e;
+    color: #f8f8f2;
+    border: 1px solid #6c5ce7;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+#contactoModal .modal-header {
+    background: linear-gradient(to right, #6c5ce7, #4834d4);
+    color: #fff;
+    border-bottom: none;
+    padding: 1.5rem 2rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#contactoModal .modal-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#contactoModal .btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' d='M1.646 1.646a.5.5 0 0 1 .708 0L8 7.293l5.646-5.647a.5.5 0 0 1 .708.708L8.707 8l5.647 5.646a.5.5 0 0 1-.708.708L8 8.707l-5.646 5.647a.5.5 0 0 1-.708-.708L7.293 8 1.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+    opacity: 0.8;
+}
+
+#contactoModal .btn-close:hover {
+    opacity: 1;
+}
+
+#contactoModal .modal-body {
+    padding: 2rem;
+}
+
+#contactoModal #FormDesarrollo {
+    color: #6c5ce7;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+#contactoModal #pFormDesarrollo {
+    color: #dcdde1;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+#contactoModal .form-label {
+    color: #a29bfe;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+#contactoModal .form-text {
+    color: #8c8c8c !important;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+#contactoModal .form-control {
+    background-color: #2d3436;
+    color: #fff;
+    border: 1px solid #4b6584;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#contactoModal .form-control:focus {
+    color: #fff;
+    background-color: #353b48;
+    border-color: #6c5ce7;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 197, 0.25);
+}
+
+#contactoModal .form-select {
+    background-color: #2d3436;
+    color: #fff;
+    border: 1px solid #4b6584;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+}
+
+#contactoModal .form-select:focus {
+    border-color: #6c5ce7;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 197, 0.25);
+}
+
+#contactoModal .form-select option {
+    background-color: #2d3436;
+    color: #fff;
+}
+
+#contactoModal .input-group-text {
+    background-color: #353b48;
+    color: #a29bfe;
+    border: 1px solid #4b6584;
+    border-radius: 8px 0 0 8px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+}
+
+#contactoModal .input-group .form-control:not(:first-child):not(.dropdown-toggle):not(:last-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#contactoModal .input-group .form-control:focus + .input-group-text {
+    border-color: #6c5ce7;
+}
+
+#contactoModal .btn-primary {
+    background: linear-gradient(to right, #6c5ce7, #4834d4);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#contactoModal .btn-primary:hover {
+    background: linear-gradient(to right, #4834d4, #6c5ce7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+#contactoModal .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 197, 0.5);
+}
+
+#contactoModal .invalid-feedback {
+    color: #ff7675;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+#contactoModal .valid-feedback {
+    color: #00b894;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+#contactoModal #mensajeFormulario {
+    background-color: #2d3436;
+    color: #00b894;
+    border: 1px solid #00b894;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#contactoModal #mensajeFormulario.show {
+    opacity: 1;
+}
+
+/* Estilos Responsivos Específicos para el Modal */
+@media (max-width: 768px) {
+    #contactoModal .modal-dialog {
+        margin: 1rem;
+    }
+
+    #contactoModal .modal-body {
+        padding: 1.5rem;
+    }
+
+    #contactoModal #FormDesarrollo {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    #contactoModal #pFormDesarrollo {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #contactoModal .form-label {
+        font-size: 0.95rem;
+    }
+
+    #contactoModal .form-control,
+    #contactoModal .form-select,
+    #contactoModal .btn-primary,
+    #contactoModal .input-group-text {
+        font-size: 0.95rem;
+        padding: 0.7rem 0.9rem;
+    }
+}
+
 
 /* ==========================================================================
    MEDIA QUERIES - ADAPTACIÓN RESPONSIVA
