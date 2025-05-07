@@ -42,39 +42,34 @@ document.addEventListener("DOMContentLoaded", function () {
     // FUNCIONES DE UI Y CARRITO
     // ============================
     
-        const carritoIcono = document.getElementById("carrito-icono");
-        const carritoDropdown = document.querySelector(".cart-dropdown");
-        let carritoAbierto = false;
-    
-        function esPantallaPequena() {
-            return window.matchMedia("(max-width: 768px)").matches;
+    const carritoIcono = document.getElementById("carrito-icono");
+    const carritoDropdown = document.querySelector(".cart-dropdown");
+    let carritoAbierto = false;
+
+    function alternarCarrito() {
+        carritoAbierto = !carritoAbierto;
+        carritoDropdown.classList.toggle("show", carritoAbierto);
+    }
+
+    // Solo un handler para click
+    carritoIcono.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        alternarCarrito();
+    });
+
+    // Cerrar carrito si se hace clic fuera
+    document.addEventListener("click", function (event) {
+        if (
+            carritoAbierto &&
+            !carritoDropdown.contains(event.target) &&
+            event.target !== carritoIcono
+        ) {
+            carritoAbierto = false;
+            carritoDropdown.classList.remove("show");
         }
-    
-        function alternarCarrito() {
-            carritoAbierto = !carritoAbierto;
-            carritoDropdown.classList.toggle("show", carritoAbierto);
-        }
-    
-        carritoIcono.addEventListener("click", function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            alternarCarrito();
-        });
-    
-        carritoIcono.addEventListener("touchend", function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            if (!carritoAbierto) {
-                alternarCarrito();
-            }
-        });
-    
-        document.addEventListener("click", function (event) {
-            if (carritoAbierto && !carritoDropdown.contains(event.target) && event.target !== carritoIcono) {
-                carritoAbierto = false;
-                carritoDropdown.classList.remove("show");
-            }
-        });
+    });
+
     
     
         
