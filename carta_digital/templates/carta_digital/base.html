@@ -12,13 +12,8 @@
     <!-- Logo y títulos con Italianno, textos normales con Poppins -->
     <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
     <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -260,7 +255,7 @@
 
                         <!-- Tipo de Proyecto -->
                         <div class="mb-3">
-                            <label for="tipoProyecto" class="form-label">Tipo de Proyecto</label>
+                            <label for="tipoProyecto" class="form-label">Tipo de Proyecto *</label>
                             <select class="form-select" id="tipoProyecto" name="tipo_proyecto" required>
                                 <option value="" disabled selected>Selecciona el tipo de proyecto</option>
                                 <option value="Desarrollo Web">Desarrollo Web</option>
@@ -270,23 +265,20 @@
                                 <option value="Software Personalizado">Software Personalizado</option>
                                 <option value="Consultoría">Consultoría y Soporte Técnico</option>
                                 <option value="Mantenimiento y Actualizaciones">Mantenimiento y Actualizaciones</option>
-                                <option value="Automatización de Procesos">Automatización de Procesos y Flujos de
-                                    Trabajo</option>
+                                <option value="Automatización de Procesos">Automatización de Procesos y Flujos de Trabajo</option>
                                 <option value="Otro">Otro (por favor detállalo a continuación)</option>
                             </select>
-                            <small class="form-text text-muted">
-                                Elige el tipo de proyecto que necesitas. Si no encuadra en las opciones anteriores,
-                                selecciona "Otro" y descríbelo.
-                            </small>
+                            <div class="invalid-feedback">Por favor, selecciona un tipo de proyecto.</div>
+                            <small class="form-text text-muted">Si no encuentras tu opción, selecciona "Otro" y descríbelo.</small>
                         </div>
-
-                        <!-- Detalles del Tipo de Proyecto (si es Otro) -->
+                        
+                        <!-- Campo adicional para la opción "Otro" -->
                         <div class="mb-3" id="detallesTipoProyecto" style="display: none;">
-                            <label for="detallesTipoProyectoTexto" class="form-label">Detalles del Proyecto</label>
-                            <textarea class="form-control" id="detallesTipoProyectoTexto" name="detalles_tipo_proyecto"
-                                rows="4"
-                                placeholder="Por favor, describe el tipo de proyecto que necesitas si no se ajusta a las opciones anteriores."></textarea>
+                            <label for="detallesTipoProyectoTexto" class="form-label">Detalles del Proyecto *</label>
+                            <textarea class="form-control" id="detallesTipoProyectoTexto" name="detalles_tipo_proyecto" rows="4" minlength="5"></textarea>
+                            <div class="invalid-feedback">Si seleccionaste "Otro", describe el tipo de proyecto.</div>
                         </div>
+                        
 
                         <!-- Descripción del Proyecto -->
                         <div class="mb-3">

@@ -41,6 +41,60 @@ document.addEventListener("DOMContentLoaded", function () {
     // ============================
     // FUNCIONES DE UI Y CARRITO
     // ============================
+    document.addEventListener("DOMContentLoaded", function () {
+        const carritoIcono = document.getElementById("carrito-icono");
+        const carritoDropdown = document.querySelector(".cart-dropdown");
+        let carritoAbierto = false;
+    
+        function alternarCarrito() {
+            carritoAbierto = !carritoAbierto;
+            carritoDropdown.classList.toggle("show", carritoAbierto);
+        }
+    
+        // Manejo de clic en el ícono del carrito
+        carritoIcono.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            alternarCarrito();
+        });
+    
+        // Asegurar que el carrito no se cierre inmediatamente en móviles
+        carritoIcono.addEventListener("touchend", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (!carritoAbierto) {
+                alternarCarrito();
+            }
+        });
+    
+        // Cierra el carrito si se toca fuera de él
+        document.addEventListener("click", function (event) {
+            if (carritoAbierto && !carritoDropdown.contains(event.target) && event.target !== carritoIcono) {
+                carritoAbierto = false;
+                carritoDropdown.classList.remove("show");
+            }
+        });
+    });
+    function esPantallaPequena() {
+        return window.matchMedia("(max-width: 768px)").matches;
+    }
+    
+    document.getElementById("carrito-icono").addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    
+        const carritoDropdown = document.querySelector(".cart-dropdown");
+    
+        if (esPantallaPequena()) {
+            carritoDropdown.classList.toggle("show");
+        } else {
+            carritoDropdown.classList.add("show");
+        }
+    });
+        
+    
+    
+
 
     // Actualiza los contadores del carrito en el navbar y carrito flotante
     function actualizarContador() {
@@ -299,6 +353,111 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    // ===============================
+    document.addEventListener("DOMContentLoaded", function () {
+        const pedidoForm = document.getElementById("pedidoForm");
+        const nombre = document.getElementById("nombreCliente");
+        const direccion = document.getElementById("direccionCliente");
+        const entreCalles = document.getElementById("entreCalles");
+        const dineroAbona = document.getElementById("dineroAbona");
+        const totalPedido = parseFloat(document.getElementById("totalPedidoModal").value.replace('$', '')) || 0;
+    
+        pedidoForm.addEventListener("submit", function (e) {
+            let valid = true;
+    
+            // Validar nombre
+            if (nombre.value.trim().length < 3) {
+                nombre.setCustomValidity("Ingresá tu nombre completo.");
+                nombre.reportValidity();
+                valid = false;
+            } else {
+                nombre.setCustomValidity("");
+            }
+    
+            // Validar dirección
+            if (direccion.value.trim().length < 5) {
+                direccion.setCustomValidity("Ingresá una dirección válida.");
+                direccion.reportValidity();
+                valid = false;
+            } else {
+                direccion.setCustomValidity("");
+            }
+    
+            // Validar entre calles
+            if (entreCalles.value.trim().length < 5) {
+                entreCalles.setCustomValidity("Indicá las calles de referencia.");
+                entreCalles.reportValidity();
+                valid = false;
+            } else {
+                entreCalles.setCustomValidity("");
+            }
+    
+            // Validar si se seleccionó efectivo y el monto ingresado
+            const metodoPago = document.querySelector('input[name="metodoPago"]:checked');
+            if (metodoPago && metodoPago.value === "efectivo") {
+                const montoIngresado = parseFloat(dineroAbona.value);
+                if (isNaN(montoIngresado) || montoIngresado < totalPedido) {
+                    dineroAbona.classList.add("is-invalid");
+                    document.getElementById("errorDineroAbona").style.display = "block";
+                    valid = false;
+                } else {
+                    dineroAbona.classList.remove("is-invalid");
+                    document.getElementById("errorDineroAbona").style.display = "none";
+                }
+            }
+    
+            if (!valid) {
+                e.preventDefault(); // Previene el envío si hay errores
+            }
+        });
+    });
+
+     // ===============================
+    document.addEventListener("DOMContentLoaded", function () {
+        const formProyecto = document.getElementById("formProyecto");
+        const tipoProyecto = document.getElementById("tipoProyecto");
+        const detalles = document.getElementById("detallesTipoProyecto");
+        const detallesTexto = document.getElementById("detallesTipoProyectoTexto");
+    
+        // Mostrar/ocultar el campo "Otro"
+        tipoProyecto.addEventListener("change", function () {
+            if (tipoProyecto.value === "Otro") {
+                detalles.style.display = "block";
+                detallesTexto.setAttribute("required", "required");
+            } else {
+                detalles.style.display = "none";
+                detallesTexto.removeAttribute("required");
+            }
+        });
+    
+        formProyecto.addEventListener("submit", function (e) {
+            // Validación simple adicional: nombre y presupuesto positivos
+            const nombre = document.getElementById("nombre");
+            const presupuesto = document.getElementById("presupuesto");
+    
+            if (nombre.value.trim().length < 3) {
+                nombre.setCustomValidity("El nombre debe tener al menos 3 caracteres.");
+                nombre.reportValidity();
+                e.preventDefault();
+                return;
+            } else {
+                nombre.setCustomValidity("");
+            }
+    
+            if (parseFloat(presupuesto.value) <= 0 || isNaN(presupuesto.value)) {
+                presupuesto.setCustomValidity("Ingresá un presupuesto válido mayor a 0.");
+                presupuesto.reportValidity();
+                e.preventDefault();
+                return;
+            } else {
+                presupuesto.setCustomValidity("");
+            }
+        });
+    });
+    
+    
+
     // ===============================
     // VALIDACIÓN DE MONTO ABONADO
     // ===============================
