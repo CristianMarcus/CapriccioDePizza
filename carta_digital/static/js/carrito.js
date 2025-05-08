@@ -514,6 +514,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    document.getElementById("tipoProyecto").addEventListener("change", function () {
+        const detalle = document.getElementById("detallesTipoProyecto");
+        const textarea = document.getElementById("detallesTipoProyectoTexto");
+    
+        if (this.value === "Otro") {
+            detalle.style.display = "block";
+            textarea.setAttribute("required", "required");
+        } else {
+            detalle.style.display = "none";
+            textarea.removeAttribute("required");
+        }
+    });
+    
+
     // Modificar la URL de WhatsApp con los datos del formulario
     document.getElementById('formProyecto').addEventListener('submit', function (event) {
         event.preventDefault();

@@ -141,7 +141,7 @@ body {
     background-color: var(--color-fondo-oscuro); /* Fondo oscuro y moderno */
     border-radius: 12px;
     margin: 10px auto; /* Centrado horizontal */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+    
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -278,43 +278,182 @@ header h1 {
     }
 }
 
-/* ==========================================================================
-   Título del Modal - Destacado
-   ========================================================================== */
-.modal-title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: rgb(2, 49, 102); /* Verde llamativo */
-    margin-bottom: 10px;
+/* Fondo del modal */
+.modal-content {
+    background: linear-gradient(135deg, #ff7f50, #d44e33);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera del modal */
+.modal-header {
+    background-color: #e74c3c;
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+    padding: 1.5rem;
     text-align: center;
-    
-    font-family: var(--fuente-principal);
-    font-style: normal; /* Cambiamos a normal para el título */
-    text-transform: uppercase; /* Mayúsculas para un toque elegante */
-    letter-spacing: 0.05em; /* Espaciado entre letras */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra sutil para destacar */
-    animation: fadeIn 0.5s ease-in-out; /* Animación de entrada suave */
-
 }
 
-
-
-/* ==========================================================================
-   Estilos de Formulario - Legibles
-   ========================================================================== */
-.form-group {
-    color: var(--color-texto-principal);
+/* Título del modal */
+.modal-title {
+    font-size: 1.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
+/* Botón de cerrar */
+.btn-close {
+    background-color: #fff;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* Fondo y padding del cuerpo del modal */
+.modal-body {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+/* Input y campos de formulario */
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input al recibir el foco */
+.form-control:focus {
+    border-color: #ff7f50;
+    box-shadow: 0 0 8px rgba(255, 127, 80, 0.5);
+    outline: none;
+}
+
+/* Etiquetas de los campos */
 .form-label {
-    color: var(--color-texto-principal);
-    transition: color 0.3s ease;
+    font-weight: bold;
+    color: #444;
 }
 
+/* Estilos de los botones de radio (Modo de entrega) */
 .form-check-label {
-    color: var(--color-texto-secundario);
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    color: #555;
 }
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+/* Botones principales */
+.btn {
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 12px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Botón de Enviar pedido */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Alerta de mensaje de efectivo */
+#mensajeEfectivo {
+    background-color: #c6f7d5;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+/* Alerta de alias MercadoPago */
+#aliasMercadoPago {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #1976d2;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+/* Campo para ingresar monto de abono */
+#dineroAbonaDiv input {
+    background-color: #f8f9fa;
+}
+
+/* Estilo para el campo de comentarios */
+textarea.form-control {
+    border-radius: 10px;
+    font-size: 1rem;
+    padding: 10px;
+    min-height: 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los inputs de texto */
+input[type="text"], input[type="number"], textarea {
+    background-color: #f8f9fa;
+}
+
+/* Estilo de las alertas */
+.alert {
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación en el botón de envío */
+@keyframes submitAnimation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+button[type="submit"] {
+    animation: submitAnimation 0.5s ease-in-out infinite alternate;
+}
+
+/* Ajustes para dispositivos pequeños */
+@media (max-width: 576px) {
+    .modal-dialog {
+        max-width: 90%;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-header {
+        padding: 1rem;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
 
 /* ==========================================================================
    Footer - Moderno y con superposición oscura
@@ -392,119 +531,145 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   Modal de Contacto - Estilizado y con scroll
-   ========================================================================== */
-#contactoModal .modal-content {
-    background-color: #646262;
-    border-radius: 16px;
-    border: 1px solid #dcdcdc;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-    padding: 1rem;
-    animation: fadeInModal 0.4s ease-in-out;
-    overflow-y: auto; /* Permite el scroll si es necesario */
-    height: 100vh; /* Altura máxima del modal */
-
+/* === MODAL PROFESIONAL DE CONTACTO === */
+#contactoModal .modal-dialog {
+    animation: slideIn 0.6s ease forwards;
+    transform: translateY(50px);
+    opacity: 0;
 }
 
+@keyframes slideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#contactoModal .modal-content {
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #e0e7ff);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: none;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+/* LÍNEA DECORATIVA EN ESQUINA SUPERIOR */
+#contactoModal .modal-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+/* CABECERA GRADIENTE CON SOMBRA */
 #contactoModal .modal-header {
-    background-color: var(--color-enlace); /* Azul para el encabezado */
-    color: white;
-    border-radius: 16px;
-    padding: 1rem 1.5rem;
-    text-align: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    padding: 1.25rem 1.5rem;
     border-bottom: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    justify-content: center;
 }
 
 #contactoModal .modal-title {
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.6rem;
+    font-weight: 700;
 }
 
-#contactoModal .btn-close {
-    filter: invert(1); /* Icono de cierre blanco */
-}
-
+/* Cuerpo del Modal */
 #contactoModal .modal-body {
-    padding: 1.5rem;
-    background-color: #646262;
-    max-height: 60vh; /* Altura máxima con scroll */
-    overflow-y: auto;
-    padding-right: 15px;
-    scroll-behavior: smooth;
+    background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+    padding: 2rem;
 }
 
-#contactoModal label {
-    font-weight: 500;
-    color: var(--color-texto-principal);
+/* Texto informativo */
+#contactoModal .modal-body h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3742fa;
+    margin-bottom: 0.5rem;
+    text-align: center;
 }
 
-#contactoModal input[type="text"],
-#contactoModal input[type="email"],
-#contactoModal input[type="number"],
-#contactoModal textarea,
-#contactoModal select {
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s;
-    font-size: 0.95rem;
-    padding: 0.7rem; /* Añadimos algo de padding */
-}
-
-#contactoModal input:focus,
-#contactoModal textarea:focus,
-#contactoModal select:focus {
-    border-color: var(--color-enlace);
-    box-shadow: 0 0 0 0.15rem rgba(var(--color-enlace-rgb), 0.25);
-    outline: none;
-}
-
-#contactoModal textarea {
-    resize: vertical;
-}
-
-#contactoModal .form-text {
-    font-size: 0.85rem;
-    color: var(--color-texto-secundario);
-}
-
-#contactoModal button[type="submit"] {
-    background-color: var(--color-enlace);
-    border: none;
-    border-radius: 10px;
-    padding: 0.75rem 1.5rem; /* Ajustamos el padding del botón */
-    font-weight: 600;
+#contactoModal .modal-body p {
     font-size: 1rem;
-    transition: background-color 0.3s ease-in-out;
+    color: #6c757d;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Labels */
+#contactoModal label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    color: #333;
+}
+
+/* Campos de entrada */
+#contactoModal input.form-control,
+#contactoModal textarea.form-control,
+#contactoModal select.form-select {
+    background: #e9ebf0;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#contactoModal input.form-control:focus,
+#contactoModal textarea.form-control:focus,
+#contactoModal select.form-select:focus {
+    border-color: #6a11cb;
+    background: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(106, 17, 203, 0.15);
+}
+
+/* Textarea más alto */
+#contactoModal textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+/* Botón enviar ultra moderno */
+#contactoModal button[type="submit"] {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    border: none;
+    width: 100%;
+    margin-top: 1rem;
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.35);
+    transition: all 0.3s ease;
 }
 
 #contactoModal button[type="submit"]:hover {
-    background-color: var(--color-enlace-hover);
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(106, 17, 203, 0.45);
 }
 
-/* Estilos para mover el modal de finalizar pedido más arriba */
-.modal#pedidoModal .modal-dialog {
-    
-    margin-top: 50px; /* Ajusta este valor para controlar la distancia desde la parte superior */
-    border-radius: 16px; /* Bordes redondeados */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+/* Cerrar botón invertido */
+#contactoModal .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
 }
 
-/* Para pantallas más pequeñas, puedes ajustar el margen si es necesario */
-@media (max-width: 768px) {
-    .modal#pedidoModal .modal-dialog {
-        margin-top: 30px; /* Un poco menos margen en móviles */
-    }
-}
-#pedidoModal {
-    height: 100vh; 
 
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeInModal 0.4s ease-in-out;
-    overflow-y: auto; /* Permite el scroll si es necesario */
-    padding: 1rem; /* Añadimos algo de padding */
-}
+
 
 
 #FormDesarrollo {
