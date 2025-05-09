@@ -164,8 +164,8 @@
 }
 
 .accordion-button {
-    background-color: var(--color-fondo-claro);
-    color: var(--color-texto-principal);
+    background-color: grey;
+    color: rgb(63, 62, 62);
     font-weight: 600;
     font-size: 1.05rem; /* Ligeramente más grande */
     padding: 1.2rem 1.8rem; /* Mayor espacio interno */
@@ -175,10 +175,12 @@
     cursor: pointer;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     border-radius: 10px; /* Bordes redondeados para los botones */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    font-family: var(--fuente-texto); /* Fuente de texto (definida en style.css) */
 }
 
 .accordion-button:hover {
-    background-color: var(--color-primario-claro);
+    background-color: rgb(156, 154, 154);
     color: var(--color-primario);
 }
 

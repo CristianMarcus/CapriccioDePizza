@@ -11,8 +11,8 @@
     backdrop-filter: blur(15px); /* Desenfoque un poco más intenso */
     color: rgb(250, 249, 249);
     border-radius: 30px; /* Bordes más suaves desde el inicio */
-    width: 70px; /* Un poco más grande inicialmente */
-    height: 70px; /* Un poco más grande inicialmente */
+    width: 80px; /* Un poco más grande inicialmente */
+    height: 80px; /* Un poco más grande inicialmente */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +26,7 @@
 }
 
 .floating-cart-icon:hover {
-    width: 340px; /* Un poco más ancho al expandir */
+    width: 400px; /* Un poco más ancho al expandir */
     height: auto;
     max-height: 450px; /* Altura máxima un poco menor */
     overflow-y: auto;
@@ -53,6 +53,8 @@
 
 /* Contador del carrito - ¡Más llamativo! */
 .cart-count {
+    width: 30px; /* Un poco más grande */
+    height: 30px; /* Un poco más grande */
     background-color: #dc3545; /* Rojo vibrante */
     color: #fff;
     margin-top: 20px;
@@ -69,6 +71,11 @@
 .cart-count.has-items {
     display: inline-block; /* Para que ocupe espacio */
     animation: pulse 0.5s infinite alternate; /* Animación de pulsación */
+    transform: scale(1.15); /* Ligeramente más grande */
+    font-size: 0.8rem; /* Un poco más grande */
+    text-align: center;
+    line-height: 20px; /* Centrado vertical */
+    font-weight: bold; /* Negrita para el número */
 }
 
 @keyframes pulse {

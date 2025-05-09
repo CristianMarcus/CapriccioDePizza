@@ -197,12 +197,13 @@ document.addEventListener("DOMContentLoaded", function () {
         carritoLista.addEventListener('click', (e) => {
             const id = e.target.dataset.id;
             const item = carrito.find(p => p.id === id);
-
+    
             if (e.target.classList.contains('aumentar-cantidad') && item) {
                 item.cantidad += 1;
                 renderizarCarrito();
+                e.stopPropagation(); // <---- ¡AÑADE ESTA LÍNEA!
             }
-
+    
             if (e.target.classList.contains('disminuir-cantidad')) {
                 if (item && item.cantidad > 1) {
                     item.cantidad -= 1;
@@ -211,8 +212,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (index !== -1) carrito.splice(index, 1);
                 }
                 renderizarCarrito();
+                e.stopPropagation(); // <---- ¡AÑADE ESTA LÍNEA!
             }
-
+    
             if (e.target.classList.contains('eliminar-item')) {
                 const index = carrito.findIndex(p => p.id === id);
                 if (index !== -1) {
@@ -224,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         animarContador('shake');
                     });
                 }
+                e.stopPropagation(); // <---- ¡AÑADE ESTA LÍNEA! (Opcional, pero buena práctica)
             }
         });
     }
