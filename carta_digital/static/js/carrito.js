@@ -41,49 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // ============================
     // FUNCIONES DE UI Y CARRITO
     // ============================
-    
-    const carritoIcono = document.getElementById("carrito-icono");
-    const carritoDropdown = document.querySelector(".cart-dropdown");
-    let carritoAbierto = false;
-
-    function esPantallaPequena() {
-        return window.matchMedia("(max-width: 413px)").matches;
-    }
-
-    function alternarCarrito() {
-        carritoAbierto = !carritoAbierto;
-        carritoDropdown.classList.toggle("show", carritoAbierto);
-    }
-
-    carritoIcono.addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        alternarCarrito();
-    });
-
-    // Elimina o comenta este listener de touchend
-    /*
-    carritoIcono.addEventListener("touchend", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        if (!carritoAbierto) {
-            alternarCarrito();
-        }
-    });
-    */
-
-    document.addEventListener("click", function (event) {
-        if (carritoAbierto && !carritoDropdown.contains(event.target) && event.target !== carritoIcono) {
-            carritoAbierto = false;
-            carritoDropdown.classList.remove("show");
-        }
-    });
-    
-    
-        
-    
-    
-
 
     // Actualiza los contadores del carrito en el navbar y carrito flotante
     function actualizarContador() {
@@ -197,13 +154,14 @@ document.addEventListener("DOMContentLoaded", function () {
         carritoLista.addEventListener('click', (e) => {
             const id = e.target.dataset.id;
             const item = carrito.find(p => p.id === id);
-    
+
             if (e.target.classList.contains('aumentar-cantidad') && item) {
                 item.cantidad += 1;
                 renderizarCarrito();
-                e.stopPropagation(); // <---- ¡AÑADE ESTA LÍNEA!
+                animarContador('bounce');
+
             }
-    
+
             if (e.target.classList.contains('disminuir-cantidad')) {
                 if (item && item.cantidad > 1) {
                     item.cantidad -= 1;
@@ -212,9 +170,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (index !== -1) carrito.splice(index, 1);
                 }
                 renderizarCarrito();
-                e.stopPropagation(); // <---- ¡AÑADE ESTA LÍNEA!
+                animarContador('bounce');
             }
-    
+
             if (e.target.classList.contains('eliminar-item')) {
                 const index = carrito.findIndex(p => p.id === id);
                 if (index !== -1) {
@@ -226,7 +184,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         animarContador('shake');
                     });
                 }
-                e.stopPropagation(); // <---- ¡AÑADE ESTA LÍNEA! (Opcional, pero buena práctica)
             }
         });
     }
@@ -240,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
             carrito.length = 0;
             renderizarCarrito();
             if (aliasBox) aliasBox.style.display = 'none';
+
             if (mensajeEfectivo) mensajeEfectivo.style.display = 'none';
             if (dineroAbonaDiv) dineroAbonaDiv.style.display = 'none';
         });
@@ -503,6 +461,48 @@ document.addEventListener("DOMContentLoaded", function () {
         tooltipTriggerList.map(t => new bootstrap.Tooltip(t));
     });
 
+   // ===============================
+// MOSTRAR/OCULTAR CARRITO UNIVERSAL (ACTUALIZADO)
+// ===============================
+
+const carritoIcono = document.querySelector('.floating-cart-icon');
+const carritoDropdown = document.querySelector('.cart-dropdown');
+let carritoVisible = false;
+
+function mostrarCarrito() {
+    if (carritoDropdown) {
+        carritoDropdown.classList.add('show');
+        carritoVisible = true;
+    }
+}
+
+function ocultarCarrito() {
+    if (carritoDropdown) {
+        carritoDropdown.classList.remove('show');
+        carritoVisible = false;
+    }
+}
+
+if (carritoIcono && carritoDropdown) {
+    carritoIcono.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        carritoVisible ? ocultarCarrito() : mostrarCarrito();
+    });
+
+    // Cierra el carrito si se hace clic fuera de él
+    document.addEventListener('click', function (event) {
+        if (carritoVisible && !carritoDropdown.contains(event.target) && !carritoIcono.contains(event.target)) {
+            ocultarCarrito();
+        }
+    });
+
+    // Evita que clics dentro del carrito cierren el panel
+    carritoDropdown.addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
+}
+
 
 
     // Script para mostrar/ocultar el campo de detalles si selecciona "Otro"
@@ -516,20 +516,6 @@ document.addEventListener("DOMContentLoaded", function () {
             detallesDiv.style.display = 'none';
         }
     });
-
-    document.getElementById("tipoProyecto").addEventListener("change", function () {
-        const detalle = document.getElementById("detallesTipoProyecto");
-        const textarea = document.getElementById("detallesTipoProyectoTexto");
-    
-        if (this.value === "Otro") {
-            detalle.style.display = "block";
-            textarea.setAttribute("required", "required");
-        } else {
-            detalle.style.display = "none";
-            textarea.removeAttribute("required");
-        }
-    });
-    
 
     // Modificar la URL de WhatsApp con los datos del formulario
     document.getElementById('formProyecto').addEventListener('submit', function (event) {
