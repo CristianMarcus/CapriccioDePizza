@@ -73,6 +73,7 @@
     backdrop-filter: blur(4px); /* si usás fondo translúcido */
     transition: all 0.35s ease;
     scrollbar-color: #511051, #330033; /* Color de la barra de desplazamiento */
+    z-index: 9999;
 }
 
 
