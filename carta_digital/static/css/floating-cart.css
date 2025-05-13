@@ -14,7 +14,7 @@
 /* Icono y contador */
 .cart-icon-wrapper {
     position: relative;
-    background: #144104;
+    background: #8bf365;
     color: white;
     border-radius: 50%;
     padding: 14px;
@@ -23,8 +23,13 @@
 }
 
 .cart-icon-wrapper:hover {
-    background: #112416;
-    transform: scale(1.1);
+    background: #6ecf4a;
+    transform: scale(1.5);
+}
+
+.bi.bi-cart-fill
+#carrito-icono {
+    color: white;
 }
 
 .cart-count {
