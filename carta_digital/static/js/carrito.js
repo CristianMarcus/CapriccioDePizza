@@ -20,21 +20,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    window.addEventListener('load', function () {
+    //window.addEventListener('load', function () {
         // Una vez cargada la página, mostrar el botón de entrada
-        const enterButton = document.getElementById('enterButton');
+        //const enterButton = document.getElementById('enterButton');
 
         // Mostrar el botón cambiando display
-        enterButton.style.display = 'inline-block';  // Lo mostramos después de la carga
+        //enterButton.style.display = 'inline-block';  // Lo mostramos después de la carga
 
-        enterButton.addEventListener('click', function () {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';  // Hacemos que se desvanezca
-            setTimeout(() => {
-                preloader.style.display = 'none';  // Ocultamos el preloader
-            }, 500);
-        });
-    });
+        //enterButton.addEventListener('click', function () {
+            //const preloader = document.getElementById('preloader');
+            //preloader.style.opacity = '0';  // Hacemos que se desvanezca
+            //setTimeout(() => {
+               // preloader.style.display = 'none';  // Ocultamos el preloader
+            //}, 500);
+        //});
+    //});
 
     
 

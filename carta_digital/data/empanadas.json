@@ -1,274 +1,191 @@
-{
-  "empanadas": [
+[
     {
-      "id": "emp1",
-      "nombre": "Pollo",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp1",
+        "nombre": "Carne suave",
+        "precio": 1800,
+        "descripcion": "Carne picada, cebolla, huevo y condimentos suaves.",
+        "imagen": "img/empanada-carne-suave.webp"
     },
     {
-      "id": "emp2",
-      "nombre": "pollo con salsa blanca",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp2",
+        "nombre": "Carne picante",
+        "precio": 1800,
+        "descripcion": "Carne picada, cebolla, ají molido y picante especial.",
+        "imagen": "img/empanada-carne-picante.webp"
     },
     {
-      "id": "emp3",
-      "nombre": "Pollo a la barbacoa",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp3",
+        "nombre": "Pollo",
+        "precio": 1800,
+        "descripcion": "Pollo desmenuzado, cebolla, morrón y condimentos.",
+        "imagen": "img/empanada-pollo.webp"
     },
     {
-      "id": "emp4",
-      "nombre": "carne",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp4",
+        "nombre": "Pollo al verdeo",
+        "precio": 1800,
+        "descripcion": "Pollo, cebolla de verdeo, salsa blanca y especias.",
+        "imagen": "img/empanada-pollo-verdeo.webp"
     },
     {
-      "id": "emp5",
-      "nombre": "carne dulce",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp5",
+        "nombre": "Jamón y queso",
+        "precio": 1800,
+        "descripcion": "Jamón cocido y muzzarella.",
+        "imagen": "img/empanada-jamon-queso.webp"
     },
     {
-      "id": "emp6",
-      "nombre": "carne picante",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp6",
+        "nombre": "Queso y cebolla",
+        "precio": 1800,
+        "descripcion": "Muzzarella, cebolla salteada y orégano.",
+        "imagen": "img/empanada-queso-cebolla.webp"
     },
     {
-      "id": "emp7",
-      "nombre": "palmito",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp7",
+        "nombre": "Capresse",
+        "precio": 1800,
+        "descripcion": "Muzzarella, tomate y albahaca.",
+        "imagen": "img/empanada-capresse.webp"
     },
     {
-      "id": "emp8",
-      "nombre": "calabresa",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp8",
+        "nombre": "Roquefort",
+        "precio": 1800,
+        "descripcion": "Queso roquefort y muzzarella.",
+        "imagen": "img/empanada-roquefort.webp"
     },
     {
-      "id": "emp9",
-      "nombre": "anana con jamon",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp9",
+        "nombre": "Humita",
+        "precio": 1800,
+        "descripcion": "Choclo, salsa blanca, muzzarella y especias.",
+        "imagen": "img/empanada-humita.webp"
     },
     {
-      "id": "emp10",
-      "nombre": "cantimpalo",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp10",
+        "nombre": "Verdura",
+        "precio": 1800,
+        "descripcion": "Acelga, salsa blanca, muzzarella y condimentos.",
+        "imagen": "img/empanada-verdura.webp"
     },
     {
-      "id": "emp11",
-      "nombre": "jamon y queso",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp11",
+        "nombre": "Atún",
+        "precio": 1800,
+        "descripcion": "Atún, cebolla, morrón y especias.",
+        "imagen": "img/empanada-atun.webp"
     },
     {
-      "id": "emp12",
-      "nombre": "humita",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp12",
+        "nombre": "Calabaza",
+        "precio": 1800,
+        "descripcion": "Puré de calabaza, muzzarella y cebolla.",
+        "imagen": "img/empanada-calabaza.webp"
     },
     {
-      "id": "emp13",
-      "nombre": "roquefort",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp13",
+        "nombre": "Champiñones",
+        "precio": 1800,
+        "descripcion": "Champiñones, muzzarella y cebolla.",
+        "imagen": "img/empanada-champignon.webp"
     },
     {
-      "id": "emp14",
-      "nombre": "cebolla y queso",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp14",
+        "nombre": "Napolitana",
+        "precio": 1800,
+        "descripcion": "Jamón, tomate, muzzarella y orégano.",
+        "imagen": "img/empanada-napolitana.webp"
     },
     {
-      "id": "emp15",
-      "nombre": "verdura",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp15",
+        "nombre": "Choclo",
+        "precio": 1800,
+        "descripcion": "Choclo, queso crema, muzzarella y condimentos.",
+        "imagen": "img/empanada-choclo.webp"
     },
     {
-      "id": "emp16",
-      "nombre": "capresse",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp16",
+        "nombre": "Carne cortada a cuchillo",
+        "precio": 1800,
+        "descripcion": "Carne cortada a cuchillo, cebolla, huevo y condimentos.",
+        "imagen": "img/empanada-cuchillo.webp"
     },
     {
-      "id": "emp17",
-      "nombre": "napolitana",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp17",
+        "nombre": "Bondiola BBQ",
+        "precio": 1800,
+        "descripcion": "Bondiola de cerdo desmenuzada, barbacoa y queso.",
+        "imagen": "img/empanada-bondiola.webp"
     },
     {
-      "id": "emp18",
-      "nombre": "calabaza y queso",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp18",
+        "nombre": "Carne y queso",
+        "precio": 1800,
+        "descripcion": "Carne picada, muzzarella y especias.",
+        "imagen": "img/empanada-carne-queso.webp"
     },
     {
-      "id": "emp19",
-      "nombre": "cuatro quesos",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp19",
+        "nombre": "4 quesos",
+        "precio": 1800,
+        "descripcion": "Muzzarella, roquefort, provolone y parmesano.",
+        "imagen": "img/empanada-4quesos.webp"
     },
     {
-      "id": "emp20",
-      "nombre": "germana",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp20",
+        "nombre": "Tocino y cheddar",
+        "precio": 1800,
+        "descripcion": "Panceta ahumada y cheddar fundido.",
+        "imagen": "img/empanada-cheddar.webp"
     },
     {
-      "id": "emp21",
-      "nombre": "ciruela",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp21",
+        "nombre": "Muzzarella y tomate",
+        "precio": 1800,
+        "descripcion": "Rodajas de tomate y muzzarella derretida.",
+        "imagen": "img/empanada-muzza-tomate.webp"
     },
     {
-      "id": "emp22",
-      "nombre": "fatay",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp22",
+        "nombre": "Espinaca",
+        "precio": 1800,
+        "descripcion": "Espinaca salteada, salsa blanca y muzzarella.",
+        "imagen": "img/empanada-espinaca.webp"
     },
     {
-      "id": "emp23",
-      "nombre": "atun",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp23",
+        "nombre": "Muzzarella sola",
+        "precio": 1800,
+        "descripcion": "Solo muzzarella fundida.",
+        "imagen": "img/empanada-muzza.webp"
     },
     {
-      "id": "emp24",
-      "nombre": "capriccio",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp24",
+        "nombre": "Jamón crudo y rúcula",
+        "precio": 1800,
+        "descripcion": "Jamón crudo, rúcula fresca y parmesano.",
+        "imagen": "img/empanada-rucula.webp"
     },
     {
-      "id": "emp25",
-      "nombre": "chanpignon y panceta",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp25",
+        "nombre": "Jamón, queso y huevo",
+        "precio": 1800,
+        "descripcion": "Jamón cocido, muzzarella y huevo duro.",
+        "imagen": "img/empanada-jamon-huevo.webp"
     },
     {
-      "id": "emp26",
-      "nombre": "rucula y crudo",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp26",
+        "nombre": "Provolone y cebolla",
+        "precio": 1800,
+        "descripcion": "Queso provolone, cebolla y orégano.",
+        "imagen": "img/empanada-provolone.webp"
     },
     {
-      "id": "emp27",
-      "nombre": "Criolla a cuchillo",
-      "precios": [
-        { "cantidad": 1, "precio": 1800 },
-        { "cantidad": 6, "precio": 10800 },
-        { "cantidad": 12, "precio": 21600 }
-      ],
-      "imagen": "img/default-product.png"
+        "id": "emp27",
+        "nombre": "Morrón y huevo",
+        "precio": 1800,
+        "descripcion": "Morrones asados y huevo duro picado.",
+        "imagen": "img/empanada-morron-huevo.webp"
     }
-  ]
-}
+]

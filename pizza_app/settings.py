@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     'carta_digital',
 ]
 
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -104,5 +106,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/admin-panel/'
+LOGOUT_REDIRECT_URL = '/login/'
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

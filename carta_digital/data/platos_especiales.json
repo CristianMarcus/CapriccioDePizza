@@ -1,26 +1,31 @@
 {
+  "titulo": "Platos Especiales",
   "platosEspeciales": [
     {
       "id": "can1",
       "nombre": "Canelones de verdura con salsa",
+      "descripcion": "Canelones de verdura con salsa blanca.",
       "precio": 10200,
       "imagen": "img/canelon-verdura-salsa.jfif"
     },
     {
       "id": "can2",
       "nombre": "Canelones de carne con salsa",
+      "descripcion": "Canelones de carne con salsa blanca.",
       "precio": 11000,
       "imagen": "img/canelon-carne-salsa.jfif"
     },
     {
       "id": "sorren1",
       "nombre": "Sorrentinos con salsa",
+
       "precio": 11000,
       "imagen": "img/sorrentinos-salsa.jfif"
     },
     {
       "id": "Pastelpapas",
       "nombre": "Pastel de papas",
+
       "precio": 9500,
       "imagen": "img/pastel-papa-carne.jfif"
     },
@@ -90,6 +95,7 @@
       "imagen": "img/sandwich-milanesa-jamon-huevo-lechuga-tomate.jfif"
     }
   ],
+  
   "churrasquitos": [
     {
       "id": "Churra1",

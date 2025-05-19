@@ -1,0 +1,39 @@
+{% extends 'carta_digital/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Productos: {{ tipo|title }}</h2>
+    <a href="{% url 'agregar_producto' tipo %}" class="btn btn-success mb-4">
+        <i class="bi bi-plus-circle"></i> Agregar Producto
+    </a>
+
+    {% if productos %}
+    <div class="list-group">
+        {% for p in productos %}
+        {% if p.id %}
+        <div
+            class="list-group-item d-flex justify-content-between align-items-start flex-wrap shadow-sm mb-2 border rounded">
+            <div class="me-auto">
+                <h5 class="mb-1">{{ p.nombre }}</h5>
+                <small class="text-muted">{{ p.descripcion|default_if_none:"Sin descripción" }}</small><br>
+                <span class="fw-bold text-success">${{ p.precio|default_if_none:"0" }}</span>
+            </div>
+            <div class="text-end mt-2">
+                <a href="{% url 'editar_producto' tipo p.id %}" class="btn btn-warning btn-sm me-2">
+                    <i class="bi bi-pencil"></i> Editar
+                </a>
+                <a href="{% url 'eliminar_producto' tipo p.id %}" class="btn btn-danger btn-sm"
+                    onclick="return confirm('¿Estás seguro que deseas eliminar este producto?')">
+                    <i class="bi bi-trash"></i> Eliminar
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-muted">No hay productos disponibles.</p>
+    {% endif %}
+</div>
+{% endblock %}

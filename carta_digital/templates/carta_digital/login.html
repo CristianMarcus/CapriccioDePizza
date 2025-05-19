@@ -1,0 +1,46 @@
+{% extends 'carta_digital/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+    <h3 class="text-center mb-4">🔐 Iniciar sesión</h3>
+
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        Por favor, verifica tu usuario y contraseña.
+      </div>
+    {% endif %}
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+      
+      <div class="mb-3">
+        <label for="id_username" class="form-label">Usuario</label>
+        <input type="text" name="username" class="form-control {% if form.username.errors %}is-invalid{% endif %}" id="id_username" required>
+        {% if form.username.errors %}
+          <div class="invalid-feedback">
+            {{ form.username.errors.0 }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_password" class="form-label">Contraseña</label>
+        <input type="password" name="password" class="form-control {% if form.password.errors %}is-invalid{% endif %}" id="id_password" required>
+        {% if form.password.errors %}
+          <div class="invalid-feedback">
+            {{ form.password.errors.0 }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-success">Entrar</button>
+      </div>
+    </form>
+
+    
+  </div>
+</div>
+{% endblock %}

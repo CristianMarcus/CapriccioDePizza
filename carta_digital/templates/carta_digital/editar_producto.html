@@ -1,0 +1,31 @@
+{% extends "carta_digital/base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{% if producto %}Editar{% else %}Agregar{% endif %} Producto - {{ tipo|title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label>Nombre</label>
+            <input type="text" name="nombre" class="form-control" value="{{ producto.nombre|default:'' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Descripción</label>
+            <textarea name="descripcion" class="form-control">{{ producto.descripcion|default:'' }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label>Precio</label>
+            <input type="number" name="precio" class="form-control" step="0.01" value="{{ producto.precio|default:'' }}" required>
+        </div>
+        <div class="mb-3">
+            <label>Categoría</label>
+            <input type="text" name="categoria" class="form-control" value="{{ producto.categoria|default:'' }}">
+        </div>
+        <div class="mb-3">
+            <label>Imagen (URL)</label>
+            <input type="text" name="imagen" class="form-control" value="{{ producto.imagen|default:'' }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a href="{% url 'mostrar_productos' tipo=tipo %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

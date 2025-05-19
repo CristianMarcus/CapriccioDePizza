@@ -6,7 +6,10 @@
 {% endblock %}
 {% block content %}
 
-<div class="container my-5 text-center" id="bienvenida">
+
+
+
+<!--<div class="container my-5 text-center" id="bienvenida">
     <div class="cartel-container">
         <svg class="cartel-svg" viewBox="0 0 500 100" preserveAspectRatio="xMidYMid meet">
             <path id="curva" d="M 50 80 Q 250 10 440 100" fill="transparent" />
@@ -29,7 +32,7 @@
             <strong>¡Capriccio de Pizza evoluciona para estar cada vez más cerca tuyo!</strong>
         </p>
     </div>
-</div>
+</div>-->
 
 <h1 class="capricciotitulo">Capriccio <span>de Pizza</span></h1>
 <p class="lead">Lo inimaginable en gustos y sabores.</p>
@@ -104,7 +107,7 @@
         <h2 class="accordion-header" id="headingHamburguesas">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseHamburguesas" aria-expanded="false" aria-controls="collapseHamburguesas">
-                <i class="bi bi-emoji-smile-fill me-2 text-danger"></i> Hamburguesas
+                <i class="bi bi-emoji-smile-fill me-2 text-danger"></i> Hamburguesas <span class="badge bg-danger">{{ hamburguesas|length }}</span>
             </button>
         </h2>
         <div id="collapseHamburguesas" class="accordion-collapse collapse" aria-labelledby="headingHamburguesas"
@@ -124,7 +127,7 @@
         <h2 class="accordion-header" id="headingPizzas">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsePizzas" aria-expanded="false" aria-controls="collapsePizzas">
-                <i class="bi bi-disc-fill me-2 text-warning"></i> Pizzas
+                <i class="bi bi-disc-fill me-2 text-warning"></i> Pizzas <span class="badge bg-warning text-dark">{{ pizzas|length }}</span>
             </button>
         </h2>
         <div id="collapsePizzas" class="accordion-collapse collapse" aria-labelledby="headingPizzas"
@@ -144,7 +147,7 @@
         <h2 class="accordion-header" id="headingEmpanadas">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseEmpanadas" aria-expanded="false" aria-controls="collapseEmpanadas">
-                <i class="bi bi-circle-half me-2 text-secondary"></i> Empanadas
+                <i class="bi bi-circle-half me-2 text-secondary"></i> Empanadas <span class="badge bg-secondary">{{ empanadas|length }}</span>
             </button>
         </h2>
         <div id="collapseEmpanadas" class="accordion-collapse collapse" aria-labelledby="headingEmpanadas"
@@ -164,7 +167,8 @@
         <h2 class="accordion-header" id="headingTartas">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseTartas" aria-expanded="false" aria-controls="collapseTartas">
-                <i class="bi bi-pie-chart-fill me-2 text-success"></i> Tartas
+                <i class="bi bi-pie-chart-fill me-2 text-success"></i> Tartas <span class="badge bg-secondary">{{ tartas|length }}</span>
+
             </button>
         </h2>
         <div id="collapseTartas" class="accordion-collapse collapse" aria-labelledby="headingTartas"
@@ -239,6 +243,12 @@
         </div>
     </div>
 
+</div>
+<!-- Enlace oculto para login al panel admin -->
+<div style="position: fixed; bottom: 10px; right: 10px; opacity: 1; z-index: 9999;">
+    <a href="{% url 'login' %}" title="Acceso admin">
+        <i class="bi bi-shield-lock" style="font-size: 1.5rem;"></i>
+    </a>
 </div>
 
 {% endblock %}
