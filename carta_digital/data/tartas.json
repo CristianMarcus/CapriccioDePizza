@@ -1,33 +1,38 @@
-{
-  "titulo": "Tartas",
-  "tartas": [
+[
     {
-      "id": 1,
-      "nombre": "Tarta de Jamon y queso",
-      "descripcion": "Deliciosa tarta de jamon y queso.",
-      "precio": 9100,
-      "imagen": "img/tarta-jamon-queso.jfif"
+        "id": 1,
+        "nombre": "Tarta de Jamon y queso",
+        "descripcion": "Deliciosa tarta de jamon y queso.",
+        "precio": 5000.0,
+        "imagen": "img/tarta-jamon-queso.jfif",
+        "categoria": ""
     },
     {
-      "id": 2,
-      "nombre": "Tarta de zapallito y queso",
-      "descripcion": "Fresca tarta de zapallo y queso de temporada.",
-      "precio": 9100,
-      "imagen": "img/default-product.png"
+        "id": 2,
+        "nombre": "Tarta de zapallito y queso",
+        "descripcion": "Fresca tarta de zapallo y queso de temporada.",
+        "precio": 9100,
+        "imagen": "img/default-product.png"
     },
     {
-      "id": 3,
-      "nombre": "Tarta de acelga y queso",
-      "descripcion": "Clásica tarta de acelga y queso.",
-      "precio": 9100,
-      "imagen": "img/default-product.png"
+        "id": 3,
+        "nombre": "Tarta de acelga y queso",
+        "descripcion": "Clásica tarta de acelga y queso.",
+        "precio": 9100,
+        "imagen": "img/default-product.png"
     },
     {
-      "id": 4,
-      "nombre": "Tarta de Jamon, queso, tomate y huevo",
-      "descripcion": "sabrosa.",
-      "precio": 9100,
-      "imagen": "img/default-product.png"
+        "id": 4,
+        "nombre": "Tarta de Jamon, queso, tomate y huevo",
+        "descripcion": "sabrosa.",
+        "precio": 9100,
+        "imagen": "img/default-product.png"
+    },
+    {
+        "id": 5,
+        "nombre": "Cristian",
+        "descripcion": "zarpada",
+        "precio": 55555.0,
+        "imagen": "img/tarta-jamon-queso.jfif"
     }
-  ]
-}
+]

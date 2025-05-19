@@ -21,22 +21,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     //window.addEventListener('load', function () {
-        // Una vez cargada la página, mostrar el botón de entrada
-        //const enterButton = document.getElementById('enterButton');
+    // Una vez cargada la página, mostrar el botón de entrada
+    //const enterButton = document.getElementById('enterButton');
 
-        // Mostrar el botón cambiando display
-        //enterButton.style.display = 'inline-block';  // Lo mostramos después de la carga
+    // Mostrar el botón cambiando display
+    //enterButton.style.display = 'inline-block';  // Lo mostramos después de la carga
 
-        //enterButton.addEventListener('click', function () {
-            //const preloader = document.getElementById('preloader');
-            //preloader.style.opacity = '0';  // Hacemos que se desvanezca
-            //setTimeout(() => {
-               // preloader.style.display = 'none';  // Ocultamos el preloader
-            //}, 500);
-        //});
+    //enterButton.addEventListener('click', function () {
+    //const preloader = document.getElementById('preloader');
+    //preloader.style.opacity = '0';  // Hacemos que se desvanezca
+    //setTimeout(() => {
+    // preloader.style.display = 'none';  // Ocultamos el preloader
+    //}, 500);
+    //});
     //});
 
-    
+
 
     // ============================
     // FUNCIONES DE UI Y CARRITO
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-   
+
     // ===============================
     // INICIALIZA CARRITO EN PANTALLA
     // ===============================
@@ -312,10 +312,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const entreCalles = document.getElementById("entreCalles");
         const dineroAbona = document.getElementById("dineroAbona");
         const totalPedido = parseFloat(document.getElementById("totalPedidoModal").value.replace('$', '')) || 0;
-    
+
         pedidoForm.addEventListener("submit", function (e) {
             let valid = true;
-    
+
             // Validar nombre
             if (nombre.value.trim().length < 3) {
                 nombre.setCustomValidity("Ingresá tu nombre completo.");
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 nombre.setCustomValidity("");
             }
-    
+
             // Validar dirección
             if (direccion.value.trim().length < 5) {
                 direccion.setCustomValidity("Ingresá una dirección válida.");
@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 direccion.setCustomValidity("");
             }
-    
+
             // Validar entre calles
             if (entreCalles.value.trim().length < 5) {
                 entreCalles.setCustomValidity("Indicá las calles de referencia.");
@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 entreCalles.setCustomValidity("");
             }
-    
+
             // Validar si se seleccionó efectivo y el monto ingresado
             const metodoPago = document.querySelector('input[name="metodoPago"]:checked');
             if (metodoPago && metodoPago.value === "efectivo") {
@@ -356,20 +356,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById("errorDineroAbona").style.display = "none";
                 }
             }
-    
+
             if (!valid) {
                 e.preventDefault(); // Previene el envío si hay errores
             }
         });
     });
 
-     // ===============================
+    // ===============================
     document.addEventListener("DOMContentLoaded", function () {
         const formProyecto = document.getElementById("formProyecto");
         const tipoProyecto = document.getElementById("tipoProyecto");
         const detalles = document.getElementById("detallesTipoProyecto");
         const detallesTexto = document.getElementById("detallesTipoProyectoTexto");
-    
+
         // Mostrar/ocultar el campo "Otro"
         tipoProyecto.addEventListener("change", function () {
             if (tipoProyecto.value === "Otro") {
@@ -380,12 +380,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 detallesTexto.removeAttribute("required");
             }
         });
-    
+
         formProyecto.addEventListener("submit", function (e) {
             // Validación simple adicional: nombre y presupuesto positivos
             const nombre = document.getElementById("nombre");
             const presupuesto = document.getElementById("presupuesto");
-    
+
             if (nombre.value.trim().length < 3) {
                 nombre.setCustomValidity("El nombre debe tener al menos 3 caracteres.");
                 nombre.reportValidity();
@@ -394,7 +394,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 nombre.setCustomValidity("");
             }
-    
+
             if (parseFloat(presupuesto.value) <= 0 || isNaN(presupuesto.value)) {
                 presupuesto.setCustomValidity("Ingresá un presupuesto válido mayor a 0.");
                 presupuesto.reportValidity();
@@ -405,8 +405,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-    
-    
+
+
 
     // ===============================
     // VALIDACIÓN DE MONTO ABONADO
@@ -461,47 +461,47 @@ document.addEventListener("DOMContentLoaded", function () {
         tooltipTriggerList.map(t => new bootstrap.Tooltip(t));
     });
 
-   // ===============================
-// MOSTRAR/OCULTAR CARRITO UNIVERSAL (ACTUALIZADO)
-// ===============================
+    // ===============================
+    // MOSTRAR/OCULTAR CARRITO UNIVERSAL (ACTUALIZADO)
+    // ===============================
 
-const carritoIcono = document.querySelector('.floating-cart-icon');
-const carritoDropdown = document.querySelector('.cart-dropdown');
-let carritoVisible = false;
+    const carritoIcono = document.querySelector('.floating-cart-icon');
+    const carritoDropdown = document.querySelector('.cart-dropdown');
+    let carritoVisible = false;
 
-function mostrarCarrito() {
-    if (carritoDropdown) {
-        carritoDropdown.classList.add('show');
-        carritoVisible = true;
-    }
-}
-
-function ocultarCarrito() {
-    if (carritoDropdown) {
-        carritoDropdown.classList.remove('show');
-        carritoVisible = false;
-    }
-}
-
-if (carritoIcono && carritoDropdown) {
-    carritoIcono.addEventListener('click', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        carritoVisible ? ocultarCarrito() : mostrarCarrito();
-    });
-
-    // Cierra el carrito si se hace clic fuera de él
-    document.addEventListener('click', function (event) {
-        if (carritoVisible && !carritoDropdown.contains(event.target) && !carritoIcono.contains(event.target)) {
-            ocultarCarrito();
+    function mostrarCarrito() {
+        if (carritoDropdown) {
+            carritoDropdown.classList.add('show');
+            carritoVisible = true;
         }
-    });
+    }
 
-    // Evita que clics dentro del carrito cierren el panel
-    carritoDropdown.addEventListener('click', function (event) {
-        event.stopPropagation();
-    });
-}
+    function ocultarCarrito() {
+        if (carritoDropdown) {
+            carritoDropdown.classList.remove('show');
+            carritoVisible = false;
+        }
+    }
+
+    if (carritoIcono && carritoDropdown) {
+        carritoIcono.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            carritoVisible ? ocultarCarrito() : mostrarCarrito();
+        });
+
+        // Cierra el carrito si se hace clic fuera de él
+        document.addEventListener('click', function (event) {
+            if (carritoVisible && !carritoDropdown.contains(event.target) && !carritoIcono.contains(event.target)) {
+                ocultarCarrito();
+            }
+        });
+
+        // Evita que clics dentro del carrito cierren el panel
+        carritoDropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+    }
 
 
 
@@ -551,7 +551,7 @@ if (carritoIcono && carritoDropdown) {
     });
 
 
-    
+
 
 
 
@@ -632,5 +632,19 @@ if (carritoIcono && carritoDropdown) {
         });
     }
 
+    const togglePasswordBtn = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('id_password');
+
+    if (togglePasswordBtn && passwordInput) {
+        togglePasswordBtn.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePasswordBtn.textContent = type === 'password' ? '👁' : '🙈';
+        });
+    }
+
+
 
 });
+
+

@@ -1,31 +1,58 @@
 {% extends "carta_digital/base.html" %}
 {% block content %}
 <div class="container mt-4">
-    <h2>{% if producto %}Editar{% else %}Agregar{% endif %} Producto - {{ tipo|title }}</h2>
-    <form method="post">
+
+    <!-- Flechita para volver -->
+    <a href="{% url 'mostrar_productos' tipo=tipo %}" class="btn btn-link text-decoration-none mb-3">
+        <i class="bi bi-arrow-left"></i> Volver a {{ tipo|title }}
+    </a>
+
+    <h2 class="mb-4">{% if producto %}Editar{% else %}Agregar{% endif %} Producto - {{ tipo|title }}</h2>
+
+    <!-- Mensaje de éxito -->
+    {% if mensaje %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle-fill"></i> {{ mensaje }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+    {% endif %}
+
+    <form method="post" class="card p-4 shadow-sm border-0">
         {% csrf_token %}
+        
         <div class="mb-3">
-            <label>Nombre</label>
+            <label class="form-label">Nombre</label>
             <input type="text" name="nombre" class="form-control" value="{{ producto.nombre|default:'' }}" required>
         </div>
+
         <div class="mb-3">
-            <label>Descripción</label>
-            <textarea name="descripcion" class="form-control">{{ producto.descripcion|default:'' }}</textarea>
+            <label class="form-label">Descripción</label>
+            <textarea name="descripcion" class="form-control" rows="3">{{ producto.descripcion|default:'' }}</textarea>
         </div>
+
         <div class="mb-3">
-            <label>Precio</label>
+            <label class="form-label">Precio</label>
             <input type="number" name="precio" class="form-control" step="0.01" value="{{ producto.precio|default:'' }}" required>
         </div>
+
         <div class="mb-3">
-            <label>Categoría</label>
+            <label class="form-label">Categoría</label>
             <input type="text" name="categoria" class="form-control" value="{{ producto.categoria|default:'' }}">
         </div>
+
         <div class="mb-3">
-            <label>Imagen (URL)</label>
+            <label class="form-label">Imagen (URL)</label>
             <input type="text" name="imagen" class="form-control" value="{{ producto.imagen|default:'' }}">
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="{% url 'mostrar_productos' tipo=tipo %}" class="btn btn-secondary">Cancelar</a>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-save-fill"></i> Guardar
+            </button>
+            <a href="{% url 'mostrar_productos' tipo=tipo %}" class="btn btn-outline-secondary">
+                Cancelar
+            </a>
+        </div>
     </form>
 </div>
 {% endblock %}

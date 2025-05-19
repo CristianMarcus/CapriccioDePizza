@@ -4,6 +4,7 @@ import json
 import os
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
+from django.contrib import messages
 
 
 
@@ -93,17 +94,61 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
+
+import glob
+
+def cargar_todos_los_productos():
+    """
+    Escanea todos los archivos JSON en la carpeta 'data' y extrae productos
+    sin importar su estructura (lista directa o dict con subclaves).
+    """
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_dir = os.path.join(base_dir, 'carta_digital', 'data')
+    productos_por_tipo = {}
+
+    archivos_json = glob.glob(os.path.join(data_dir, '*.json'))
+
+    for archivo in archivos_json:
+        tipo = os.path.splitext(os.path.basename(archivo))[0]
+        try:
+            with open(archivo, 'r', encoding='utf-8') as f:
+                datos = json.load(f)
+
+            if isinstance(datos, list):
+                productos_por_tipo[tipo] = datos
+
+            elif isinstance(datos, dict):
+                # Buscar claves que contengan listas de productos
+                productos_encontrados = []
+                for clave, valor in datos.items():
+                    if isinstance(valor, list) and all(isinstance(p, dict) for p in valor):
+                        productos_encontrados.extend(valor)
+                productos_por_tipo[tipo] = productos_encontrados
+
+        except Exception as e:
+            print(f"Error al procesar {archivo}: {e}")
+            productos_por_tipo[tipo] = []
+
+    return productos_por_tipo
+
+
 @login_required
 def panel_admin(request):
     """
-    Muestra el panel de administración.
+    Muestra el panel de administración cargando todos los productos desde los archivos JSON.
     """
-    tipos = [
-        'empanadas', 'pizzas', 'tartas',
-        'platos_especiales',
-        'hamburguesas', 'churrasquitos', 'promos', 'combos'
-    ]
-    return render(request, 'carta_digital/panel_admin.html', {'tipos': tipos})
+    productos_por_tipo = cargar_todos_los_productos()
+
+    # Contar cantidad de productos por tipo
+    resumen = {tipo: len(productos) for tipo, productos in productos_por_tipo.items()}
+
+    context = {
+        'productos_por_tipo': productos_por_tipo,
+        'resumen': resumen
+    }
+
+    return render(request, 'carta_digital/panel_admin.html', context)
+
 
 @login_required
 def mostrar_productos(request, tipo):
@@ -122,103 +167,211 @@ def mostrar_productos(request, tipo):
     return render(request, 'carta_digital/lista_productos.html', context)
 
 def load_json_data(filename, key=None):
-    """
-    Función para cargar datos JSON desde un archivo.
-    """
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_dir = os.path.join(base_dir, 'carta_digital', 'data')
     filepath = os.path.join(data_dir, filename)
+
+    key_mapping = {
+        'platos_especiales': 'platosEspeciales'
+        # Agrega más si necesitas
+    }
+
+    if key in key_mapping:
+        key = key_mapping[key]
+
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        return data[key] if key else data #devuelve los datos filtrados por la key
+
+        if isinstance(data, list):
+            return data
+
+        if isinstance(data, dict):
+            if key:
+                if key in data and isinstance(data[key], list):
+                    return data[key]
+                else:
+                    raise ValueError(f"La clave '{key}' no existe o no contiene una lista en {filename}")
+            return data
+
+        raise TypeError(f"El contenido de {filename} no es ni dict ni list")
+
     except FileNotFoundError:
-        print(f"Archivo no encontrado: {filepath}")
-        return []
-    except json.JSONDecodeError:
-        print(f"Error al decodificar JSON: {filepath}")
-        return []
+        print(f"Archivo no encontrado: {filename}")
+    except json.JSONDecodeError as e:
+        print(f"Error en el JSON {filename}: {e}")
+    except ValueError as e:
+        print(f"Validación de datos fallida: {e}")
+    except Exception as e:
+        print(f"Error inesperado en {filename}: {e}")
+    return []
+
+
 
 @login_required
 def agregar_producto(request, tipo):
-    """
-    Permite agregar un nuevo producto al archivo JSON.
-    """
     if request.method == 'POST':
-        nombre = request.POST.get('nombre')
-        descripcion = request.POST.get('descripcion')
-        precio = float(request.POST.get('precio'))
-        categoria = request.POST.get('categoria')
-        imagen = request.POST.get('imagen')
+        try:
+            nombre = request.POST.get('nombre')
+            descripcion = request.POST.get('descripcion')
+            precio = float(request.POST.get('precio'))
+            imagen = request.POST.get('imagen')
 
-        # Determina el ID del nuevo producto (esto es importante)
-        productos = load_json_data(f'{tipo}.json', tipo)
-        nuevo_producto_id = max((p['id'] for p in productos), default=0) + 1
+            data = load_json_data(f'{tipo}.json')
+            productos = []
+            clave_con_lista = None
 
-        nuevo_producto = {
-            'id': nuevo_producto_id,
-            'nombre': nombre,
-            'descripcion': descripcion,
-            'precio': precio,
-            'imagen': imagen
-        }
+            if isinstance(data, list):
+                productos = data
+            elif isinstance(data, dict):
+                for clave, lista in data.items():
+                    if isinstance(lista, list) and all(isinstance(p, dict) for p in lista):
+                        productos = lista
+                        clave_con_lista = clave
+                        break
 
-        # Carga el JSON, agrega el nuevo producto, y guarda.
-        productos_json = load_json_data(f'{tipo}.json')
-        productos_json[tipo].append(nuevo_producto) #agrega el producto a la lista correspondiente
-        _guardar_json(tipo, productos_json) #guarda los cambios
+            nuevo_id = max((p.get('id', 0) for p in productos), default=0) + 1
 
-        return redirect('mostrar_productos', tipo=tipo)
+            nuevo_producto = {
+                'id': nuevo_id,
+                'nombre': nombre,
+                'descripcion': descripcion,
+                'precio': precio,
+                'imagen': imagen
+            }
+
+            productos.append(nuevo_producto)
+
+            if isinstance(data, dict) and clave_con_lista:
+                data[clave_con_lista] = productos
+                _guardar_json(tipo, data)
+            else:
+                _guardar_json(tipo, productos)
+
+            return redirect('mostrar_productos', tipo=tipo)
+
+        except Exception as e:
+            print(f"Error al agregar producto: {e}")
+            messages.error(request, "Hubo un error al agregar el producto.")
 
     return render(request, 'carta_digital/agregar_producto.html', {'tipo': tipo})
 
 
-@login_required
-def eliminar_producto(request, tipo, id_producto):
-    """
-    Elimina un producto existente del archivo JSON.
-    """
-    productos_json = load_json_data(f'{tipo}.json')
-    productos_json[tipo] = [p for p in productos_json[tipo] if p['id'] != int(id_producto)] #filtra el producto por id
-    _guardar_json(tipo, productos_json)
+
+
+
+def eliminar_producto(request, tipo, producto_id):
+    data = load_json_data(f'{tipo}.json', tipo)
+
+    # Si el archivo es lista de productos directamente
+    if isinstance(data, list):
+        productos = data
+        nuevos_productos = [p for p in productos if str(p.get('id')) != str(producto_id)]
+        if len(productos) == len(nuevos_productos):
+            messages.error(request, "Producto no encontrado.")
+        else:
+            _guardar_json(tipo, nuevos_productos)  # guardamos la lista directamente
+            messages.success(request, "Producto eliminado correctamente.")
+    
+    # Si es un diccionario con clave 'productos'
+    elif isinstance(data, dict) and 'productos' in data:
+        productos = data['productos']
+        nuevos_productos = [p for p in productos if str(p.get('id')) != str(producto_id)]
+        if len(productos) == len(nuevos_productos):
+            messages.error(request, "Producto no encontrado.")
+        else:
+            data['productos'] = nuevos_productos
+            _guardar_json(tipo, data)
+            messages.success(request, "Producto eliminado correctamente.")
+    
+    else:
+        messages.error(request, "Formato de datos no válido.")
+
     return redirect('mostrar_productos', tipo=tipo)
+
 
 
 
 @login_required
 def editar_producto(request, tipo, id_producto):
-    """
-    Permite editar un producto existente.
-    """
-    productos_json = load_json_data(f'{tipo}.json', tipo)
-    producto = next((p for p in productos_json if p['id'] == int(id_producto)), None)
+    data = load_json_data(f'{tipo}.json')  # puede ser lista o dict
+    productos = []
+    clave_con_lista = None
 
-    if request.method == 'POST':
-        nuevos_datos = {
-            'nombre': request.POST.get('nombre'),
-            'descripcion': request.POST.get('descripcion'),
-            'precio': float(request.POST.get('precio')),
-            'imagen': request.POST.get('imagen')
-        }
-        for p in productos_json:
-            if p['id'] == int(id_producto):
-                p.update(nuevos_datos) #actualiza los datos del producto
+    if isinstance(data, list):
+        productos = data
+    elif isinstance(data, dict):
+        for clave, lista in data.items():
+            if isinstance(lista, list) and all(isinstance(p, dict) for p in lista):
+                productos = lista
+                clave_con_lista = clave
                 break
-        _guardar_json(tipo, productos_json)
-        return redirect('mostrar_productos', tipo=tipo)
 
-    return render(request, 'carta_digital/editar_producto.html', {'producto': producto, 'tipo': tipo})
+    producto = None
+    if id_producto:
+        producto = next((p for p in productos if str(p.get("id")) == str(id_producto)), None)
+        if not producto:
+            messages.error(request, "Producto no encontrado.")
+            return redirect('mostrar_productos', tipo=tipo)
+
+    if request.method == "POST":
+        nombre = request.POST.get("nombre", "")
+        descripcion = request.POST.get("descripcion", "")
+        precio = request.POST.get("precio", "")
+        categoria = request.POST.get("categoria", "")
+        imagen = request.POST.get("imagen", "")
+
+        if producto:
+            # Editar producto existente
+            producto.update({
+                "nombre": nombre,
+                "descripcion": descripcion,
+                "precio": float(precio),
+                "categoria": categoria,
+                "imagen": imagen,
+            })
+            mensaje = "Producto actualizado correctamente."
+        else:
+            # Agregar producto nuevo
+            nuevo_id = max((p.get("id", 0) for p in productos), default=0) + 1
+            nuevo_producto = {
+                "id": nuevo_id,
+                "nombre": nombre,
+                "descripcion": descripcion,
+                "precio": float(precio),
+                "categoria": categoria,
+                "imagen": imagen,
+            }
+            productos.append(nuevo_producto)
+            mensaje = "Producto agregado correctamente."
+
+        # Reconstruye la estructura si era un dict
+        if isinstance(data, dict) and clave_con_lista:
+            data[clave_con_lista] = productos
+            _guardar_json(tipo, data)
+        else:
+            _guardar_json(tipo, productos)
+
+        messages.success(request, mensaje)
+        return redirect('editar_producto', tipo=tipo, id_producto=id_producto if producto else nuevo_id)
+
+    return render(request, "carta_digital/editar_producto.html", {
+        "tipo": tipo,
+        "producto": producto
+    })
+
+
+
 
 
 def _guardar_json(tipo, data):
-    """
-    Función interna para guardar datos JSON a un archivo.
-    """
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_dir = os.path.join(base_dir, 'carta_digital', 'data')
     filepath = os.path.join(data_dir, f'{tipo}.json')
+
     try:
         with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        print(f"{filepath} guardado correctamente.")
     except Exception as e:
-        print(f"Error al guardar JSON en {filepath}: {e}")
+        print(f"Error al guardar {filepath}: {e}")
