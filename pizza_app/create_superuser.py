@@ -3,7 +3,7 @@ import django
 from django.contrib.auth import get_user_model
 
 # Asegúrate de que la ruta al archivo de configuración sea correcta
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'carta_digital.settings')  # Reemplaza 'carta_digital.settings' con la ruta a tu archivo settings.py
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pizza_app.settings')  # Reemplaza 'carta_digital.settings' con la ruta a tu archivo settings.py
 django.setup()
 
 User = get_user_model()
