@@ -92,7 +92,7 @@ def logout_view(request):
     Cierra la sesión del usuario y lo redirige a la página de inicio de sesión.
     """
     logout(request)
-    return redirect('login')
+    return redirect('home')
 
 
 import glob

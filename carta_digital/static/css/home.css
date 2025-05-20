@@ -475,6 +475,187 @@
     box-shadow: 0 0 0 0.2rem rgba(var(--color-primario-rgb), 0.5);
 }
 
+/* Estilos de la sección de ubicación */
+#ubicacion {
+    background: linear-gradient(to right, green, white, red);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 25px var(--shadow-light);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+#ubicacion h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 3rem; /* Tamaño más grande para el título */
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#ubicacion p.lead {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilo para el contenedor del mapa */
+.map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 (altura / ancho) */
+    height: 0;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    
+}
+
+.map-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px var(--shadow-strong);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* Estilo para el botón "Cómo llegar" */
+.animated-button {
+    background: linear-gradient(45deg, var(--success-color), #4CAF50); /* Gradiente de verde */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px; /* Bordes muy redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.animated-button:hover {
+    background: linear-gradient(45deg, #4CAF50, var(--success-color)); /* Invertir gradiente */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.animated-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    #ubicacion {
+        padding: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #ubicacion h2 {
+        font-size: 2.5rem;
+    }
+
+    #ubicacion p.lead {
+        font-size: 1rem;
+    }
+
+    .map-container {
+        padding-bottom: 75%; /* Ajustar para pantallas más pequeñas (ej: 4:3) */
+    }
+
+    .animated-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #ubicacion {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+
+    #ubicacion h2 {
+        font-size: 2rem;
+    }
+
+    .map-container {
+        padding-bottom: 100%; /* Cuadrado para móviles muy pequeños */
+    }
+
+    .animated-button {
+        width: 100%; /* Ocupar todo el ancho en móviles */
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+
+/* Mobile pequeño (teléfonos de 320px a 480px) */
+@media (max-width: 480px) {
+    .mapa-ubicacion {
+        max-width: 280px;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* Mobile medio (480px a 576px) */
+@media (min-width: 481px) and (max-width: 575.98px) {
+    .mapa-ubicacion {
+        max-width: 320px;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* Tablets pequeñas (576px a 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .mapa-ubicacion {
+        max-width: 360px;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* Tablets grandes y pantallas chicas (768px a 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .mapa-ubicacion {
+        max-width: 400px;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* Laptops y pantallas grandes (992px a 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .mapa-ubicacion {
+        max-width: 450px;
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* Pantallas grandes (1200px en adelante) */
+@media (min-width: 1200px) {
+    .mapa-ubicacion {
+        max-width: 500px;
+        aspect-ratio: 16 / 9;
+    }
+}
+/* ==========================================================================
+   
+   ========================================================================== */
 
 
 /* Estilos Responsivos Específicos para el Modal */

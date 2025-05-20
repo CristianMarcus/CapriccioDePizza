@@ -34,9 +34,9 @@
     </div>
 </div>-->
 {% if user.is_authenticated %}
-  <div class="text-end mt-3">
-    <a href="{% url 'panel_admin' %}" class="btn btn-outline-primary btn-sm">Ir al Panel de Administración</a>
-  </div>
+<div class="text-end mt-3">
+    <a href="{% url 'panel_admin' %}" class="btn btn-outline-primary btn-sm">Panel de Administración</a>
+</div>
 {% endif %}
 
 <h1 class="capricciotitulo">Capriccio <span>de Pizza</span></h1>
@@ -57,7 +57,8 @@
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseTodosLosProductos" aria-expanded="false"
                 aria-controls="collapseTodosLosProductos">
-                <i class="bi bi-list-ul me-2"></i> Todos los Productos <span class="badge bg-warning text-dark">{{ todos_los_productos|length }}</span>
+                <i class="bi bi-list-ul me-2"></i> Todos los Productos <span class="badge bg-warning text-dark">{{todos_los_productos|length }}</span>
+                    
             </button>
         </h2>
         <div id="collapseTodosLosProductos" class="accordion-collapse collapse"
@@ -91,7 +92,8 @@
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsePlatosEspeciales" aria-expanded="false"
                 aria-controls="collapsePlatosEspeciales">
-                <i class="bi bi-star-fill me-2 text-warning"></i> Platos Especiales <span class="badge bg-danger">{{ platos_especiales|length }}</span>
+                <i class="bi bi-star-fill me-2 text-warning"></i> Platos Especiales <span class="badge bg-danger">{{platos_especiales|length }}</span>
+                    
             </button>
         </h2>
         <div id="collapsePlatosEspeciales" class="accordion-collapse collapse" aria-labelledby="headingPlatosEspeciales"
@@ -112,7 +114,8 @@
         <h2 class="accordion-header" id="headingHamburguesas">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseHamburguesas" aria-expanded="false" aria-controls="collapseHamburguesas">
-                <i class="bi bi-emoji-smile-fill me-2 text-danger"></i> Hamburguesas <span class="badge bg-danger">{{ hamburguesas|length }}</span>
+                <i class="bi bi-emoji-smile-fill me-2 text-danger"></i> Hamburguesas <span class="badge bg-danger">{{hamburguesas|length }}</span>
+                    
             </button>
         </h2>
         <div id="collapseHamburguesas" class="accordion-collapse collapse" aria-labelledby="headingHamburguesas"
@@ -132,7 +135,8 @@
         <h2 class="accordion-header" id="headingPizzas">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsePizzas" aria-expanded="false" aria-controls="collapsePizzas">
-                <i class="bi bi-disc-fill me-2 text-warning"></i> Pizzas <span class="badge bg-warning text-dark">{{ pizzas|length }}</span>
+                <i class="bi bi-disc-fill me-2 text-warning"></i> Pizzas <span class="badge bg-warning text-dark">{{pizzas|length }}</span>
+                    
             </button>
         </h2>
         <div id="collapsePizzas" class="accordion-collapse collapse" aria-labelledby="headingPizzas"
@@ -152,7 +156,8 @@
         <h2 class="accordion-header" id="headingEmpanadas">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseEmpanadas" aria-expanded="false" aria-controls="collapseEmpanadas">
-                <i class="bi bi-circle-half me-2 text-secondary"></i> Empanadas <span class="badge bg-secondary">{{ empanadas|length }}</span>
+                <i class="bi bi-circle-half me-2 text-secondary"></i> Empanadas <span class="badge bg-secondary">{{empanadas|length }}</span>
+                    
             </button>
         </h2>
         <div id="collapseEmpanadas" class="accordion-collapse collapse" aria-labelledby="headingEmpanadas"
@@ -172,7 +177,8 @@
         <h2 class="accordion-header" id="headingTartas">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseTartas" aria-expanded="false" aria-controls="collapseTartas">
-                <i class="bi bi-pie-chart-fill me-2 text-success"></i> Tartas <span class="badge bg-secondary">{{ tartas|length }}</span>
+                <i class="bi bi-pie-chart-fill me-2 text-success"></i> Tartas <span class="badge bg-secondary">{{tartas|length }}</span>
+                    
 
             </button>
         </h2>
@@ -193,7 +199,8 @@
         <h2 class="accordion-header" id="headingChurrasquitos">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseChurrasquitos" aria-expanded="false" aria-controls="collapseChurrasquitos">
-                <i class="bi bi-fire me-2 text-danger"></i> Churrasquitos <span class="badge bg-warning text-dark">{{ churrasquitos|length }}</span>
+                <i class="bi bi-fire me-2 text-danger"></i> Churrasquitos <span class="badge bg-warning text-dark">{{churrasquitos|length }}</span>
+                    
             </button>
         </h2>
         <div id="collapseChurrasquitos" class="accordion-collapse collapse" aria-labelledby="headingChurrasquitos"
@@ -213,7 +220,8 @@
         <h2 class="accordion-header" id="headingPromos">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsePromos" aria-expanded="false" aria-controls="collapsePromos">
-                <i class="bi bi-gift-fill me-2 text-primary"></i> Promos <span class="badge bg-warning text-dark">{{ promos|length }}</span>
+                <i class="bi bi-gift-fill me-2 text-primary"></i> Promos <span class="badge bg-warning text-dark">{{promos|length }}</span>
+                    
             </button>
         </h2>
         <div id="collapsePromos" class="accordion-collapse collapse" aria-labelledby="headingPromos"
@@ -233,7 +241,8 @@
         <h2 class="accordion-header" id="headingCombos">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseCombos" aria-expanded="false" aria-controls="collapseCombos">
-                <i class="bi bi-box-seam me-2 text-info"></i> Combos <span class="badge bg-warning text-dark">{{ combos|length }}</span>
+                <i class="bi bi-box-seam me-2 text-info"></i> Combos <span class="badge bg-warning text-dark">{{combos|length }}</span>
+                    
             </button>
         </h2>
         <div id="collapseCombos" class="accordion-collapse collapse" aria-labelledby="headingCombos"
@@ -249,6 +258,30 @@
     </div>
 
 </div>
+<hr class="my-5">
+<section id="ubicacion" class="container mb-5">
+    <h2 class="text-center mb-4">📍 Nuestra Ubicación</h2>
+    <p class="text-center">¡Vení a visitarnos o retirá tu pedido en persona!</p>
+
+    <div class="d-flex justify-content-center">
+        <div class="ratio ratio-4x3 rounded shadow mapa-ubicacion" style="max-width: 400px;">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.073335804795!2d-58.29319292403249!3d-34.7789290667731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a32c1a9578797b%3A0xdb8b74aef50df955!2sAv.%20Gdor.%20Monteverde%201181%2C%20B1887%20Florencio%20Varela%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1747768488461!5m2!1ses-419!2sar"
+                allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=-34.77857217083645,-58.2908111224579"
+            class="btn btn-outline-success btn-sm shadow-sm"
+            target="_blank" rel="noopener noreferrer">
+            🗺️ Cómo llegar
+        </a>
+    </div>
+</section>
+
 
 
 {% endblock %}

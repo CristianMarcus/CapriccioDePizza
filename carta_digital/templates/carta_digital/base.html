@@ -48,11 +48,13 @@
 
     <div class="footer-content">
         <!-- Enlace oculto para login al panel admin -->
+        {% if not user.is_authenticated %} 
         <div style="position: absolute; bottom: 6px; left: 10px; opacity: 1; z-index: 100000;">
             <a href="{% url 'login' %}" title="Acceso admin">
-                <i class="bi bi-shield-lock" style="font-size: 1.5rem;"></i>
+                <i class="bi bi-shield-lock" style="font-size: 1rem;"></i>
             </a>
         </div>
+        {% endif %}
         <p class="footer-text">&copy; 2025 Capriccio de Pizza. Todos los derechos reservados.</p>
 
         <div class="footer-icons mb-2">

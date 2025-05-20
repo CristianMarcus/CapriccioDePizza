@@ -985,6 +985,142 @@ footer {
     color: var(--color-primario);
 }
 
+/* === PANEL ADMIN: estilos exclusivos === */
+.admin-panel h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: #212529;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.admin-panel .btn-outline-secondary,
+.admin-panel .btn-outline-danger,
+.admin-panel .btn-success,
+.admin-panel .btn-primary,
+.admin-panel .btn-danger {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.admin-panel .btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.admin-panel .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.admin-panel .btn-success:hover {
+  background-color: #218838;
+  color: #fff;
+}
+
+.admin-panel .btn-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.admin-panel .btn-danger:hover {
+  background-color: #c82333;
+  color: #fff;
+}
+
+.admin-panel .accordion-button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #f8f9fa;
+}
+
+.admin-panel .accordion-button:focus {
+  box-shadow: none;
+}
+
+.admin-panel .accordion-body {
+  background-color: #fff;
+}
+
+.admin-panel .list-group-item {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-panel .float-end a {
+  margin-left: 0.4rem;
+}
+
+.admin-panel .list-group-item small {
+  font-style: italic;
+}
+
+/* ===============================
+   MEDIA QUERIES solo para admin
+=============================== */
+
+@media (max-width: 991.98px) {
+  .admin-panel h1 {
+    font-size: 2rem;
+  }
+
+  .admin-panel .accordion-button {
+    font-size: 1rem;
+  }
+
+  .admin-panel .list-group-item {
+    font-size: 0.95rem;
+  }
+
+  .admin-panel .float-end {
+    float: none !important;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .admin-panel .accordion-body .btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .admin-panel {
+    padding: 0.5rem;
+  }
+
+  .admin-panel h1 {
+    font-size: 1.6rem;
+  }
+
+  .admin-panel .accordion-button {
+    padding: 0.8rem;
+  }
+
+  .admin-panel .list-group-item {
+    font-size: 0.9rem;
+  }
+
+  .admin-panel .accordion-body .btn {
+    width: 100%;
+    margin-bottom: 0.4rem;
+  }
+
+  .admin-panel .float-end {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+
 /* ==========================================================================
    Estilo del header+media queries
    ========================================================================== */
