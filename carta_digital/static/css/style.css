@@ -67,19 +67,19 @@ body {
 
 /* ==========================================================================
    Preloader - Refinado y con imagen de fondo
-   ========================================================================== */
+   
 .preloader {
     position: fixed;
     inset: 0;
     width: 100vw;
     height: 100vh;
     background-image: url("../img/banner-inicio.png");
-    /* Mantenemos tu imagen */
+    
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #252525;
-    /* Gris oscuro; /* Fondo de respaldo oscuro */
+    
     z-index: 10000;
     display: flex;
     justify-content: center;
@@ -101,7 +101,7 @@ body {
     font-size: 1.2rem;
     margin-bottom: 20px;
     color: var(--color-acento);
-    /* Usamos el marrón rojizo para un toque italiano */
+    
 }
 
 #enterButton {
@@ -109,7 +109,7 @@ body {
     bottom: 10rem;
     right: 20px;
     background-color: var(--color-boton-principal);
-    /* Verde principal */
+    
     color: white;
     border: none;
     padding: 10px 20px;
@@ -117,7 +117,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     display: none;
-    /* Inicialmente oculto */
+    
     transition: background-color 0.3s ease, transform 0.3s ease;
     z-index: 10000;
     animation: latido-realista 1.8s infinite ease-in-out,
@@ -126,7 +126,7 @@ body {
 
 #enterButton:hover {
     background-color: var(--color-boton-principal-hover);
-    /* Verde más oscuro */
+    
 }
 
 @keyframes latido-realista {
@@ -194,6 +194,9 @@ body {
         opacity: 1;
     }
 }
+========================================================================== */
+
+
 
 /* ==========================================================================
    Contenedor Principal - Elegante y Centrado
@@ -221,26 +224,7 @@ i.bi.bi-cart-fill::before {
     transition: color 0.3s ease;
 }
 
-/* ==========================================================================
-   Encabezado - Moderno y con estilo italiano
-   ========================================================================== */
-header {
-    background-color: #2c3e50;
-    /* Azul oscuro moderno */
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: var(--fuente-titulos);
-    /* Fuente italiana elegante */
-    letter-spacing: -0.02em;
-}
 
 /* ==========================================================================
    Ícono y Contador del Carrito en la Navegación
@@ -1000,6 +984,80 @@ footer {
 #totalPedidoModal {
     color: var(--color-primario);
 }
+
+/* ==========================================================================
+   Estilo del header+media queries
+   ========================================================================== */
+   /* Estilos base para el header */
+.header {
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: linear-gradient(to right, green, white, red);;
+}
+
+.logo-img {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    border-radius: 70%;
+}
+
+.logo-img:hover {
+    transform: scale(1.03);
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Teléfonos pequeños (iPhone SE, 320–375px) */
+@media (max-width: 375px) {
+    .logo-img {
+        max-width: 220px;
+    }
+
+    .header {
+        padding: 8px 0;
+    }
+}
+
+/* Teléfonos medianos (iPhone XR, Galaxy S10, 414–480px) */
+@media (max-width: 480px) {
+    .logo-img {
+        max-width: 240px;
+    }
+}
+
+/* Teléfonos grandes y tablets (481px – 768px) */
+@media (max-width: 768px) {
+    .logo-img {
+        max-width: 260px;
+    }
+
+    .header .container {
+        justify-content: center;
+    }
+}
+
+/* Tablets grandes y pantallas medianas (769px – 1024px) */
+@media (max-width: 1024px) {
+    .logo-img {
+        max-width: 280px;
+    }
+}
+
 
 /* ========================================================================== */
 /* 📱 Móviles (hasta 575px) */

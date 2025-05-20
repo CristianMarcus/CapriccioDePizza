@@ -5,6 +5,8 @@
     <!-- Título y botón de cierre de sesión -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="mb-0">Panel de Administración</h1>
+        <a href="{% url 'home' %}" class="btn btn-outline-secondary">
+            Volver a la carta
         <a href="{% url 'logout' %}" class="btn btn-outline-danger">
             Cerrar sesión
         </a>

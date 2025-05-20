@@ -101,28 +101,43 @@
    Estilos para el Título Principal de la Home
    ========================================================================== */
 .capricciotitulo {
-    font-size: clamp(2.5rem, 5vw, 5rem); /* Tamaño adaptable y elegante */
-    font-weight: 700; /* Negrita para destacar */
-    color: var(--color-acento); /* Marrón rojizo intenso (definido en style.css) */
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Escala más suave y elegante */
+    font-weight: 800;
+    color: var(--color-acento, #8B0000); /* Color acento, con fallback */
     text-align: center;
-    margin-bottom: 25px;
-    font-family: var(--fuente-titulos); /* Fuente italiana elegante (definida en style.css) */
-    letter-spacing: 0.08em; /* Mayor espaciado para sofisticación */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-bottom: 30px;
+    font-family: var(--fuente-titulos, 'Playfair Display', serif);
+    letter-spacing: 0.1em; /* Espaciado elegante */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* Sombra más notoria */
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-#nuestraCarta {
-    font-size: 2.5rem; /* Tamaño más grande y elegante */
-    font-weight: 700;
-    color: rgb(24, 24, 26);
-    text-align: center;
-    margin-bottom: 25px;
-    font-family: var(--fuente-titulos); /* Fuente italiana elegante (definida en style.css) */
-    letter-spacing: 0.05em; /* Espaciado ligero para claridad */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    text-decoration: underline; /* Subrayado para énfasis */
-    text-decoration-color: rgb(29, 2, 2)
+.capricciotitulo:hover {
+    transform: scale(1.02);
+    color: #6a0f0f; /* Tonalidad más oscura al hacer hover */
 }
+
+
+#nuestraCarta {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: var(--fuente-titulos, 'Playfair Display', serif);
+    letter-spacing: 0.06em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: underline double;
+    text-decoration-color: #5c0a0a;
+    text-underline-offset: 8px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+#nuestraCarta:hover {
+    color: #5c0a0a;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
 
 /* ==========================================================================
    Estilos para el Subtítulo Principal (Lead Text)

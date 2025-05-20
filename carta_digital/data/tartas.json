@@ -27,12 +27,5 @@
         "descripcion": "sabrosa.",
         "precio": 9100,
         "imagen": "img/default-product.png"
-    },
-    {
-        "id": 5,
-        "nombre": "Cristian",
-        "descripcion": "zarpada",
-        "precio": 55555.0,
-        "imagen": "img/tarta-jamon-queso.jfif"
     }
 ]

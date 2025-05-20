@@ -33,6 +33,11 @@
         </p>
     </div>
 </div>-->
+{% if user.is_authenticated %}
+  <div class="text-end mt-3">
+    <a href="{% url 'panel_admin' %}" class="btn btn-outline-primary btn-sm">Ir al Panel de Administración</a>
+  </div>
+{% endif %}
 
 <h1 class="capricciotitulo">Capriccio <span>de Pizza</span></h1>
 <p class="lead">Lo inimaginable en gustos y sabores.</p>
