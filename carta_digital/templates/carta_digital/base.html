@@ -193,6 +193,28 @@
         </div>
     </div>
 
+    {# Modal de Confirmación Genérico #}
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="bi bi-exclamation-triangle-fill text-danger display-4 mb-3"></i>
+                    <p>¿Estás seguro que deseas eliminar este elemento?</p>
+                    <p class="text-muted small">Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteButton">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- MODAL DE CONTACTO CON FORMULARIO DE SERVICIOS FREELANCE -->
     <div class="modal fade" id="contactoModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">

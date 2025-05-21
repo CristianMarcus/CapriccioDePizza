@@ -645,6 +645,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+    var confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+            var confirmDeleteButton = document.getElementById('confirmDeleteButton');
+            var deleteLinkToConfirm = null;
+
+            document.querySelectorAll('.btn-delete-product').forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); // Evita la acción por defecto del enlace
+                    deleteLinkToConfirm = this.href; // Guarda la URL del enlace
+                    confirmDeleteModal.show(); // Muestra el modal
+                });
+            });
+
+            confirmDeleteButton.addEventListener('click', function() {
+                if (deleteLinkToConfirm) {
+                    window.location.href = deleteLinkToConfirm; // Redirige a la URL de eliminación
+                }
+            });
+        
+
 });
 
 
