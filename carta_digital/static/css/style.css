@@ -61,6 +61,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.3s ease, color 0.3s ease;
+    
 }
 
 
@@ -1126,12 +1127,14 @@ footer {
    ========================================================================== */
    /* Estilos base para el header */
 .header {
-    background-color: #fff;
+    background-color: #353333;
     padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: relative;
     top: 0;
     z-index: 1000;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header .container {
