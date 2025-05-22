@@ -9,6 +9,9 @@ from django.contrib import messages
 from django.http import Http404
 import re # Para expresiones regulares en la generación de IDs
 from django.conf import settings # Importar settings para MEDIA_ROOT
+import io # Para manejar archivos en memoria
+from PIL import Image # Importar la librería Pillow
+import uuid # Para generar nombres de archivo únicos
 
 # Importa el formulario
 from .forms import ProductoForm
@@ -115,23 +118,70 @@ def _generate_new_id(current_products, prefix):
 def _handle_uploaded_image(image_file):
     """
     Guarda un archivo de imagen subido en MEDIA_ROOT y devuelve su URL relativa.
+    Intenta re-procesar la imagen para corregir posibles problemas de formato.
+    Retorna (True, url_relativa) si es exitoso, (False, mensaje_error) si falla.
     """
     if not image_file:
-        return None
-    
-    # Crea el directorio media si no existe
-    os.makedirs(settings.MEDIA_ROOT, exist_ok=True)
+        return True, "" # No hay archivo, no es un error, solo una imagen vacía
 
-    # Define la ruta completa donde se guardará el archivo
-    file_path = os.path.join(settings.MEDIA_ROOT, image_file.name)
-    
-    # Escribe el archivo en el disco
-    with open(file_path, 'wb+') as destination:
-        for chunk in image_file.chunks():
-            destination.write(chunk)
-    
-    # Devuelve la URL relativa para almacenar en el JSON
-    return os.path.join(settings.MEDIA_URL, image_file.name)
+    # Validar el tipo de archivo básico antes de intentar abrir con PIL
+    allowed_mimetypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
+    if image_file.content_type not in allowed_mimetypes:
+        return False, "Tipo de archivo no soportado. Por favor, sube una imagen JPG, PNG, GIF o WebP."
+
+    try:
+        # Abrir la imagen con Pillow
+        img = Image.open(image_file)
+        
+        # Convertir a RGB para estandarizar y evitar problemas con modos como RGBA o paleta
+        # Si es PNG o WEBP, mantenemos RGBA para preservar la transparencia
+        if img.mode not in ('RGB', 'RGBA'):
+            img = img.convert('RGB')
+        
+        # Crear un buffer en memoria para guardar la imagen re-procesada
+        img_buffer = io.BytesIO()
+        
+        # Determinar el formato de salida y el nombre del archivo
+        original_filename = os.path.basename(image_file.name)
+        file_extension = os.path.splitext(original_filename)[1].lower()
+        
+        output_format = 'JPEG' # Por defecto
+        if file_extension == '.png':
+            output_format = 'PNG'
+            if img.mode != 'RGBA': # Asegurarse de que PNGs tengan transparencia si es necesario
+                img = img.convert('RGBA')
+        elif file_extension == '.webp':
+            output_format = 'WEBP'
+        elif file_extension == '.gif':
+            output_format = 'GIF'
+        
+        # Guardar la imagen re-procesada en el buffer
+        img.save(img_buffer, format=output_format)
+        img_buffer.seek(0) # Volver al inicio del buffer
+
+        # Generar un nombre de archivo único para evitar colisiones
+        # Usamos UUID para asegurar unicidad
+        unique_filename = f"{uuid.uuid4().hex}{file_extension}"
+        
+        # Crea el directorio media si no existe
+        os.makedirs(settings.MEDIA_ROOT, exist_ok=True)
+        
+        # Define la ruta completa donde se guardará el archivo
+        file_path = os.path.join(settings.MEDIA_ROOT, unique_filename)
+        
+        # Escribe el archivo en el disco
+        with open(file_path, 'wb+') as destination:
+            destination.write(img_buffer.getvalue())
+        
+        # Devuelve la URL relativa para almacenar en el JSON
+        return True, os.path.join(settings.MEDIA_URL, unique_filename)
+
+    except Image.UnidentifiedImageError:
+        print(f"Error: No se pudo identificar el archivo como una imagen válida: {image_file.name}")
+        return False, "El archivo subido no es una imagen válida o está corrupto."
+    except Exception as e:
+        print(f"Error inesperado al procesar la imagen {image_file.name}: {e}")
+        return False, f"Ocurrió un error al procesar la imagen: {e}"
 
 
 # Mapeo de tipos de URL a configuraciones de JSON
@@ -264,17 +314,25 @@ def agregar_producto(request, tipo):
         return redirect('panel_admin')
 
     if request.method == 'POST':
-        # CAMBIO: Pasar request.FILES al formulario
+        # Pasar request.FILES al formulario
         form = ProductoForm(request.POST, request.FILES) 
         if form.is_valid():
             nombre = form.cleaned_data['nombre']
             descripcion = form.cleaned_data['descripcion']
             precio = form.cleaned_data['precio']
             
-            # CAMBIO: Manejar la subida de la imagen
+            # Manejar la subida de la imagen de forma robusta
             imagen_file = form.cleaned_data.get('imagen')
-            imagen_url = _handle_uploaded_image(imagen_file) if imagen_file else ""
-
+            imagen_url = "" # Valor por defecto
+            
+            if imagen_file:
+                imagen_success, imagen_result = _handle_uploaded_image(imagen_file)
+                if not imagen_success:
+                    messages.error(request, f"Error con la imagen: {imagen_result}")
+                    # Renderizar el formulario con errores si la imagen es inválida
+                    return render(request, 'carta_digital/agregar_producto.html', {'tipo': tipo, 'form': form})
+                imagen_url = imagen_result
+            
             # Cargar el contenido completo del archivo JSON (lista o dict)
             full_data = load_json_data(config['file'])
             
@@ -354,7 +412,7 @@ def editar_producto(request, tipo, id_producto):
         raise Http404(f"Producto con ID '{id_producto}' no encontrado en la categoría '{tipo}'.")
 
     if request.method == 'POST':
-        # CAMBIO: Pasar request.FILES al formulario para la edición
+        # Pasar request.FILES al formulario para la edición
         form = ProductoForm(request.POST, request.FILES)
         if form.is_valid():
             nuevos_datos = {
@@ -363,10 +421,13 @@ def editar_producto(request, tipo, id_producto):
                 'precio': form.cleaned_data['precio'],
             }
 
-            # CAMBIO: Manejar la subida de la nueva imagen o mantener la existente
             imagen_file = form.cleaned_data.get('imagen')
             if imagen_file:
-                nuevos_datos['imagen'] = _handle_uploaded_image(imagen_file)
+                imagen_success, imagen_result = _handle_uploaded_image(imagen_file)
+                if not imagen_success:
+                    messages.error(request, f"Error con la imagen: {imagen_result}")
+                    return render(request, 'carta_digital/editar_producto.html', {'form': form, 'tipo': tipo, 'producto': producto_a_editar})
+                nuevos_datos['imagen'] = imagen_result
             elif 'imagen-clear' in request.POST and request.POST['imagen-clear'] == 'on':
                 # Si se marcó la casilla "Clear" para la imagen
                 nuevos_datos['imagen'] = '' # Vaciar la URL de la imagen
