@@ -2,64 +2,75 @@
 {% block content %}
 <div class="container mt-4 admin-panel">
 
-    <!-- Título y botón de cierre de sesión -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="mb-0">Panel de Administración</h1>
-        <a href="{% url 'home' %}" class="btn btn-outline-secondary">
-            Volver a la carta
-        </a>
-        <a href="{% url 'logout' %}" class="btn btn-outline-danger">
-            Cerrar sesión
-        </a>
+    {# Modificado para mejor responsividad en móviles #}
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
+        {# El título tendrá un margen inferior en móviles, que se quita en pantallas medianas y superiores #}
+        <h1 class="mb-3 mb-md-0">Panel de Administración</h1> 
+        
+        {# Contenedor para los botones de navegación/sesión #}
+        {# En móviles se apilarán (flex-column), en pantallas pequeñas+ se pondrán en fila (flex-sm-row) #}
+        {# Se añade un pequeño espacio (gap-2) entre ellos #}
+        <div class="d-flex flex-column flex-sm-row gap-2">
+            {# Los botones ocuparán el 100% del ancho en móviles, y auto en pantallas pequeñas+ #}
+            <a href="{% url 'home' %}" class="btn btn-outline-secondary w-100 w-sm-auto">
+                Volver a la carta
+            </a>    
+            <a href="{% url 'logout' %}" class="btn btn-outline-danger w-100 w-sm-auto">
+                Cerrar sesión
+            </a>
+        </div>
     </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <i class="bi bi-info-circle-fill"></i> {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
 
     <div class="accordion" id="accordionCategorias">
         {% for tipo, productos in productos_por_tipo.items %}
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapse-{{ forloop.counter }}" aria-expanded="false"
-                    aria-controls="collapse-{{ forloop.counter }}">
-                    {{ tipo|capfirst }} ({{ productos|length }} productos)
-                </button>
-            </h2>
-            <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse"
-                aria-labelledby="heading-{{ forloop.counter }}" data-bs-parent="#accordionCategorias">
-                <div class="accordion-body p-0">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-{{ forloop.counter }}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse-{{ forloop.counter }}">
+                        {{ tipo|capfirst }} ({{ productos|length }} productos)
+                    </button>
+                </h2>
+                <div id="collapse-{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ forloop.counter }}" data-bs-parent="#accordionCategorias">
+                    <div class="accordion-body p-0">
+                        
+                        <div class="p-3 border-bottom bg-light text-end">
+                            <a href="{% url 'agregar_producto' tipo %}" class="btn btn-success btn-sm">
+                                <i class="bi bi-plus-circle"></i> Agregar Producto
+                            </a>
+                        </div>
 
-                    <!-- Botón al principio -->
-                    <div class="p-3 border-bottom bg-light text-end">
-                        <a href="{% url 'agregar_producto' tipo %}" class="btn btn-success btn-sm">
-                            + Agregar Producto
-                        </a>
+                        <ul class="list-group list-group-flush">
+                            {% for producto in productos %}
+                                <li class="list-group-item">
+                                    <strong>{{ producto.nombre }}</strong> - ${{ producto.precio }}
+                                    <div class="float-end">
+                                        <a href="{% url 'editar_producto' tipo producto.id %}" class="btn btn-sm btn-primary me-1">
+                                            <i class="bi bi-pencil"></i> Editar
+                                        </a>
+                                        {# CAMBIO: Se añade la clase 'btn-delete-product' para activar el modal #}
+                                        <a href="{% url 'eliminar_producto' tipo producto.id %}" class="btn btn-sm btn-danger btn-delete-product">
+                                            <i class="bi bi-trash"></i> Eliminar
+                                        </a>
+                                    </div>
+                                    {% if producto.descripcion %}
+                                        <br><small class="text-muted">{{ producto.descripcion }}</small>
+                                    {% endif %}
+                                </li>
+                            {% empty %}
+                                <li class="list-group-item text-muted">No hay productos en esta categoría.</li>
+                            {% endfor %}
+                        </ul>
                     </div>
-
-                    <ul class="list-group list-group-flush">
-                        {% for producto in productos %}
-                        <li class="list-group-item">
-                            <strong>{{ producto.nombre }}</strong> - ${{ producto.precio }}
-                            <div class="float-end">
-                                <a href="{% url 'editar_producto' tipo producto.id %}"
-                                    class="btn btn-sm btn-primary me-1">
-                                    <i class="bi bi-pencil"></i>Editar
-                                </a>
-                                {# CAMBIO: Se añade la clase 'btn-delete-product' y se quita el onclick #}
-                                <a href="{% url 'eliminar_producto' tipo producto.id %}"
-                                    class="btn btn-sm btn-danger btn-delete-product">
-                                    <i class="bi bi-trash"></i> Eliminar
-                                </a>
-                            </div>
-                            {% if producto.descripcion %}
-                            <br><small class="text-muted">{{ producto.descripcion }}</small>
-                            {% endif %}
-                        </li>
-                        {% empty %}
-                        <li class="list-group-item text-muted">No hay productos en esta categoría.</li>
-                        {% endfor %}
-                    </ul>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 </div>

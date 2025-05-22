@@ -165,6 +165,17 @@ def login_view(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
+            
+            # --- INICIO DEL CAMBIO ---
+            # Limpiar cualquier mensaje existente de solicitudes/sesiones anteriores.
+            # Esto es un paso defensivo para evitar que mensajes antiguos aparezcan,
+            # especialmente después de un flujo de cierre de sesión -> inicio de sesión inmediato.
+            storage = messages.get_messages(request)
+            for _ in storage: # Iterar para consumir todos los mensajes
+                pass # No hacer nada, solo consumir
+            storage.used = True # Marcar el almacenamiento como usado para limpiar los mensajes
+            # --- FIN DEL CAMBIO ---
+
             login(request, user)
             messages.success(request, f'Bienvenido, {user.username}!')
             return redirect('panel_admin')
