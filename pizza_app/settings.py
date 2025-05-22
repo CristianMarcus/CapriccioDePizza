@@ -1,6 +1,8 @@
+# pizza_app/settings.py
 from pathlib import Path
 import os
 from django.urls import reverse_lazy
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,8 +11,6 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback_secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-
 
 ALLOWED_HOSTS = ['capricciodepizza.onrender.com', 'www.capricciodepizza.onrender.com', '127.0.0.1', ]
 
@@ -24,8 +24,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'carta_digital',
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -95,21 +93,19 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'carta_digital', 'static'),
 ]
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# --- CONFIGURACIÓN DE ARCHIVOS MEDIA (SUBIDOS POR EL USUARIO) ---
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# -----------------------------------------------------------------
 
-
-
-    
 # Security settings
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
-
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/admin-panel/'
-
 
 LOGOUT_REDIRECT_URL = reverse_lazy('home')
 

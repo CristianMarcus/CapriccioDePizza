@@ -8,6 +8,7 @@ from django.contrib.auth import login, logout
 from django.contrib import messages
 from django.http import Http404
 import re # Para expresiones regulares en la generación de IDs
+from django.conf import settings # Importar settings para MEDIA_ROOT
 
 # Importa el formulario
 from .forms import ProductoForm
@@ -111,6 +112,27 @@ def _generate_new_id(current_products, prefix):
 
     return f"{prefix}{max_numeric_id + 1}"
 
+def _handle_uploaded_image(image_file):
+    """
+    Guarda un archivo de imagen subido en MEDIA_ROOT y devuelve su URL relativa.
+    """
+    if not image_file:
+        return None
+    
+    # Crea el directorio media si no existe
+    os.makedirs(settings.MEDIA_ROOT, exist_ok=True)
+
+    # Define la ruta completa donde se guardará el archivo
+    file_path = os.path.join(settings.MEDIA_ROOT, image_file.name)
+    
+    # Escribe el archivo en el disco
+    with open(file_path, 'wb+') as destination:
+        for chunk in image_file.chunks():
+            destination.write(chunk)
+    
+    # Devuelve la URL relativa para almacenar en el JSON
+    return os.path.join(settings.MEDIA_URL, image_file.name)
+
 
 # Mapeo de tipos de URL a configuraciones de JSON
 # Esto centraliza la lógica de qué archivo y qué clave usar para cada "tipo"
@@ -166,15 +188,11 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             
-            # --- INICIO DEL CAMBIO ---
             # Limpiar cualquier mensaje existente de solicitudes/sesiones anteriores.
-            # Esto es un paso defensivo para evitar que mensajes antiguos aparezcan,
-            # especialmente después de un flujo de cierre de sesión -> inicio de sesión inmediato.
             storage = messages.get_messages(request)
-            for _ in storage: # Iterar para consumir todos los mensajes
-                pass # No hacer nada, solo consumir
-            storage.used = True # Marcar el almacenamiento como usado para limpiar los mensajes
-            # --- FIN DEL CAMBIO ---
+            for _ in storage:
+                pass
+            storage.used = True
 
             login(request, user)
             messages.success(request, f'Bienvenido, {user.username}!')
@@ -246,23 +264,27 @@ def agregar_producto(request, tipo):
         return redirect('panel_admin')
 
     if request.method == 'POST':
-        form = ProductoForm(request.POST)
+        # CAMBIO: Pasar request.FILES al formulario
+        form = ProductoForm(request.POST, request.FILES) 
         if form.is_valid():
             nombre = form.cleaned_data['nombre']
             descripcion = form.cleaned_data['descripcion']
             precio = form.cleaned_data['precio']
-            imagen = form.cleaned_data['imagen']
+            
+            # CAMBIO: Manejar la subida de la imagen
+            imagen_file = form.cleaned_data.get('imagen')
+            imagen_url = _handle_uploaded_image(imagen_file) if imagen_file else ""
 
             # Cargar el contenido completo del archivo JSON (lista o dict)
             full_data = load_json_data(config['file'])
             
             # Obtener la lista de productos a la que se agregará el nuevo producto
-            if config['key']: # Si es un JSON con clave anidada (ej. pizzas.json, platos_especiales.json)
+            if config['key']:
                 if isinstance(full_data, dict):
                     productos_list = full_data.get(config['key'], [])
                 else:
-                    productos_list = [] # Si el archivo no es un diccionario, inicializar vacío
-            else: # Si es un JSON que es una lista directa (ej. empanadas.json, tartas.json)
+                    productos_list = []
+            else:
                 productos_list = full_data if isinstance(full_data, list) else []
 
             # Generar el nuevo ID
@@ -273,7 +295,7 @@ def agregar_producto(request, tipo):
                 'nombre': nombre,
                 'descripcion': descripcion,
                 'precio': precio,
-                'imagen': imagen
+                'imagen': imagen_url # Guardar la URL relativa de la imagen
             }
 
             productos_list.append(nuevo_producto)
@@ -285,10 +307,9 @@ def agregar_producto(request, tipo):
             return redirect('mostrar_productos', tipo=tipo)
         else:
             messages.error(request, 'Error al agregar producto. Por favor, revisa los datos.')
-            # Renderizar el formulario con errores si es inválido
             return render(request, 'carta_digital/agregar_producto.html', {'tipo': tipo, 'form': form})
     else:
-        form = ProductoForm() # Formulario vacío para GET
+        form = ProductoForm()
     return render(request, 'carta_digital/agregar_producto.html', {'tipo': tipo, 'form': form})
 
 
@@ -302,15 +323,12 @@ def eliminar_producto(request, tipo, id_producto):
         messages.error(request, f"Tipo de producto '{tipo}' no válido para eliminar.")
         return redirect('panel_admin')
 
-    # Cargar la lista de productos específica
     productos_list = load_json_data(config['file'], config['key'])
     
     initial_len = len(productos_list)
-    # Filtrar el producto a eliminar (asegurando comparación de strings para los IDs)
     productos_list_filtered = [p for p in productos_list if str(p.get('id')) != str(id_producto)]
 
     if len(productos_list_filtered) < initial_len:
-        # Guardar la lista modificada
         _guardar_json(config['file'], productos_list_filtered, config['key'])
         messages.success(request, 'Producto eliminado con éxito.')
     else:
@@ -328,34 +346,46 @@ def editar_producto(request, tipo, id_producto):
     if not config:
         raise Http404(f"Tipo de producto '{tipo}' no válido para editar.")
 
-    # Cargar la lista de productos específica
     productos_list = load_json_data(config['file'], config['key'])
     
-    # Encontrar el producto a editar
     producto_a_editar = next((p for p in productos_list if str(p.get('id')) == str(id_producto)), None)
 
     if not producto_a_editar:
         raise Http404(f"Producto con ID '{id_producto}' no encontrado en la categoría '{tipo}'.")
 
     if request.method == 'POST':
-        form = ProductoForm(request.POST)
+        # CAMBIO: Pasar request.FILES al formulario para la edición
+        form = ProductoForm(request.POST, request.FILES)
         if form.is_valid():
-            # Actualizar los datos del producto encontrado
-            producto_a_editar.update({
+            nuevos_datos = {
                 'nombre': form.cleaned_data['nombre'],
                 'descripcion': form.cleaned_data['descripcion'],
                 'precio': form.cleaned_data['precio'],
-                'imagen': form.cleaned_data['imagen']
-            })
+            }
+
+            # CAMBIO: Manejar la subida de la nueva imagen o mantener la existente
+            imagen_file = form.cleaned_data.get('imagen')
+            if imagen_file:
+                nuevos_datos['imagen'] = _handle_uploaded_image(imagen_file)
+            elif 'imagen-clear' in request.POST and request.POST['imagen-clear'] == 'on':
+                # Si se marcó la casilla "Clear" para la imagen
+                nuevos_datos['imagen'] = '' # Vaciar la URL de la imagen
+            else:
+                # Mantener la imagen existente si no se subió una nueva y no se marcó "Clear"
+                nuevos_datos['imagen'] = producto_a_editar.get('imagen', '')
+
+            # Actualizar el producto en la lista referenciada
+            for p in productos_list:
+                if str(p.get('id')) == str(id_producto):
+                    p.update(nuevos_datos)
+                    break
             
-            # Guardar la lista modificada
             _guardar_json(config['file'], productos_list, config['key'])
 
             messages.success(request, 'Producto actualizado con éxito.')
             return redirect('mostrar_productos', tipo=tipo)
         else:
             messages.error(request, 'Error al actualizar el producto. Por favor, revisa los datos.')
-            # Renderizar el formulario con errores si es inválido
             return render(request, 'carta_digital/editar_producto.html', {'form': form, 'tipo': tipo, 'producto': producto_a_editar})
     else:
         # Inicializar el formulario con los datos actuales del producto

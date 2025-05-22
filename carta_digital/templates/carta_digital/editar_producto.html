@@ -17,7 +17,8 @@
         {% endfor %}
     {% endif %}
 
-    <form method="post" class="card p-4 shadow-sm border-0">
+    {# CAMBIO: Añadir enctype="multipart/form-data" para subida de archivos #}
+    <form method="post" enctype="multipart/form-data" class="card p-4 shadow-sm border-0">
         {% csrf_token %}
         {{ form.as_p }} {# Renderiza todos los campos del formulario como párrafos #}
         

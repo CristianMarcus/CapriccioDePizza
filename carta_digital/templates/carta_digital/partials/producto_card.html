@@ -1,8 +1,24 @@
+{# carta_digital/partials/producto_card.html #}
 {% load static %}
+{% load custom_filters %} {# Asegúrate de que este custom_filters.py exista y esté cargado #}
 
-<div class="mb-4 producto-item">
-    {% with producto.imagen|default:'img/default-product.png' as imagen_url %}
-    <img src="{% static imagen_url %}" alt="{{ producto.nombre }}" class="card-img-top producto-img">
+<div class="card mb-3 product-card shadow-sm product-item" 
+     data-nombre="{{ producto.nombre|lower }}" 
+     data-id="{{ producto.id }}">
+    {# La imagen ahora está directamente dentro del div.card, como en tu diseño original #}
+    {% if producto.imagen %}
+        {# Lógica para manejar imágenes estáticas (en la carpeta 'img/') y media (subidas) #}
+        {% if producto.imagen|startswith:'img/' %}
+            <img src="{% static producto.imagen %}" alt="{{ producto.nombre }}" class="card-img-top product-img">
+        {% else %}
+            {# Si no empieza con 'img/', asume que es una URL de media y úsala directamente #}
+            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" class="card-img-top product-img">
+        {% endif %}
+    {% else %}
+        {# Imagen por defecto si no hay ninguna especificada #}
+        <img src="{% static 'img/default-product.png' %}" alt="Imagen no disponible" class="card-img-top product-img">
+    {% endif %}
+
     <div class="card-body d-flex flex-column">
         <h5 class="card-title fw-bold text-primary-emphasis producto-nombre">{{ producto.nombre }}</h5>
 
@@ -10,13 +26,15 @@
             <p class="card-text text-muted small">{{ producto.descripcion }}</p>
         {% endif %}
 
+        {# Lógica para mostrar el precio #}
         {% if producto.precios and producto.precios|length > 0 and producto.precios.0.precio %}
             <p class="card-text mt-auto mb-2">Precio: <strong class="text-success">${{ producto.precios.0.precio|floatformat:2 }}</strong></p>
             <button class="btn btn-success w-100 agregar-carrito"
                     data-id="{{ producto.id }}"
                     data-nombre="{{ producto.nombre }}"
                     data-precio="{{ producto.precios.0.precio|floatformat:2 }}"
-                    data-imagen="{% static imagen_url %}">
+                    {# Asegura que la data-imagen también sea la URL correcta para el carrito #}
+                    data-imagen="{% if producto.imagen %}{% if producto.imagen|startswith:'img/' %}{% static producto.imagen %}{% else %}{{ producto.imagen }}{% endif %}{% else %}{% static 'img/default-product.png' %}{% endif %}">
                 <i class="bi bi-cart-plus me-1"></i> Agregar al carrito
             </button>
         {% elif producto.precio %}
@@ -25,12 +43,12 @@
                     data-id="{{ producto.id }}"
                     data-nombre="{{ producto.nombre }}"
                     data-precio="{{ producto.precio|floatformat:2 }}"
-                    data-imagen="{% static imagen_url %}">
+                    {# Asegura que la data-imagen también sea la URL correcta para el carrito #}
+                    data-imagen="{% if producto.imagen %}{% if producto.imagen|startswith:'img/' %}{% static producto.imagen %}{% else %}{{ producto.imagen }}{% endif %}{% else %}{% static 'img/default-product.png' %}{% endif %}">
                 <i class="bi bi-cart-plus me-1"></i> Agregar al carrito
             </button>
         {% else %}
             <p class="text-danger">Precio no disponible</p>
         {% endif %}
     </div>
-    {% endwith %}
 </div>

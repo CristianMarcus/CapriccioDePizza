@@ -208,6 +208,13 @@
             "descripcion": "hamburguesa doble cheddar con fritas.",
             "precio": 12000.0,
             "imagen": "img/default-product.png"
+        },
+        {
+            "id": "combo5",
+            "nombre": "combo5",
+            "descripcion": "asdas",
+            "precio": 5416546.0,
+            "imagen": "/media/CAPRICCIO 1.png"
         }
     ]
 }
