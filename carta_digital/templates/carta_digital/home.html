@@ -7,32 +7,6 @@
 {% block content %}
 
 
-
-
-<!--<div class="container my-5 text-center" id="bienvenida">
-    <div class="cartel-container">
-        <svg class="cartel-svg" viewBox="0 0 500 100" preserveAspectRatio="xMidYMid meet">
-            <path id="curva" d="M 50 80 Q 250 10 440 100" fill="transparent" />
-            <text>
-                <textPath href="#curva" startOffset="50%" text-anchor="middle">
-                    <tspan class="cartel-text">¡Bienvenidos!</tspan>
-                </textPath>
-            </text>
-        </svg>
-    </div>
-</div>
-
-<div class="container mb-4" id="nueva-tienda-digital">
-    <div class="alert alert-primary shadow-sm p-4 rounded text-center" style="background: #fdf2e9;">
-        <h4 class="mb-3">✨ ¡Estamos felices de presentar nuestra nueva tienda digital!</h4>
-        <p class="mb-0">
-            Ahora podés hacer tus pedidos de forma rápida, simple y desde cualquier lugar con nuestra app web.
-            Diseñamos este sistema pensando en vos, para que disfrutes de una experiencia más cómoda, moderna y directa.
-            Elegí tu producto favorito, armá tu pedido y recibilo sin vueltas.
-            <strong>¡Capriccio de Pizza evoluciona para estar cada vez más cerca tuyo!</strong>
-        </p>
-    </div>
-</div>-->
 {% if user.is_authenticated %}
 <div class="text-end mt-3">
     <a href="{% url 'panel_admin' %}" class="btn btn-outline-primary btn-sm">Panel de Administración</a>
@@ -41,7 +15,7 @@
 
 <h1 class="capricciotitulo">Capriccio <span>de Pizza</span></h1>
 <p class="lead">Lo inimaginable en gustos y sabores.</p>
-<!--<p class="lead">¡Mirá nuestro menú y hacé tu pedido!</p>-->
+
 
 <div id="mensaje-agradecimiento" class="alert alert-success mt-3 text-center" style="display: none;">
     ¡Pedido enviado con éxito! Te contactaremos pronto.
@@ -50,7 +24,7 @@
 <h2 class="my-4" id="nuestraCarta">Nuestra Carta</h2>
 
 <div class="accordion" id="accordionCarta">
-    <!-- Entradas -->
+    
     <!-- Todos los productos -->
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingTodosLosProductos">

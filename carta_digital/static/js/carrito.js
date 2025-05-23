@@ -14,28 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnFinalizarPedido = document.getElementById('btnFinalizarPedido');
     const aliasBox = document.getElementById('aliasMercadoPago');
     const mensajeEfectivo = document.getElementById('mensajeEfectivo');
-    const dineroAbonaDiv = document.getElementById('dineroAbonaDiv'); // Nuevo
-    const dineroAbonaInput = document.getElementById('dineroAbona'); // Nuevo
-    const totalPedidoModalInput = document.getElementById('totalPedidoModal'); // Asegúrate de tener esta línea
-
-
-
-    //window.addEventListener('load', function () {
-    // Una vez cargada la página, mostrar el botón de entrada
-    //const enterButton = document.getElementById('enterButton');
-
-    // Mostrar el botón cambiando display
-    //enterButton.style.display = 'inline-block';  // Lo mostramos después de la carga
-
-    //enterButton.addEventListener('click', function () {
-    //const preloader = document.getElementById('preloader');
-    //preloader.style.opacity = '0';  // Hacemos que se desvanezca
-    //setTimeout(() => {
-    // preloader.style.display = 'none';  // Ocultamos el preloader
-    //}, 500);
-    //});
-    //});
-
+    const dineroAbonaDiv = document.getElementById('dineroAbonaDiv');
+    const dineroAbonaInput = document.getElementById('dineroAbona');
+    const totalPedidoModalInput = document.getElementById('totalPedidoModal');
 
 
     // ============================
@@ -646,23 +627,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     var confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
-            var confirmDeleteButton = document.getElementById('confirmDeleteButton');
-            var deleteLinkToConfirm = null;
+    var confirmDeleteButton = document.getElementById('confirmDeleteButton');
+    var deleteLinkToConfirm = null;
 
-            document.querySelectorAll('.btn-delete-product').forEach(function(button) {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault(); // Evita la acción por defecto del enlace
-                    deleteLinkToConfirm = this.href; // Guarda la URL del enlace
-                    confirmDeleteModal.show(); // Muestra el modal
-                });
-            });
+    document.querySelectorAll('.btn-delete-product').forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            event.preventDefault(); // Evita la acción por defecto del enlace
+            deleteLinkToConfirm = this.href; // Guarda la URL del enlace
+            confirmDeleteModal.show(); // Muestra el modal
+        });
+    });
 
-            confirmDeleteButton.addEventListener('click', function() {
-                if (deleteLinkToConfirm) {
-                    window.location.href = deleteLinkToConfirm; // Redirige a la URL de eliminación
-                }
-            });
-        
+    confirmDeleteButton.addEventListener('click', function () {
+        if (deleteLinkToConfirm) {
+            window.location.href = deleteLinkToConfirm; // Redirige a la URL de eliminación
+        }
+    });
+
 
 });
 

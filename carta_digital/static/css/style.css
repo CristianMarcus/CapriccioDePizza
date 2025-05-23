@@ -1387,8 +1387,6 @@ footer {
 }
 
 /* Estilo para el texto "Currently:" o "No file currently" */
-/* Nota: Esto es un selector avanzado que intenta apuntar al texto literal
-   que Django genera antes del enlace/checkbox. Puede variar ligeramente. */
 .card.p-4 p > label[for^="id_imagen"] + br + span { /* Targets "Currently: " text */
     font-weight: bold;
     color: var(--color-texto-principal);
@@ -1408,6 +1406,97 @@ footer {
 }
 
 /* Media Queries para formularios de productos */
+
+/* Extra Small devices (teléfonos muy pequeños, hasta 359.98px) */
+@media (max-width: 359.98px) {
+    .card.p-4 {
+        padding: 0.75rem !important; /* Reduce padding aún más */
+    }
+
+    .card.p-4 h2 {
+        font-size: 1.4rem; /* Título más pequeño */
+        text-align: center;
+    }
+
+    .card.p-4 .form-label {
+        font-size: 0.8rem; /* Etiquetas más pequeñas para pantallas diminutas */
+    }
+
+    .card.p-4 .form-control,
+    .card.p-4 input[type="file"],
+    .card.p-4 textarea { /* Aplica a todos los campos de texto, numéricos y textareas */
+        font-size: 0.8rem; /* Fuente más pequeña para inputs */
+        padding: 0.4rem 0.6rem;
+        width: 100% !important; /* ¡Fundamental para evitar desbordamiento! */
+        box-sizing: border-box !important; /* Incluye padding y borde en el ancho */
+    }
+
+    .card.p-4 textarea {
+        word-break: break-word; /* Rompe palabras largas para evitar desbordamiento */
+        resize: vertical; /* Permite redimensionar solo verticalmente */
+        min-height: 80px; /* Altura mínima para la descripción */
+    }
+
+    .card.p-4 .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .card.p-4 .d-flex.justify-content-between {
+        flex-direction: column; /* Apilar botones */
+        gap: 0.8rem;
+    }
+
+    .card.p-4 .d-flex.justify-content-between .btn {
+        width: 100%;
+    }
+}
+
+/* Small devices (teléfonos, hasta 575.98px) */
+@media (max-width: 575.98px) {
+    .card.p-4 {
+        padding: 1rem !important;
+    }
+
+    .card.p-4 h2 {
+        font-size: 1.6rem;
+    }
+
+    .card.p-4 .form-label {
+        font-size: 0.9rem; /* Etiquetas para pantallas pequeñas */
+    }
+
+    .card.p-4 .form-control,
+    .card.p-4 input[type="file"],
+    .card.p-4 textarea { /* Aplica a todos los campos relevantes */
+        font-size: 0.85rem; /* Inputs más pequeños */
+        padding: 0.5rem 0.7rem;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .card.p-4 textarea {
+        word-break: break-word;
+        resize: vertical;
+        min-height: 90px;
+    }
+
+    .card.p-4 .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .card.p-4 .d-flex.justify-content-between {
+        flex-direction: column; /* Apilar botones en móviles */
+        gap: 0.8rem;
+    }
+
+    .card.p-4 .d-flex.justify-content-between .btn {
+        width: 100%;
+    }
+}
+
+/* Medium devices (tablets, hasta 767.98px) */
 @media (max-width: 767.98px) {
     .card.p-4 {
         padding: 1.5rem !important; /* Ajustar padding en móviles */
@@ -1423,9 +1512,18 @@ footer {
     }
 
     .card.p-4 .form-control,
-    .card.p-4 input[type="file"] { /* Apply to both generic form-control and file input */
+    .card.p-4 input[type="file"],
+    .card.p-4 textarea { /* Aplica a todos los campos de formulario */
         font-size: 0.9rem; /* Inputs más pequeños */
         padding: 0.6rem 0.8rem;
+        width: 100% !important; /* Asegura 100% de ancho */
+        box-sizing: border-box !important; /* Incluye padding y borde en el ancho */
+    }
+
+    .card.p-4 textarea { /* Específico para textarea para manejar palabras largas */
+        word-break: break-word;
+        resize: vertical; /* Permite redimensionar verticalmente */
+        min-height: 100px; /* Altura predeterminada razonable para descripción */
     }
 
     .card.p-4 .btn {
@@ -1444,15 +1542,13 @@ footer {
 
     /* Ajustes específicos para el input de tipo file en pantallas pequeñas */
     .card.p-4 input[type="file"] {
-        /* Estas reglas ya están en la sección general, pero las reafirmo aquí
-           para asegurar la prioridad en móviles si fuera necesario. */
         width: 100%;
         box-sizing: border-box;
     }
 
     /* Ajustar el texto para el enlace de la imagen actual para ser más compacto */
     .card.p-4 p > a[href^="/media/"] {
-        font-size: 0.85rem; /* Fuente ligeramente más pequeña */
+        font-size: 0.85rem;
         margin-top: 0.3rem;
         margin-bottom: 0.3rem;
     }
@@ -1466,15 +1562,5 @@ footer {
     /* Ajustar el label del checkbox "Clear" */
     .card.p-4 p input[type="checkbox"] + label {
         font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .card.p-4 {
-        padding: 1rem !important;
-    }
-
-    .card.p-4 h2 {
-        font-size: 1.6rem;
     }
 }
